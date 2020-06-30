@@ -140,7 +140,7 @@ input.invalid {
   font-size: 30px;
   background-color: white;
 }
-@media(max-width : 1420px){
+@media(max-width : 1440px){
   .badge-sembuh{
     font-size: 19px;
   }
@@ -153,7 +153,30 @@ input.invalid {
   .badge-mnggl{
     font-size: 19px;
   }
- 
+  .title-total{
+    font-size:88px;
+  }
+  .h-iso-non-rs{
+    width: auto;
+  }
+  .iso-non-rs{
+    width: max-content;
+  }
+}
+
+@media(max-width : 1024px){
+  .title-total{
+    font-size: 85px;
+  }
+  .iso-non-rs{
+    width: fit-content;
+  }
+  .iso-non-rs-tot{
+    padding: 2px;
+  }
+  .h-iso-non-rs{
+    width: max-content;
+  }
 }
 
 .badge-sembuh{
@@ -301,12 +324,12 @@ $prsn_total_mnggl = $total_meninggal/$global*100;
                             <div class="card-body body">
                                 <div class="row">
                                 <div class="col-md-12 text-center">
-                                  <div class="title-text" style="font-size:30px;">    
+                                  <div class="title-text h-iso-non-rs" style="font-size:30px;">    
                                       Isolasi Non Rs
                                   </div>
                                   <div class="col-md-12">
                                     <div class="title-total">
-                                      <b> <?php echo $total_isolasi ?> </b><span class="badge badge-iso font-badge"><?php echo round($prsn_total_iso, 2); ?> %</span>
+                                      <b class="iso-non-rs-tot"> <?php echo $total_isolasi ?> </b><span class="badge badge-iso font-badge"><?php echo round($prsn_total_iso, 2); ?> %</span>
                                     </div>
                                   </div>
                                 
@@ -438,7 +461,9 @@ $prsn_total_mnggl = $total_meninggal/$global*100;
                                                     <?php echo $data['status']['COV_DWS_ISO'];?>
                                                 </div>
                                               </div>
-                                              Isolasi Non RS
+                                              <div class="iso-non-rs">
+                                                Isolasi Non RS
+                                              </div>
                                             </div>
                                             </div>
                                         </div>
@@ -527,7 +552,9 @@ $prsn_total_mnggl = $total_meninggal/$global*100;
                                                   <?php echo $data['status']['COV_ANK_ISO'];?>
                                                 </div>
                                               </div>
-                                                Isolasi Non Rs
+                                              <div class="iso-non-rs">
+                                                Isolasi Non RS
+                                              </div>
                                             </div>
                                             </div>
                                         </div>
