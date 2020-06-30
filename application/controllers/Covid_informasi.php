@@ -93,6 +93,32 @@ class Covid_informasi extends CI_Controller {
             'private_key' => $this->input->post('private_token')
         );
 
+        $field_db = array(
+            'COV_DWS_SMB' => $obj['COV_DWS_SMB'],
+            'COV_DWS_RWT' => $obj['COV_DWS_RWT'],
+            'COV_DWS_MNG' => $obj['COV_DWS_MNG'],
+            'COV_DWS_ISO' => $obj['COV_DWS_ISO'],
+            'COV_ANK_SMB' => $obj['COV_ANK_SMB'],
+            'COV_ANK_RWT' => $obj['COV_ANK_RWT'],
+            'COV_ANK_MNG' => $obj['COV_ANK_MNG'],
+            'COV_ANK_ISO' => $obj['COV_ANK_ISO'],
+            'PDP_DWS_SMB' => $obj['PDP_DWS_SMB'],
+            'PDP_DWS_RWT' => $obj['PDP_DWS_RWT'],
+            'PDP_DWS_MNG' => $obj['PDP_DWS_MNG'],
+            'PDP_ANK_SMB' => $obj['PDP_ANK_SMB'],
+            'PDP_ANK_RWT' => $obj['PDP_ANK_RWT'],
+            'PDP_ANK_MNG' => $obj['PDP_ANK_MNG'],
+            'ODP_DWS_SMB' => $obj['ODP_DWS_SMB'],
+            'ODP_DWS_RWT' => $obj['ODP_DWS_RWT'],
+            'ODP_DWS_MNG' => $obj['ODP_DWS_MNG'],
+            'ODP_ANK_SMB' => $obj['ODP_ANK_SMB'],
+            'ODP_ANK_RWT' => $obj['ODP_ANK_RWT'],
+            'ODP_ANK_MNG' => $obj['ODP_ANK_MNG'],
+            'USER_INPUT' => $obj['USER_INPUT'],
+        );
+
+        $data = $this->db->insert('covidreport', $field_db);
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
