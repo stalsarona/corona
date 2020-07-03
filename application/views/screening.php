@@ -19,147 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/adminlte.min.css');?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <style>
-  /* Style the form */
-#regForm {
-  background-color: #ffffff;
-  margin: 0px auto;
-  padding: 0px;
-  width: 100%;
-  min-width: 300px;
-}
-
-/* Style the input fields */
-/* input {
-  padding: 10px;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
-} */
-
-/* Mark input boxes that gets an error on validation: */
-input.invalid {
-  background-color: #ffdddd;
-}
-
-.cardku {
-  background-color: #ffdddd;
-}
-/* Hide all steps by default: */
-.tab {
-  display: none;
-}
-
-/* Make circles that indicate the steps of the form: */
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
-
-/* Mark the active step: */
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #4CAF50;
-}
-
-.btn-cari{
-  padding-top: 30px;
-}
-
-@media(max-width: 599px){
-  	.btn-cari {
-	    padding-top: 0px;
-	  }
-}
-.overlay {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.9);
-  overflow-y: hidden;
-  transition: 0.5s;
-  display: none;
-}
-
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-  
-}
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #dc3545;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-  position: fixed;
-  z-index: 100;
-  right: 50%;
-  left: 45%;
-  top: 50%;
-  bottom: 0px;
-  display: block;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-/* Back to top button */
-.back-to-top {
-  position: fixed;
-  display: none;
-  background: #18d26e;
-  color: #fff;
-  display: inline-block;
-  width: 44px;
-  height: 44px;
-  text-align: center;
-  line-height: 1;
-  font-size: 16px;
-  border-radius: 50%;
-  right: 15px;
-  bottom: 15px;
-  transition: background 0.5s;
-  z-index: 11;
-}
-
-.back-to-top i {
-  padding-top: 12px;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .back-to-top {
-    bottom: 15px;
-  }
-}
-  </style>
+  <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/style.css');?>">
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -247,7 +107,9 @@ input.invalid {
                 <h1 class="card-title m-0" style="text-align: center;font-size: 34px;">" Bersama Lawan Corona "</h1>
               </div>
             <div class="card-body">
+              <div class="img-people"></div>
               <form id="regForm">
+             
               <!-- One "tab" for each step in the form: -->
               <div class="tab">
               <u><h2>Data Diri</h2></u>
@@ -257,7 +119,7 @@ input.invalid {
                   <div class="form-group">
                     <label>No KTP : <code>(* Silahkan cari atau isi secara manual ) </code> </label>
                     <input type="hidden" id="private_key" name="private_key" value="<?php echo $token ?>" class="form-control validate">
-                    <input type="text" placeholder="No. KTP" name="ktp" id="ktp" autocomplete="off" onkeyup="allowNumbersOnly(this, event)" maxlength="16" class="form-control validate" required autofocus>
+                    <input type="text" placeholder="No. KTP" name="ktp" id="ktp" autocomplete="off" onkeyup="allowNumbersOnly(this, event)" maxlength="16" class="form-control color-text validate" required autofocus>
                   </div>
                 </div>
                 <div class="col-sm-1">
@@ -268,7 +130,7 @@ input.invalid {
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Nama :</label>
-                    <input type="text" placeholder="Nama" name="nama" id="nama" class="form-control reset validate">
+                    <input type="text" placeholder="Nama" name="nama" id="nama" class="form-control color-text reset validate">
                   </div>
                 </div>
               </div>
@@ -277,14 +139,14 @@ input.invalid {
                   <!-- select -->
                   <div class="form-group">
                     <label>Provinsi :</label>
-                    <input type="text" placeholder="Provinsi" name="prov" id="prov" autocomplete="off" class="form-control reset validate">
+                    <input type="text" placeholder="Provinsi" name="prov" id="prov" autocomplete="off" class="form-control color-text reset validate">
                     <input type="hidden" placeholder="Provinsi" name="id_prov" id="id_prov" autocomplete="off" class="form-control reset">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                   <label>Kota :</label>
-                    <input type="text" placeholder="Kota" name="kota" id="kota" autocomplete="off" class="form-control reset validate">
+                    <input type="text" placeholder="Kota" name="kota" id="kota" autocomplete="off" class="form-control color-text reset validate">
                     <input type="hidden" placeholder="Kota" name="id_kota" id="id_kota" autocomplete="off" class="form-control reset">
                   </div>
                 </div>
@@ -294,14 +156,14 @@ input.invalid {
                   <!-- select -->
                   <div class="form-group">
                     <label>Kecamatan :</label>
-                    <input type="text" placeholder="Kecamatan" name="kec" id="kec" autocomplete="off" class="form-control reset validate">
+                    <input type="text" placeholder="Kecamatan" name="kec" id="kec" autocomplete="off" class="form-control color-text reset validate">
                     <input type="hidden" placeholder="Kecamatan" name="id_kec" id="id_kec" autocomplete="off" class="form-control reset">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                  <label>Kelurahan :</label>
-                    <input type="text" placeholder="Kelurahan" name="kel" id="kel" autocomplete="off" class="form-control reset validate">
+                  <label style="background-color: white;">Kelurahan :</label>
+                    <input type="text" placeholder="Kelurahan" name="kel" id="kel" autocomplete="off" class="form-control color-text reset validate">
                     <input type="hidden" placeholder="Kelurahan" name="id_kel" id="id_kel" autocomplete="off" class="form-control reset">
                   </div>
                 </div>
@@ -311,21 +173,21 @@ input.invalid {
                   <!-- select -->
                   <div class="form-group">
                     <label>Alamat :</label>
-                    <input type="text" placeholder="Alamat" name="alamat" id="alamat" autocomplete="off" class="form-control reset validate">
+                    <input type="text" placeholder="Alamat" name="alamat" id="alamat" autocomplete="off" class="form-control color-text reset validate">
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <!-- select -->
                   <div class="form-group">
                     <label>RT :</label>
-                    <input type="text" placeholder="RT" name="rt" id="rt" autocomplete="off" class="form-control reset validate">
+                    <input type="text" placeholder="RT" name="rt" id="rt" autocomplete="off" class="form-control color-text reset validate">
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <!-- select -->
                   <div class="form-group">
                     <label>RW :</label>
-                    <input type="text" placeholder="RW" name="rw" id="rw" autocomplete="off" class="form-control reset validate">
+                    <input type="text" placeholder="RW" name="rw" id="rw" autocomplete="off" class="form-control color-text reset validate">
                   </div>
                 </div>
               </div>	
@@ -333,7 +195,7 @@ input.invalid {
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>No Telp :</label>
-                    <input type="text" placeholder="No. Telp" name="telp" id="telp" autocomplete="off" onkeyup="allowNumbersOnly(this, event)" maxlength="12" class="form-control reset validate">
+                    <input type="text" placeholder="No. Telp" name="telp" id="telp" autocomplete="off" onkeyup="allowNumbersOnly(this, event)" maxlength="14" class="form-control color-text reset validate">
                   </div>
                 </div>
               </div>
@@ -465,6 +327,7 @@ function showTab(n) {
 function nextPrev(n) {
   //$('html, body').animate({scrollTop : 0},900);
   // This function will figure out which tab to display
+  
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
@@ -472,6 +335,10 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
+  console.log('tab'+currentTab)
+  if(currentTab == 1){
+    $('.img-people').css('display','none')
+  }
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:

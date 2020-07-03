@@ -192,6 +192,7 @@ input.invalid {
               </div>
             <div class="card-body">
               <form id="regForm">
+              <div class="img-people"></div>
               <!-- One "tab" for each step in the form: -->
               <div class="tab">
               <u><h2>Data Diri</h2></u>

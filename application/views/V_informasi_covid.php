@@ -211,10 +211,10 @@ $total_dirawat = $data['status']['COV_DWS_RWT']+$data['status']['COV_ANK_RWT']+$
 $total_meninggal = $data['status']['COV_DWS_MNG']+$data['status']['COV_ANK_MNG']+$data['status']['PDP_DWS_MNG']+$data['status']['PDP_ANK_MNG'];
 $global = $total_cov_anak+$total_cov_dws+$total_pdp_anak+$total_pdp_dws;
 
-$prsn_total_smbh = $total_sembuh/$global*100;
-$prsn_total_iso = $total_isolasi/$global*100;
-$prsn_total_drawat = $total_dirawat/$global*100;
-$prsn_total_mnggl = $total_meninggal/$global*100;
+$prsn_total_smbh = ($total_sembuh != 0) ? $total_sembuh/$global*100 : 0;
+$prsn_total_iso = ($total_isolasi != 0) ? $total_isolasi/$global*100 : 0;
+$prsn_total_drawat = ($total_dirawat != 0) ? $total_dirawat/$global*100 : 0;
+$prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
 ?>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
