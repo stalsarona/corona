@@ -67,9 +67,46 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.img-people{
+  position: absolute;
+  background-image: url(./assets/images/talk.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .img-people {
+    left: 45%;
+  }    
+}
+@media (max-width: 425px) {
+  .img-people {
+    left: -55%;
+  }    
+}
+@media (max-width: 375px) {
+  .img-people {
+    width: 1200px;
+    height: 1200px;
+    z-index: -1;
+    left: -100%;
+  }    
+}
+@media (max-width: 320px) {
+  .img-people {
+    width: 1200px;
+    height: 1200px;
+    z-index: -1;
+    left: -135%;
+  }    
+}
   </style>
 </head>
 <body class="hold-transition login-page">
+  <div class="img-people"></div>
+
 <div class="overlay">
   <div class="overlay-content">
     <div class="loader"></div>

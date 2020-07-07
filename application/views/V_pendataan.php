@@ -160,11 +160,41 @@ input.invalid {
     bottom: 15px;
   }
 }
+
+.img-background{
+  background-image: url(./../assets/images/pattern_v2.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: round;
+  background-size: auto;
+}
+.main-footer{
+  z-index: 1034;
+  justify-content: flex-start;
+  position: relative;
+}
+@media (max-width: 1440px) {
+  .img-background {
+    background-repeat: unset;
+  }
+}
+@media (max-width: 1440px) {
+  .img-background {
+    background-repeat: round;
+  }
+}
+@media (max-width: 768px) {
+  .img-background {
+    display: none;
+  }
+}
+
   </style>
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
-
+<div class="img-background"></div>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">

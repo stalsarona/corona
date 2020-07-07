@@ -279,7 +279,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer class="main-footer text-center">
     <!-- Default to the left -->
     <strong>Copyright &copy; 2020 <a href="https://rstugurejo.jatengprov.go.id">RSUD Tugurejo Provinsi Jawa Tengah</a>.</strong>
   </footer>
