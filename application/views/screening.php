@@ -32,6 +32,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
              style="opacity: .8">
         <span class="brand-text font-weight-light"><strong>Dewoc19</strong> RSUD Tugurejo</span>
       </a>
+      <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="http://api.rstugurejo.jatengprov.go.id:8000/booking/" class="nav-link">Booking</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle active">Informasi</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+            <li><a href="<?php echo site_url() ?>" class="dropdown-item active">Deteksi Awal Covid-19</a></li>
+              <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item">Informasi Covid-19</a></li>
+              <!-- Level two dropdown-->
+              <!-- End Level two -->
+            </ul>
+          </li>
+      </ul>
       <ul class="menu navbar-nav ml-auto">
         <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -61,6 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+    
   </nav>
   <!-- /.navbar -->
 

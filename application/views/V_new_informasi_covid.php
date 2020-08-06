@@ -19,210 +19,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/adminlte.min.css');?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <style>
-  /* Style the form */
-#regForm {
-  background-color: #ffffff;
-  margin: 0px auto;
-  padding: 0px;
-  width: 100%;
-  min-width: 300px;
-}
-
-/* Style the input fields */
-/* input {
-  padding: 10px;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
-} */
-
-/* Mark input boxes that gets an error on validation: */
-input.invalid {
-  background-color: #ffdddd;
-}
-
-.cardku {
-  background-color: #ffdddd;
-}
-/* Hide all steps by default: */
-.tab {
-  display: none;
-}
-
-/* Make circles that indicate the steps of the form: */
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
-}
-
-/* Mark the active step: */
-.step.active {
-  opacity: 1;
-}
-
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #4CAF50;
-}
-
-
-
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-/* Back to top button */
-.back-to-top {
-  position: fixed;
-  display: none;
-  background: #18d26e;
-  color: #fff;
-  display: inline-block;
-  width: 44px;
-  height: 44px;
-  text-align: center;
-  line-height: 1;
-  font-size: 16px;
-  border-radius: 50%;
-  right: 15px;
-  bottom: 15px;
-  transition: background 0.5s;
-  z-index: 11;
-}
-
-.back-to-top i {
-  padding-top: 12px;
-  color: #fff;
-}
-.title-total{
-    font-size:90px;
-}
-@media (max-width: 768px) {
-  .back-to-top {
-    bottom: 15px;
-  }
-}
-@media (max-width: 1400px) {
-  .title-totaliso {
-    margin: -12px;
-  }
-  .title-total{
-    font-size:66px;
-  }
-}
-@media(max-width: 375px){
-  .title-total{
-    font-size:64px;
-  }
-}
-@media(max-width: 1471px){
-  .title-total{
-    font-size:66px;
-  }
-}
-@media(max-width: 1920px){
-  .title-tota1l{
-    font-size:54px;
-  }
-}
-.body-padding{
-  padding : 7px;
-}
-.body-padding2{
-  padding : 10px;
-}
-.font-badge{
-  font-size: 30px;
-  background-color: white;
-}
-@media(max-width : 1440px){
-  .badge-sembuh{
-    font-size: 19px;
-  }
-  .badge-iso{
-    font-size: 19px;
-  }
-  .badge-drawat{
-    font-size: 19px;
-  }
-  .badge-mnggl{
-    font-size: 19px;
-  }
-  .title-total{
-    font-size:66px;
-  }
-  .h-iso-non-rs{
-    width: auto;
-  }
-  .iso-non-rs{
-    width: max-content;
-  }
-}
-
-@media(max-width : 1024px){
-  .title-total{
-    font-size: 85px;
-  }
-  .iso-non-rs{
-    width: fit-content;
-  }
-  .iso-non-rs-tot{
-    padding: 2px;
-  }
-  .h-iso-non-rs{
-    width: max-content;
-  }
-}
-
-.badge-sembuh{
+  <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/informasi.css');?>">
   
-  color: #28a745;
-}
-.badge-iso{
-  
-  color: #6c84f1;
-}
-.badge-drawat{
-  
-  color: #ffa500;
-}
-.badge-mnggl{
-  
-  color: #dc3545;
-}
-  </style>
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 <?php 
-$total_cov_dws = $data['status']['COV_DWS_SMB']+$data['status']['COV_DWS_RWT']+$data['status']['COV_DWS_MNG']+$data['status']['COV_DWS_ISO'];
-$total_cov_anak = $data['status']['COV_ANK_SMB']+$data['status']['COV_ANK_RWT']+$data['status']['COV_ANK_MNG']+$data['status']['COV_ANK_ISO'];
-$total_pdp_dws = $data['status']['PDP_DWS_SMB']+$data['status']['PDP_DWS_RWT']+$data['status']['PDP_DWS_MNG'];
-$total_pdp_anak = $data['status']['PDP_ANK_SMB']+$data['status']['PDP_ANK_RWT']+$data['status']['PDP_ANK_MNG'];
+ $total_global = $data['status'][0]['SEMBUH'] + $data['status'][0]['DIRAWAT'] + $data['status'][0]['MENINGGAL'] + $data['status'][0]['REACTIVE'] + $data['status'][0]['ISOMANDIRI'] + $data['status'][0]['ISORUMDIN'];
+ $persen_sembuh = ($data['status'][0]['SEMBUH'] != 0) ? $data['status'][0]['SEMBUH']/$total_global*100 : 0;
+ $persen_drwt = ($data['status'][0]['DIRAWAT'] != 0) ? $data['status'][0]['DIRAWAT']/$total_global*100 : 0;
+ $persen_mnggal = ($data['status'][0]['MENINGGAL'] != 0) ? $data['status'][0]['MENIGGAL']/$total_global*100 : 0;
+ $persen_reactive = ($data['status'][0]['REACTIVE'] != 0) ? $data['status'][0]['REACTIVE']/$total_global*100 : 0;
+ $persen_isoman = ($data['status'][0]['ISOMANDIRI'] != 0) ? $data['status'][0]['ISOMANDIRI']/$total_global*100 : 0;
+ $persen_isorudin = ($data['status'][0]['ISORUMDIN'] != 0) ? $data['status'][0]['ISORUMDIN']/$total_global*100 : 0;
 
-$total_sembuh = $data['status']['COV_DWS_SMB']+$data['status']['COV_ANK_SMB']+$data['status']['PDP_ANK_SMB']+$data['status']['PDP_DWS_SMB'];
-$total_isolasi = $data['status']['COV_DWS_ISO']+$data['status']['COV_ANK_ISO'];
-$total_dirawat = $data['status']['COV_DWS_RWT']+$data['status']['COV_ANK_RWT']+$data['status']['PDP_DWS_RWT']+$data['status']['PDP_ANK_RWT'];
-$total_meninggal = $data['status']['COV_DWS_MNG']+$data['status']['COV_ANK_MNG']+$data['status']['PDP_DWS_MNG']+$data['status']['PDP_ANK_MNG'];
-$global = $total_cov_anak+$total_cov_dws+$total_pdp_anak+$total_pdp_dws;
+ $total_confirm_dew = $data['status'][0]['RIDWS_CONFIRMSEMBUH'] + $data['status'][0]['RIDWS_CONFIRMRAWATISO'] + $data['status'][0]['RIDWS_CONFIRMMATI'];
+ $total_confirm_ank = $data['status'][0]['RIAN_CONFIRMSEMBUH'] + $data['status'][0]['RIAN_CONFIRMRAWATISO'] + $data['status'][0]['RIAN_CONFIRMMATI'];
+ $total_confirm = $total_confirm_dew + $total_confirm_ank;
 
-$prsn_total_smbh = ($total_sembuh != 0) ? $total_sembuh/$global*100 : 0;
-$prsn_total_iso = ($total_isolasi != 0) ? $total_isolasi/$global*100 : 0;
-$prsn_total_drawat = ($total_dirawat != 0) ? $total_dirawat/$global*100 : 0;
-$prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
+ $total_sus_dew = $data['status'][0]['RIDWS_SUSPEKSEMBUH'] + $data['status'][0]['RIDWS_SUSPEKRAWAT'] + $data['status'][0]['RIDWS_SUSPEKMATI'];
+ $total_sus_ank = $data['status'][0]['RIAN_SUSPEKSEMBUH'] + $data['status'][0]['RIAN_SUSPEKRAWAT'] + $data['status'][0]['RIAN_SUSPEKMATI'];
+ $total_suspect = $total_sus_dew + $total_sus_ank;
+
+ $total_rj_dew = $data['status'][0]['RJDWS_SEMBUH'] + $data['status'][0]['RJDWS_REACTIVE'] + $data['status'][0]['RJDWS_CONFIRMISOMANDIRI'] + $data['status'][0]['RJDWS_CONFIRMISORUMDIN'];
+ $total_rj_ank = $data['status'][0]['RJAN_SEMBUH'] + $data['status'][0]['RJAN_REACTIVE'] + $data['status'][0]['RJAN_CONFIRMISOMANDIRI'] + $data['status'][0]['RJAN_CONFIRMISORUMDIN'];
+ $total_rj = $total_rj_dew + $total_rj_ank;
 ?>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
@@ -230,23 +51,8 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
       <a href="<?php echo base_url('informasi-covid19');?>" class="navbar-brand">
         <img src="<?php echo base_url('assets/dist/img/logo.png');?>" alt="RSUD TUGUREJO" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-             <!-- <strong>Informasi Covid-19</strong> -->
         <span class="brand-text font-weight-light" style="font-size: larger;"> RSUD Tugurejo</span>
       </a>
-      <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="http://api.rstugurejo.jatengprov.go.id:8000/booking/" class="nav-link">Booking</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle active">Informasi</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-            <li><a href="<?php echo site_url() ?>" class="dropdown-item">Deteksi Awal Covid-19</a></li>
-              <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item active">Informasi Covid-19</a></li>
-              <!-- Level two dropdown-->
-              <!-- End Level two -->
-            </ul>
-          </li>
-      </ul>
       <ul class="menu navbar-nav ml-auto">
         <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -296,13 +102,8 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
     <!-- /.content-header -->
 	<div class="content">
       <div class="container">
-     
-	        <!-- <div class="alert alert-danger alert-dismissible">
-          <marquee onmouseout="this.start()" onmouseover="this.stop()"><h5><i class="icon fas fa-exclamation-triangle"></i> Deteksi awal Covid-19 RSUD Tugurejo, ketahuilah status covid anda saat ini !!!</h5></marquee>
-				       Dengan BERANI & JUJUR anda telah menyelamatkan tenaga kesehatan dan keluarga kami di rumah, serta penduduk Indonesia.
-          </div> -->
-				</div>
-		</div>
+        </div>
+	</div>
     <!-- Main content -->
     <div class="content">
       <div class="">
@@ -312,15 +113,15 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
           <div class="col-lg-12">
             <div class="card card-danger card-outline">
               <div class="card-header" style="text-align: center;align-items: center;display: grid;font-family: fantasy;">
-                <h1 class="card-title m-0" style="text-align: center;font-size: 34px;">&nbsp;Informasi Pasien Covid-19 </h1> <h3><?php echo date('d-m-Y H:i:s', strtotime($data['status']['TGLINPUT']))?></h3>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 34px;">&nbsp;Informasi Pasien Covid-19 NEW</h1>
               </div>
-              <h1 class="card-title m-0" style="text-align: center;font-size: 60px; color:red;"> &nbsp; <i class="fa fa-user" style="color: red;"></i> <b>TOTAL KASUS <?php echo $global ?> </b></h1>
+              <h1 class="card-title m-0" style="text-align: center;font-size: 60px; color:red;"> &nbsp; <i class="fa fa-user" style="color: red;"></i> <b>TOTAL KASUS <?php echo $total_global ?></b></h1>
             <div class="card-body">
               
               <!-- One "tab" for each step in the form: -->
                 <div class="row">
                     
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card card-success">
                             <div class="card-header" style="background:#28a745; color:white;">
                                 <div class="card-body">
@@ -331,38 +132,19 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                       </div>
                                       <div class="col-md-12">
                                         <div class="title-total">
-                                          <b> <?php echo $total_sembuh ?> </b><span class="badge badge-sembuh font-badge"><?php echo round($prsn_total_smbh, 2); ?> %</span>
+                                          <b> <?php echo $data['status'][0]['SEMBUH']?></b><span class="badge badge-sembuh font-badge"><?php echo round($persen_sembuh) ?> %</span>
                                         </div>
                                       </div>
                                     
                                     </div>
                                     </div>
                                 </div>
+                                <div class="card-footer" style="background-color: white; display:none;"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card card-success" >
-                            <div class="card-header" style="background:#6c84f1; color:white;">
-                            <div class="card-body body">
-                                <div class="row">
-                                <div class="col-md-12 text-center">
-                                  <div class="title-text h-iso-non-rs" style="font-size:30px;">    
-                                      Isolasi Non Rs
-                                  </div>
-                                  <div class="col-md-12">
-                                    <div class="title-total">
-                                      <b class="iso-non-rs-tot"> <?php echo $total_isolasi ?> </b><span class="badge badge-iso font-badge"><?php echo round($prsn_total_iso, 2); ?> %</span>
-                                    </div>
-                                  </div>
-                                
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
+                    
+                    <div class="col-md-4">
                         <div class="card card-warning">
                             <div class="card-header" style="background: orange; color:white;">
                                 <div class="card-body">
@@ -373,7 +155,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                       </div>
                                       <div class="col-md-12">
                                         <div class="title-total">
-                                            <b> <?php echo $total_dirawat ?> </b><span class="badge badge-drawat font-badge"><?php echo round($prsn_total_drawat, 2); ?> %</span>
+                                            <b> <?php echo $data['status'][0]['DIRAWAT']?> </b><span class="badge badge-drawat font-badge"><?php echo round($persen_drwt) ?> %</span>
                                         </div>
                                       </div>
                                     
@@ -383,7 +165,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card card-danger">
                             <div class="card-header" style="background:#dc3545; color:white;">
                                 <div class="card-body">
@@ -394,7 +176,70 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                       </div>
                                       <div class="col-md-12">
                                         <div class="title-total">
-                                          <b> <?php echo $total_meninggal ?> </b><span class="badge badge-mnggl font-badge"><?php echo round($prsn_total_mnggl, 2); ?> %</span>
+                                          <b><?php echo $data['status'][0]['MENINGGAL']?></b><span class="badge badge-mnggl font-badge"><?php echo round($persen_mnggal) ?> %</span>
+                                        </div>
+                                      </div>
+                                    
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-danger">
+                            <div class="card-header" style="background:#dc3545; color:white;">
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col-md-12 text-center">
+                                      <div class="title-text" style="font-size:30px;">
+                                        Reactive
+                                      </div>
+                                      <div class="col-md-12">
+                                        <div class="title-total">
+                                          <b> <?php echo $data['status'][0]['REACTIVE']?></b><span class="badge badge-mnggl font-badge"><?php echo round($persen_reactive) ?> %</span>
+                                        </div>
+                                      </div>
+                                    
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-danger">
+                            <div class="card-header" style="background:#dc3545; color:white;">
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col-md-12 text-center">
+                                      <div class="title-text" style="font-size:30px;">
+                                        Isolasi Mandiri
+                                      </div>
+                                      <div class="col-md-12">
+                                        <div class="title-total">
+                                          <b> <?php echo $data['status'][0]['ISOMANDIRI']?></b><span class="badge badge-mnggl font-badge"><?php echo round($persen_isoman) ?> %</span>
+                                        </div>
+                                      </div>
+                                    
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-danger">
+                            <div class="card-header" style="background:#6c84f1; color:white;">
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col-md-12 text-center">
+                                      <div class="title-text" style="font-size:30px;">
+                                        Isolasi Rumah Dinas
+                                      </div>
+                                      <div class="col-md-12">
+                                        <div class="title-total">
+                                          <b> <?php echo $data['status'][0]['ISORUMDIN']?></b><span class="badge badge-mnggl font-badge"><?php echo round($persen_isorudin) ?> %</span>
                                         </div>
                                       </div>
                                     
@@ -425,12 +270,16 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
               </div>
             </div>
           </div>
+          <div class="col-md-12">
+            <div class="title-rinap"><i class="fas fa-bed"></i> Rawat Inap</div>
+            <div class="line-buttom"></div>
+          </div>
           <!-- covid -->
           <div class="col-lg-6">
             <div class="card">
               <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                <h1 class="card-title m-0" style="text-align: center;font-size: 20px;"><i class="fa fa-user" style="color: red;"></i> &nbsp; Confirm Covid-19</h1>
-                <h1 class="card-title m-0" style="text-align: center;font-size: 54px; color:red; font-family: fantasy;"><?php echo $total_cov_dws+$total_cov_anak; ?></h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 20px;"><i class="fas fa-user-injured" style="color: red;"></i> &nbsp; Confirm Covid-19</h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 54px; color:red; font-family: fantasy;"><?php echo $total_confirm ?></h1>
               </div>
               <h1 class="card-title m-0" style="text-align: center;font-size: 34px;"></h1>
             <div class="card-body">
@@ -443,12 +292,12 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                     <div class="card card-danger card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
                             <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Dewasa</h1>
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy;color:red;"> &nbsp;<?php echo $total_cov_dws; ?></h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy;color:red;"> &nbsp; <?php echo $total_confirm_dew ?></h1>
                         </div>
 
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="card card-success" >
                                         <div class="card-header" style="background:#28a745; color:white;">
                                         <div class="card-body body-padding">
@@ -460,7 +309,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['COV_DWS_SMB'];?>
+                                                  <?php echo $data['status'][0]['RIDWS_CONFIRMSEMBUH']?>
                                                 </div>
                                               </div>
                                               Sembuh
@@ -470,30 +319,8 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="card card-success" >
-                                        <div class="card-header" style="background:#6c84f1; color:white;">
-                                        <div class="card-body body-padding">
-                                            <div class="row">
-                                            <div class="col-md-12 text-center">
-                                              <!-- <div class="title-text" style="font-size:21px;">
-                                                Isolasi Non Rs
-                                              </div>                                          -->
-                                              <div class="col-md-12">
-                                                <div class="title-totaliso" style="font-size:45px;">
-                                                    <?php echo $data['status']['COV_DWS_ISO'];?>
-                                                </div>
-                                              </div>
-                                              <div class="iso-non-rs">
-                                                Isolasi Non RS
-                                              </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
+                                
+                                <div class="col-md-4">
                                     <div class="card card-warning">
                                         <div class="card-header" style="background: orange; color:white;">
                                         <div class="card-body body-padding">
@@ -502,7 +329,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                            
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['COV_DWS_RWT'];?>
+                                                  <?php echo $data['status'][0]['RIDWS_CONFIRMRAWATISO']?>
                                                 </div>
                                               </div>
                                                 Dirawat
@@ -513,7 +340,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="card card-danger">
                                         <div class="card-header" style="background:#dc3545; color:white;">
                                         <div class="card-body body-padding">
@@ -522,7 +349,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['COV_DWS_MNG'];?>
+                                                  <?php echo $data['status'][0]['RIDWS_CONFIRMMATI']?>
                                                 </div>
                                               </div>
                                                 Meninggal
@@ -538,13 +365,13 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                     <div class="card card-danger card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
                             <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Anak</h1>
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_cov_anak; ?></h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_confirm_ank ?></h1>
                         </div>
 
                         <div class="card-body">
                             <div class="row">
                                 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="card card-success">
                                         <div class="card-header" style="background:#28a745; color:white;">
                                         <div class="card-body body-padding">
@@ -553,7 +380,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                            
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['COV_ANK_SMB'];?>
+                                                    <?php echo $data['status'][0]['RIAN_CONFIRMSEMBUH'];?>
                                                 </div>
                                               </div>
                                                 Sembuh
@@ -563,28 +390,8 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="card card-success" >
-                                        <div class="card-header" style="background:#6c84f1; color:white;">
-                                        <div class="card-body body-padding">
-                                            <div class="row">
-                                            <div class="col-md-12 text-center">
-                                           
-                                              <div class="col-md-12">
-                                                <div class="title-totaliso" style="font-size:45px;">
-                                                  <?php echo $data['status']['COV_ANK_ISO'];?>
-                                                </div>
-                                              </div>
-                                              <div class="iso-non-rs">
-                                                Isolasi Non RS
-                                              </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
+                                
+                                <div class="col-md-4">
                                     <div class="card card-warning">
                                         <div class="card-header" style="background: orange; color:white;">
                                         <div class="card-body body-padding">
@@ -593,7 +400,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                            
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['COV_ANK_RWT'];?>
+                                                    <?php echo $data['status'][0]['RIAN_CONFIRMRAWATISO'];?>
                                                 </div>
                                               </div>
                                             Dirawat
@@ -603,7 +410,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="card card-danger">
                                         <div class="card-header" style="background:#dc3545; color:white;">
                                         <div class="card-body body-padding">
@@ -612,7 +419,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['COV_ANK_MNG'];?>
+                                                    <?php echo $data['status'][0]['RIAN_CONFIRMMATI'];?>
                                                 </div>
                                               </div>
                                             Meninggal
@@ -654,8 +461,8 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
           <div class="col-lg-6">
             <div class="card">
               <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                <h1 class="card-title m-0" style="text-align: center;font-size: 20px;"><i class="fa fa-user" style="color: orange;"></i>  &nbsp; Suspect Covid-19</h1>
-                <h1 class="card-title m-0" style="text-align: center;font-size: 54px;font-family: fantasy; color:orange;"><?php echo $total_pdp_dws+$total_pdp_anak; ?></h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 20px;"><i class="fa fa-user-injured" style="color: orange;"></i>  &nbsp; Suspect Covid-19</h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 54px;font-family: fantasy; color:orange;"><?php echo $total_suspect ?></h1>
               </div>
               <h1 class="card-title m-0" style="text-align: center;font-size: 34px;"></h1>
               <div class="card-body">
@@ -668,7 +475,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                     <div class="card card-warning card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
                             <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Dewasa</h1>
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_pdp_dws; ?></h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_sus_dew ?></h1>
                         </div>
 
                         <div class="card-body">
@@ -682,7 +489,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                               <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['PDP_DWS_SMB'] ?>
+                                                    <?php echo $data['status'][0]['RIDWS_SUSPEKSEMBUH'] ?>
                                                 </div>
                                               </div>
                                             Sembuh
@@ -701,7 +508,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['PDP_DWS_RWT'] ?>
+                                                    <?php echo $data['status'][0]['RIDWS_SUSPEKRAWAT'] ?>
                                                 </div>
                                               </div>
                                             Dirawat
@@ -721,7 +528,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['PDP_DWS_MNG'] ?>
+                                                    <?php echo $data['status'][0]['RIDWS_SUSPEKMATI'] ?>
                                                 </div>
                                               </div>
                                               Meninggal
@@ -737,7 +544,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                     <div class="card card-warning card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
                             <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Anak</h1>
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_pdp_anak; ?></h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_sus_ank ?></h1>
                         </div>
 
                         <div class="card-body">
@@ -751,7 +558,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['PDP_ANK_SMB'] ?>
+                                                    <?php echo $data['status'][0]['RIAN_SUSPEKSEMBUH'] ?>
                                                 </div>
                                               </div>
                                             Sembuh
@@ -770,7 +577,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                             
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['PDP_ANK_RWT'] ?>
+                                                    <?php echo $data['status'][0]['RIAN_SUSPEKRAWAT'] ?>
                                                 </div>
                                               </div>
                                               Dirawat
@@ -790,7 +597,7 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
                                            
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
-                                                    <?php echo $data['status']['PDP_ANK_MNG'] ?>
+                                                    <?php echo $data['status'][0]['RIAN_SUSPEKMATI'] ?>
                                                 </div>
                                               </div>
                                               Meninggal
@@ -829,6 +636,226 @@ $prsn_total_mnggl = ($total_meninggal != 0) ? $total_meninggal/$global*100 : 0;
             </div>
           </div>
           <!-- PDP -->
+          <div class="col-md-12">
+            <div class="title-rinap"><i class="fas fa-walking"></i> Rawat Jalan</div>
+            <div class="line-buttom"></div>
+          </div>
+          <!-- Rawat Jalan -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header" style="text-align: center;align-items: center;display: grid;">
+                <h1 class="card-title m-0" style="text-align: center;font-size: 20px;"> &nbsp; </h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 54px;font-family: fantasy; color:orange;"></h1>
+              </div>
+              <h1 class="card-title m-0" style="text-align: center;font-size: 34px;"></h1>
+              <div class="card-body">
+              
+              <!-- One "tab" for each step in the form: -->
+              
+            <div class="">
+             <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-warning card-outline">
+                        <div class="card-header" style="text-align: center;align-items: center;display: grid;">
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Dewasa</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_rj_dew ?></h1>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card card-success">
+                                        <div class="card-header" style="background:#28a745; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                            
+                                              <div class="col-md-12">
+                                              <div class="title-total" style="font-size:45px;">
+                                                <?php echo $data['status'][0]['RJDWS_SEMBUH'] ?>
+                                                </div>
+                                              </div>
+                                            Sembuh
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-warning">
+                                        <div class="card-header" style="background: orange; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                            
+                                              <div class="col-md-12">
+                                                <div class="title-total" style="font-size:45px;">
+                                                  <?php echo $data['status'][0]['RJDWS_REACTIVE'] ?>
+                                                </div>
+                                              </div>
+                                            Reactive
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="card card-danger">
+                                        <div class="card-header" style="background:#dc3545; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                            
+                                              <div class="col-md-12">
+                                                <div class="title-total" style="font-size:45px;">
+                                                  <?php echo $data['status'][0]['RJDWS_CONFIRMISOMANDIRI'] ?>
+                                                </div>
+                                              </div>
+                                              Confirm Isolasi Mandiri
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="col-md-3">
+                                    <div class="card card-danger">
+                                        <div class="card-header" style="background:#6c84f1; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                            
+                                              <div class="col-md-12">
+                                                <div class="title-total" style="font-size:45px;">
+                                                  <?php echo $data['status'][0]['RJDWS_CONFIRMISORUMDIN'] ?>
+                                                </div>
+                                              </div>
+                                              Confirm Isolasi Rumah Dinas
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                          
+                        </div>
+                    </div>
+                    <div class="card card-warning card-outline">
+                        <div class="card-header" style="text-align: center;align-items: center;display: grid;">
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Anak</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_rj_ank ?></h1>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card card-success">
+                                        <div class="card-header" style="background:#28a745; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                            
+                                              <div class="col-md-12">
+                                                <div class="title-total" style="font-size:45px;">
+                                                  <?php echo $data['status'][0]['RJAN_SEMBUH'] ?>
+                                                </div>
+                                              </div>
+                                            Sembuh
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-warning">
+                                        <div class="card-header" style="background: orange; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                            
+                                              <div class="col-md-12">
+                                                <div class="title-total" style="font-size:45px;">
+                                                  <?php echo $data['status'][0]['RJAN_REACTIVE'] ?>
+                                                </div>
+                                              </div>
+                                              Reactive
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-3">
+                                    <div class="card card-danger">
+                                        <div class="card-header" style="background:#dc3545; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                           
+                                              <div class="col-md-12">
+                                                <div class="title-total" style="font-size:45px;">
+                                                  <?php echo $data['status'][0]['RJAN_CONFIRMISOMANDIRI'] ?>
+                                                </div>
+                                              </div>
+                                              Confirm Isolasi Mandiri
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card card-danger">
+                                        <div class="card-header" style="background:#6c84f1; color:white;">
+                                        <div class="card-body body-padding">
+                                            <div class="row">
+                                            <div class="col-md-12 text-center">
+                                           
+                                              <div class="col-md-12">
+                                                <div class="title-total" style="font-size:45px;">
+                                                  <?php echo $data['status'][0]['RJAN_CONFIRMISORUMDIN'] ?>
+                                                </div>
+                                              </div>
+                                              Confirm Isolasi Rumah Dinas
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>                          
+                        </div>
+
+                    </div>
+                </div>
+                    
+             </div>
+              
+              </div>
+              
+              
+              <!-- Circles which indicates the steps of the form: -->
+              
+              <div style="overflow:auto; display:none">
+                <div style="float:right;">
+                  <button type="button" class="btn btn-warning" id="prevBtn" onclick="nextPrev(-1)">Sebelumnya</button>
+                  <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextPrev(1)">Selanjutnya</button>
+                </div>
+              </div>
+              <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px; display:none;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- ODP -->
           <div class="col-lg-12" style="display:none;">
             <div class="card card-warning card-outline">

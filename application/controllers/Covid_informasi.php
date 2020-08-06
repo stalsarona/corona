@@ -17,13 +17,24 @@ class Covid_informasi extends CI_Controller {
     {
         $data['private_token'] = $this->private_token();
         $data1 = $this->get_total_data();
-        
+    
         if(count($data1) > 0 ){
             $data['data'] = $data1;          
         } else {
             $data['data'] = $this->info_covid_mysql();         
         }
         $this->load->view('V_informasi_covid', $data);
+    }
+
+    public function new_info()
+    {
+        $data['private_token'] = $this->private_token();
+        $data1 = $this->get_data_covidNew();
+        
+        if(count($data1) > 0 ){
+            $data['data'] = $data1;          
+        } 
+        $this->load->view('V_new_informasi_covid', $data);
     }
 
     public function pendataan()
@@ -59,11 +70,19 @@ class Covid_informasi extends CI_Controller {
     public function get_total_data()
 	{
 		
-		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu_dev/rstugu/covid/get_data_terakhir";
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/get_data_terakhir";
         $data = json_decode($this->get_cors($url), TRUE);
         
         //print_r($data['status']['ID']);
 		return $data;
+    }
+
+    public function get_data_covidNew()
+    {
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/get_covid_new";
+        $data = json_decode($this->get_cors($url), TRUE);
+        //print_r($data['status']);
+        return $data;
     }
     
     public function simpan_total()
