@@ -278,7 +278,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-6">
             <div class="card">
               <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                <h1 class="card-title m-0" style="text-align: center;font-size: 20px;"><i class="fas fa-user-injured" style="color: red;"></i> &nbsp; Confirm Covid-19</h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 40px;"><i class="fas fa-user-injured" style="color: red;"></i> &nbsp; Confirm Covid-19</h1>
                 <h1 class="card-title m-0" style="text-align: center;font-size: 54px; color:red; font-family: fantasy;"><?php echo $total_confirm ?></h1>
               </div>
               <h1 class="card-title m-0" style="text-align: center;font-size: 34px;"></h1>
@@ -291,7 +291,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-md-12">
                     <div class="card card-danger card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Dewasa</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 35px;"> &nbsp;Dewasa</h1>
                             <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy;color:red;"> &nbsp; <?php echo $total_confirm_dew ?></h1>
                         </div>
 
@@ -306,13 +306,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                               <!-- <div class="text-title" style="font-size:18px;">
                                                   Sembuh
                                               </div> -->
-                                            
+                                              <div class="title-status" style="font-size:25px;">Sembuh</div>    
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RIDWS_CONFIRMSEMBUH']?>
                                                 </div>
                                               </div>
-                                              Sembuh
+                                              
                                             </div>
                                             </div>
                                         </div>
@@ -326,13 +326,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                           
+                                              <div class="title-status" style="font-size:25px;">Dirawat</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RIDWS_CONFIRMRAWATISO']?>
                                                 </div>
                                               </div>
-                                                Dirawat
+                                                <!-- Dirawat -->
                                             </div>
                                             </div>
                                         </div>
@@ -346,13 +346,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Meninggal</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RIDWS_CONFIRMMATI']?>
                                                 </div>
                                               </div>
-                                                Meninggal
+                                                <!-- Meninggal -->
                                             </div>
                                             </div>
                                         </div>
@@ -364,7 +364,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="card card-danger card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Anak</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 35px;"> &nbsp;Anak</h1>
                             <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_confirm_ank ?></h1>
                         </div>
 
@@ -377,13 +377,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                           
+                                              <div class="title-status" style="font-size:25px;">Sembuh</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIAN_CONFIRMSEMBUH'];?>
                                                 </div>
                                               </div>
-                                                Sembuh
+                                                <!-- Sembuh -->
                                             </div>
                                             </div>
                                         </div>
@@ -397,13 +397,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                           
+                                              <div class="title-status" style="font-size:25px;">Dirawat</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIAN_CONFIRMRAWATISO'];?>
                                                 </div>
                                               </div>
-                                            Dirawat
+                                            <!-- Dirawat -->
                                             </div>
                                             </div>
                                         </div>
@@ -416,13 +416,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Meniggal</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIAN_CONFIRMMATI'];?>
                                                 </div>
                                               </div>
-                                            Meninggal
+                                            <!-- Meninggal -->
                                             </div>
                                             </div>
                                         </div>
@@ -461,7 +461,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-6">
             <div class="card">
               <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                <h1 class="card-title m-0" style="text-align: center;font-size: 20px;"><i class="fa fa-user-injured" style="color: orange;"></i>  &nbsp; Suspect Covid-19</h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 40px;"><i class="fa fa-user-injured" style="color: orange;"></i>  &nbsp; Suspect Covid-19</h1>
                 <h1 class="card-title m-0" style="text-align: center;font-size: 54px;font-family: fantasy; color:orange;"><?php echo $total_suspect ?></h1>
               </div>
               <h1 class="card-title m-0" style="text-align: center;font-size: 34px;"></h1>
@@ -474,7 +474,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-md-12">
                     <div class="card card-warning card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Dewasa</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 35px;"> &nbsp;Dewasa</h1>
                             <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_sus_dew ?></h1>
                         </div>
 
@@ -486,13 +486,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Sembuh</div>
                                               <div class="col-md-12">
                                               <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIDWS_SUSPEKSEMBUH'] ?>
                                                 </div>
                                               </div>
-                                            Sembuh
+                                            <!-- Sembuh -->
                                             </div>
                                             </div>
                                         </div>
@@ -505,13 +505,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                            <div class="title-status" style="font-size:25px;">Dirawat</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIDWS_SUSPEKRAWAT'] ?>
                                                 </div>
                                               </div>
-                                            Dirawat
+                                            <!-- Dirawat -->
                                             </div>
                                             </div>
                                         </div>
@@ -525,13 +525,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Meninggal</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIDWS_SUSPEKMATI'] ?>
                                                 </div>
                                               </div>
-                                              Meninggal
+                                              <!-- Meninggal -->
                                             </div>
                                             </div>
                                         </div>
@@ -543,7 +543,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="card card-warning card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Anak</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 35px;"> &nbsp;Anak</h1>
                             <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_sus_ank ?></h1>
                         </div>
 
@@ -555,13 +555,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Sembuh</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIAN_SUSPEKSEMBUH'] ?>
                                                 </div>
                                               </div>
-                                            Sembuh
+                                            <!-- Sembuh -->
                                             </div>
                                             </div>
                                         </div>
@@ -574,13 +574,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Dirawat</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIAN_SUSPEKRAWAT'] ?>
                                                 </div>
                                               </div>
-                                              Dirawat
+                                              <!-- Dirawat -->
                                             </div>
                                             </div>
                                         </div>
@@ -594,13 +594,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                           
+                                              <div class="title-status" style="font-size:25px;">Meniggal</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                     <?php echo $data['status'][0]['RIAN_SUSPEKMATI'] ?>
                                                 </div>
                                               </div>
-                                              Meninggal
+                                              <!-- Meninggal -->
                                             </div>
                                             </div>
                                         </div>
@@ -657,7 +657,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-md-12">
                     <div class="card card-warning card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Dewasa</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 35px;"> &nbsp;Dewasa</h1>
                             <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_rj_dew ?></h1>
                         </div>
 
@@ -669,13 +669,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Sembuh</div>
                                               <div class="col-md-12">
                                               <div class="title-total" style="font-size:45px;">
                                                 <?php echo $data['status'][0]['RJDWS_SEMBUH'] ?>
                                                 </div>
                                               </div>
-                                            Sembuh
+                                            <!-- Sembuh -->
                                             </div>
                                             </div>
                                         </div>
@@ -688,13 +688,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Reactive</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RJDWS_REACTIVE'] ?>
                                                 </div>
                                               </div>
-                                            Reactive
+                                            <!-- Reactive -->
                                             </div>
                                             </div>
                                         </div>
@@ -708,13 +708,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Confirm Isolasi Mandiri</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RJDWS_CONFIRMISOMANDIRI'] ?>
                                                 </div>
                                               </div>
-                                              Confirm Isolasi Mandiri
+                                              <!-- Confirm Isolasi Mandiri -->
                                             </div>
                                             </div>
                                         </div>
@@ -727,13 +727,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Confirm Isolasi Rumah Dinas</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RJDWS_CONFIRMISORUMDIN'] ?>
                                                 </div>
                                               </div>
-                                              Confirm Isolasi Rumah Dinas
+                                              <!-- Confirm Isolasi Rumah Dinas -->
                                             </div>
                                             </div>
                                         </div>
@@ -745,7 +745,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="card card-warning card-outline">
                         <div class="card-header" style="text-align: center;align-items: center;display: grid;">
-                            <h1 class="card-title m-0" style="text-align: center;font-size: 25px;"> &nbsp;Anak</h1>
+                            <h1 class="card-title m-0" style="text-align: center;font-size: 35px;"> &nbsp;Anak</h1>
                             <h1 class="card-title m-0" style="text-align: center;font-size: 40px;font-family: fantasy; color:red;"><?php echo $total_rj_ank ?></h1>
                         </div>
 
@@ -757,13 +757,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Sembuh</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RJAN_SEMBUH'] ?>
                                                 </div>
                                               </div>
-                                            Sembuh
+                                            <!-- Sembuh -->
                                             </div>
                                             </div>
                                         </div>
@@ -776,13 +776,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                            
+                                              <div class="title-status" style="font-size:25px;">Reactive</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RJAN_REACTIVE'] ?>
                                                 </div>
                                               </div>
-                                              Reactive
+                                              <!-- Reactive -->
                                             </div>
                                             </div>
                                         </div>
@@ -796,13 +796,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                           
+                                              <div class="title-status" style="font-size:25px;">Confirm Isolasi Mandiri</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RJAN_CONFIRMISOMANDIRI'] ?>
                                                 </div>
                                               </div>
-                                              Confirm Isolasi Mandiri
+                                              <!-- Confirm Isolasi Mandiri -->
                                             </div>
                                             </div>
                                         </div>
@@ -815,13 +815,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="card-body body-padding">
                                             <div class="row">
                                             <div class="col-md-12 text-center">
-                                           
+                                              <div class="title-status" style="font-size:25px;">Confirm Isolasi Rumah Dinas</div>
                                               <div class="col-md-12">
                                                 <div class="title-total" style="font-size:45px;">
                                                   <?php echo $data['status'][0]['RJAN_CONFIRMISORUMDIN'] ?>
                                                 </div>
                                               </div>
-                                              Confirm Isolasi Rumah Dinas
+                                              <!-- Confirm Isolasi Rumah Dinas -->
                                             </div>
                                             </div>
                                         </div>
