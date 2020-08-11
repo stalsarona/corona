@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
  $total_global = $data['status'][0]['SEMBUH'] + $data['status'][0]['DIRAWAT'] + $data['status'][0]['MENINGGAL'] + $data['status'][0]['REACTIVE'] + $data['status'][0]['ISOMANDIRI'] + $data['status'][0]['ISORUMDIN'];
  $persen_sembuh = ($data['status'][0]['SEMBUH'] != 0) ? $data['status'][0]['SEMBUH']/$total_global*100 : 0;
  $persen_drwt = ($data['status'][0]['DIRAWAT'] != 0) ? $data['status'][0]['DIRAWAT']/$total_global*100 : 0;
- $persen_mnggal = ($data['status'][0]['MENINGGAL'] != 0) ? $data['status'][0]['MENIGGAL']/$total_global*100 : 0;
+ $persen_mnggal = ($data['status'][0]['MENINGGAL'] != 0) ? $data['status'][0]['MENINGGAL']/$total_global*100 : 0;
  $persen_reactive = ($data['status'][0]['REACTIVE'] != 0) ? $data['status'][0]['REACTIVE']/$total_global*100 : 0;
  $persen_isoman = ($data['status'][0]['ISOMANDIRI'] != 0) ? $data['status'][0]['ISOMANDIRI']/$total_global*100 : 0;
  $persen_isorudin = ($data['status'][0]['ISORUMDIN'] != 0) ? $data['status'][0]['ISORUMDIN']/$total_global*100 : 0;

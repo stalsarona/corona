@@ -145,7 +145,7 @@ class Covid_informasi extends CI_Controller {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu_dev_dev/rstugu/covid/simpan_total",
+          CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/simpan_total",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,

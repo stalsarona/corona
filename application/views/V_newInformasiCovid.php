@@ -21,8 +21,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
       .title-kesehatan{
         font-family: cursive;
         font-size: 40px;
-        color: green;
         padding-top: 55px;
+      }
+      .sembuh{
+        color: green;
+      }
+      .dirawat{
+        color: #ef9732;
+      }
+      .meniggal{
+        color: #dc3545;
       }
       .total-kesehatan{
         font-size: 90px;
@@ -67,7 +75,77 @@ scratch. This page gets rid of all links and provides the needed markup only.
         width: 20%;
         height: 65px;
         left: 40%;
-        border-radius:8px;
+        border-radius:7px 7px 0 0;
+      }
+      .content-header{
+        padding: 15px .5rem;
+        height: 143px;
+        position: relative;
+        border-radius: 0 0 100px 100px;
+        /* z-index: 0; */
+        width: 100%;
+        background-color: #9cca82;
+      }
+      .content{
+        position: relative;
+        bottom: 60px;
+      }
+      .navbar {
+        position:sticky;
+        top: 0;
+      }
+      .hexagon {
+        position: relative;
+        width: 300px; 
+        height: 173.21px;
+        background-color: #fff;
+        margin: 86.60px 0;
+        box-shadow: 0 0 20px rgba(0,0,0,0.35);
+      }
+      .hexagon:hover{
+        background: #9cca82;
+        -webkit-transition: all 0.25s ease-in;
+        transition: all 0.25s ease-in;
+      }
+      .hexagon:before,
+      .hexagon:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        width: 212.13px;
+        height: 212.13px;
+        -webkit-transform: scaleY(0.5774) rotate(-45deg);
+        -ms-transform: scaleY(0.5774) rotate(-45deg);
+        transform: scaleY(0.5774) rotate(-45deg);
+        background-color: inherit;
+        left: 43.9340px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.35);
+      }
+
+      .hexagon:before {
+        top: -106.0660px;
+      }
+
+      .hexagon:after {
+        bottom: -106.0660px;
+        background: #9cca82;
+      }
+
+      /*cover up extra shadows*/
+      .hexagon span {
+        display: block;
+        position: absolute;
+        top:0px;
+        left: 0;
+        width:300px;
+        height:173.2051px;
+        z-index: 2;
+        background: inherit;
+      }
+      .hexagon:hover:before {
+        height: 0;
+        -webkit-transition: all 0.45s ease-in;
+        transition: all 0.45s ease-in;
       }
   </style>
 </head>
@@ -265,6 +343,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container">
         <div class="row">
+          <div class="col-md-4">
+            <div class="hexagon">
+            <span></span>
+            </div>
+          </div>
           <div class="col-lg-4">
             <div class="card">
               <div class="card-body">
@@ -389,24 +472,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-body">
                   <div class="row">
-                        <div class="col-md-6" style="border-right-style:groove;">
+                        <div class="col-md-12" style="border-bottom-style:groove;">
                             <div class="ico-sehat" style="text-align: center;">
                                 <div class="title-kesehatan">Isolasi Mandiri</div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12">
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-6">
                                 <div class="total-kesehatan">
                                     80
                                 </div>
                             </div>
-                            <div class="col-md-12" style="border-top-style: groove;">
+                            <div class="col-md-6" style="border-left-style: groove;">
                                 <div class="total-persen">
                                     <span class="badge badge-success">
                                         20%
                                     </span>
                                 </div> 
                             </div>
+                          </div>
+                            
                         </div>
                   </div> 
                 <!-- <a href="#" class="card-link">Card link</a>
@@ -451,9 +537,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="line-buttom-rawat"></div>
               </div>
           </div> -->
-          <!-- Rawat Inap -->
-          <div class="col-lg-12">
-            <div class="card" style="background-color:#9cca82">
+          <!-- /.col-md-6 -->
+          
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+        
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+    <div class="content rawatinap" style="background-color:#9cca82">
+      <div class="container">
+        <!-- Rawat Inap -->
+        <div class="col-lg-12">
+            <div class="" style="background-color:#9cca82">
               <div class="card-header text-center" style="border-bottom: 0px;">
                 <div class="line-buttom"></div>
                 <div class="card-title m-0 header-kes text-white">
@@ -551,46 +648,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.card -->
           </div>
           <!-- Rawat Inap -->
-          <div class="col-lg-12">
-            <div class="card" style="background-color: #7dba75;">
-              <div class="card-header">
-                <h5 class="card-title m-0">Rawat Jalan</h5>
-              </div>
-              <div class="card-body">
-                  <div class="row">
-                      <div class="col-md-4">
-                        <div class="row">
-                          <div class="col-md-6">Sembuh</div>
-                          <div class="col-md-6">90 <span class="badge badge-primary">30%</span></div>
-                        </div>
-                      </div>   
-                      <div class="col-md-4">
-                        <div class="row">
-                          <div class="col-md-6">Di Rawat</div>
-                          <div class="col-md-6">90 <span class="badge badge-primary">30%</span></div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="row">
-                          <div class="col-md-6">Meninggal</div>
-                          <div class="col-md-6">90 <span class="badge badge-primary">30%</span></div>
-                        </div>
-                      </div>                  
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
-              </div>
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
     </div>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
