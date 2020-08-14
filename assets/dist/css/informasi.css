@@ -97,6 +97,9 @@
     .title-totaliso {
       margin: -12px;
     }
+    tspan {
+      font-size : 20px;
+    }
   }
   @media(max-width: 375px){
     .title-total{
@@ -155,6 +158,9 @@
     .h-iso-non-rs{
       width: max-content;
     }
+    tspan {
+      font-size : 20px;
+    }
   }
   
   .badge-sembuh{
@@ -176,4 +182,15 @@
   .title-rinap {
     text-align: center;
     font-size: 40px;
+  }
+  .font-bold{
+    font-weight: bold;
+  }
+  .chartdiv {
+    width: 100%;
+    height: 500px;
+  }
+  tspan {
+    font-size : 25px;
+    font-weight: 100;
   }

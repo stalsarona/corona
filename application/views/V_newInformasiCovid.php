@@ -98,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         position: relative;
         width: 300px; 
         height: 173.21px;
-        background-color: #fff;
+        background-color: #9cca82;
         margin: 86.60px 0;
         box-shadow: 0 0 20px rgba(0,0,0,0.35);
       }
@@ -146,6 +146,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
         height: 0;
         -webkit-transition: all 0.45s ease-in;
         transition: all 0.45s ease-in;
+      }
+      .title-hexa{
+        font-size: 2em;
+        padding-left: 14%;    
+        font-weight: 100;
+        color: #7a8474;
+        background-color: white;
+        border-radius: 20px;
+        width: 300px;
+      }
+      .title-hexa-bawah{
+        font-size: 2em;
+        text-align: center;  
+        font-weight: 100;
+        color: #7a8474;
+        background-color: white;
+        border-radius: 20px;
+        width: 310px;
       }
   </style>
 </head>
@@ -341,11 +359,92 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-      <div class="container">
+      <div class="container new-container" style="max-width:1350px;">
         <div class="row">
-          <div class="col-md-4">
-            <div class="hexagon">
-            <span></span>
+          <div class="col-md-12 contains-hexa" style="left:0;">
+            <div class="row">
+              <div class="col-md-6" style="left:12%;">
+                <div class="hexagon">
+                  <span></span>
+                  <div class="total-pas" style="    position: absolute;
+                    z-index: 10;
+                    left: 24%;
+                    top: -25%;
+                    font-size: 10em;
+                    color: white;
+                    border-bottom-style: inset;">90</div>
+                </div>
+                <div class="title-hexa">SEMBUH</div>
+              </div>
+              <div class="col-md-6" style="left: 12%;">
+                <div class="hexagon">
+                  <span></span>
+                  <div class="total-pas" style="    position: absolute;
+                    z-index: 10;
+                    left: 24%;
+                    top: -25%;
+                    font-size: 10em;
+                    color: white;
+                    border-bottom-style: inset;">90</div>
+                </div>
+                <div class="title-hexa">DI RAWAT</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 contains-hexa">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="hexagon">
+                  <span></span>
+                  <div class="total-pas" style="    position: absolute;
+                    z-index: 10;
+                    left: 24%;
+                    top: -25%;
+                    font-size: 10em;
+                    color: white;
+                    border-bottom-style: inset;">90</div>
+                </div>
+                <div class="title-hexa-bawah">MENINGGAL</div>
+              </div>
+              <div class="col-md-3">
+                <div class="hexagon">
+                  <span></span>
+                  <div class="total-pas" style="    position: absolute;
+                    z-index: 10;
+                    left: 24%;
+                    top: -25%;
+                    font-size: 10em;
+                    color: white;
+                    border-bottom-style: inset;">90</div>
+                </div>
+                <div class="title-hexa-bawah">REACTIVE</div>
+              </div>
+              <div class="col-md-3">
+                <div class="hexagon">
+                  <span></span>
+                  <div class="total-pas" style="    position: absolute;
+                    z-index: 10;
+                    left: 24%;
+                    top: -25%;
+                    font-size: 10em;
+                    color: white;
+                    border-bottom-style: inset;">90</div>
+                </div>
+                <div class="title-hexa-bawah">ISOLASI MANDIRI</div>
+              </div>
+              <div class="col-md-3">
+                <div class="hexagon">
+                  <span></span>
+                  <div class="total-pas" style="    position: absolute;
+                    z-index: 10;
+                    left: 24%;
+                    top: -25%;
+                    font-size: 10em;
+                    color: white;
+                    border-bottom-style: inset;">90</div>
+                </div>
+                <div class="title-hexa-bawah">ISOLASI RUMAH DINAS</div>
+              </div>
             </div>
           </div>
           <div class="col-lg-4">

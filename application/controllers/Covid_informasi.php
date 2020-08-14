@@ -65,7 +65,7 @@ class Covid_informasi extends CI_Controller {
     
     public function private_token()
 	{
-		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu_dev/rstugu/covid/private_token/";
+		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/private_token/";
         $data = json_decode($this->get_cors($url), TRUE);
        
 		return $data;
@@ -88,6 +88,7 @@ class Covid_informasi extends CI_Controller {
         //print_r($data['status']);
         return $data;
     }
+    
     
     public function simpan_total()
     {
@@ -194,6 +195,71 @@ class Covid_informasi extends CI_Controller {
        
         return $response;
        
+    }
+
+    public function info_statistik()
+    {
+        $this->load->view('dashboard/V_dashboard');  
+    }
+    
+    public function get_statistik_kasus()
+    {
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/get_covid_new";
+        $data = json_decode($this->get_cors($url), TRUE);
+        $hasil = array();
+        foreach ($data['status'] as $key) {
+            $hasil = array('sembuh' => $key['SEMBUH'],
+                           'dirawat' => $key['DIRAWAT'],
+                           'meninggal' => $key['MENINGGAL'],
+                           'reactive' => $key['REACTIVE'],    
+            );
+            foreach ($hasil as $hasil => $item) {
+                $datanew[] = array('title' => $hasil, 'total' => $item);
+            }
+        }
+       
+        //$result = array(array('title' => 'sembuh', 'value' => $hasil['sembuh']));
+        $this->output->set_content_type('application/json')->set_output(json_encode($datanew));
+    }
+
+    public function statistik_gender()
+    {
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/statistik_gender";
+        $data = json_decode($this->get_cors($url), TRUE);
+        $key = $data['data'];
+        $this->output->set_content_type('application/json')->set_output(json_encode($key));
+    }
+
+    public function statistik_age()
+    {
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/statistik_age";
+        $data = json_decode($this->get_cors($url), TRUE);
+        $key = $data['data'];
+        $this->output->set_content_type('application/json')->set_output(json_encode($key));
+    }
+
+    public function statistik_rekapbulan()
+    {
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/statistik_rekapbulan";
+        $data = json_decode($this->get_cors($url), TRUE);
+        $key = $data['data'];
+        $this->output->set_content_type('application/json')->set_output(json_encode($key));
+    }
+
+    public function statistik_persentaseSembuh()
+    {
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/statistik_persentaseSembuh";
+        $data = json_decode($this->get_cors($url), TRUE);
+        $key = $data['data'];
+        $this->output->set_content_type('application/json')->set_output(json_encode($key));
+    }
+
+    public function statistik_persentaseKematian()
+    {
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/statistik_persentaseMeninggal";
+        $data = json_decode($this->get_cors($url), TRUE);
+        $key = $data['data'];
+        $this->output->set_content_type('application/json')->set_output(json_encode($key));
     }
 
 
