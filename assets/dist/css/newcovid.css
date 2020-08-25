@@ -1,0 +1,112 @@
+.widget-user .widget-user-header{
+    height: 300px;
+}
+.widget-user .card-footer{
+    padding-top: 0px;
+    height: 150px;
+}
+.health{
+    background: linear-gradient(35deg, #84db98, #28a745);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 25s ease infinite;
+    -moz-animation: AnimationName 25s ease infinite;
+    animation: AnimationName 25s ease infinite;
+}
+.treated{
+    background: linear-gradient(35deg, #fdb32d, #ce8705);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 25s ease infinite;
+    -moz-animation: AnimationName 25s ease infinite;
+    animation: AnimationName 25s ease infinite;
+}
+.death{
+    background: linear-gradient(35deg, #ea949c, #dc3545);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 25s ease infinite;
+    -moz-animation: AnimationName 25s ease infinite;
+    animation: AnimationName 25s ease infinite;
+}
+.reactive{
+    background: linear-gradient(36deg, #dd6f6f, #a52a2a);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 25s ease infinite;
+    -moz-animation: AnimationName 25s ease infinite;
+    animation: AnimationName 25s ease infinite;
+}
+.isoman{
+    background: linear-gradient(35deg, #c8a2a2,#808080,);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 25s ease infinite;
+    -moz-animation: AnimationName 25s ease infinite;
+    animation: AnimationName 25s ease infinite;
+}
+.isorumdin{
+    background: linear-gradient(35deg, #9ba2c3, #6c84f1);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 25s ease infinite;
+    -moz-animation: AnimationName 25s ease infinite;
+    animation: AnimationName 25s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:91% 0%}
+    50%{background-position:10% 100%}
+    100%{background-position:91% 0%}
+}
+.detail-health{
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-top: 11%;
+}
+.detail-health-iso{
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+.title-total {
+    position: relative;
+    font-size: 10em;
+}
+.title-persent{
+    position: relative;
+    left: 40%;
+    bottom: 30%;
+    font-size: 30px;
+}
+.number-health{
+    color: #28a745;
+}
+.number-treated{
+    color: #ce8705;
+}
+.number-death{
+    color: #dc3545;
+}
+.number-reactive{
+    color: #a52a2a;
+}
+.number-isoman{
+    color: #808080;
+}
+.number-isorumdin{
+    color: #6c84f1;
+}

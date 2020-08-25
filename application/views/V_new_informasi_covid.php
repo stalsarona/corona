@@ -64,14 +64,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle active">Informasi</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-            <li><a href="<?php echo site_url() ?>" class="dropdown-item">Deteksi Awal Covid-19</a></li>
+              <li><a href="<?php echo site_url() ?>" class="dropdown-item">Deteksi Awal Covid-19</a></li>
               <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item active">Informasi Covid-19</a></li>
-              <!-- Level two dropdown-->
-              <!-- End Level two -->
             </ul>
           </li>
       </ul>
-      <ul class="menu navbar-nav ml-auto" style="display: none;">
+      <ul class="menu navbar-nav ml-auto" style="display: block;">
         <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <?php echo $this->session->userdata('username')?>
@@ -121,16 +119,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<div class="content">
       <div class="row">
       <div class="col-md-12">
-          <div class="card card-primary">
-            <div class="card-header">
-              <div class="card-title"> Pergerakan Total Kasus Pasien Covid-19</div>
-              <div class="card-tools"></div>
-            </div>
-            <div class="card-body">
-              <div id="chartRekapBulan" class="chartdiv"></div>
-            </div>
+        <div class="card card-primary">
+          <div class="card-header">
+            <div class="card-title"> Pergerakan Total Kasus Pasien Covid-19</div>
+            <div class="card-tools"></div>
+          </div>
+          <div class="card-body">
+            <div id="chartRekapBulan" class="chartdiv"></div>
           </div>
         </div>
+      </div>
 
         <div class="col-md-6">
           <div class="card card-primary">
@@ -190,7 +188,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card card-danger card-outline">
               <div class="card-header" style="text-align: center;align-items: center;display: grid;font-family: fantasy;">
-                <h1 class="card-title m-0" style="text-align: center;font-size: 34px;">&nbsp;Informasi Pasien Covid-19 NEW</h1>
+                <h1 class="card-title m-0" style="text-align: center;font-size: 34px;">&nbsp;Informasi Pasien Covid-19</h1>
               </div>
               <h1 class="card-title m-0" style="text-align: center;font-size: 60px; color:red;"> &nbsp; <i class="fa fa-user" style="color: red;"></i> <b>TOTAL KASUS <?php echo $total_global ?></b></h1>
             <div class="card-body">
@@ -327,8 +325,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                     </div>
                 </div>
-                
-              
               
               <!-- Circles which indicates the steps of the form: -->
               

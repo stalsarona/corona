@@ -161,14 +161,14 @@ input.invalid {
   }
 }
 
-.img-background{
+/* .img-background{
   background-image: url(./../assets/images/pattern_v2.png);
   width: 100%;
   height: 100%;
   position: absolute;
   background-repeat: round;
   background-size: auto;
-}
+} */
 .main-footer{
   z-index: 1034;
   justify-content: flex-start;

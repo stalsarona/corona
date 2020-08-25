@@ -20,6 +20,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/style.css');?>">
+ 
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css'); ?>">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css'); ?>">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css'); ?>">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2/css/select2.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css'); ?>">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css'); ?>">
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -41,8 +53,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
             <li><a href="<?php echo site_url() ?>" class="dropdown-item active">Deteksi Awal Covid-19</a></li>
               <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item">Informasi Covid-19</a></li>
-              <!-- Level two dropdown-->
-              <!-- End Level two -->
             </ul>
           </li>
       </ul>
@@ -151,6 +161,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
               <div class="row">
                 <div class="col-sm-6">
+                    <label>Tanggal Lahir:</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input color-text" data-target="#reservationdate" name="ttl" id="ttl" placeholder="Tanggal Lahir"/>
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
                   <!-- select -->
                   <div class="form-group">
                     <label>Provinsi :</label>
@@ -165,6 +184,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <input type="hidden" placeholder="Kota" name="id_kota" id="id_kota" autocomplete="off" class="form-control reset">
                   </div>
                 </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                  <label style="background-color: white;">Kelurahan :</label>
+                    <input type="text" placeholder="Kelurahan" name="kel" id="kel" autocomplete="off" class="form-control color-text reset validate">
+                    <input type="hidden" placeholder="Kelurahan" name="id_kel" id="id_kel" autocomplete="off" class="form-control reset">
+                  </div>
+                </div>
+                
               </div>
               <div class="row">
                 <div class="col-sm-6">
@@ -177,9 +204,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                  <label style="background-color: white;">Kelurahan :</label>
-                    <input type="text" placeholder="Kelurahan" name="kel" id="kel" autocomplete="off" class="form-control color-text reset validate">
-                    <input type="hidden" placeholder="Kelurahan" name="id_kel" id="id_kel" autocomplete="off" class="form-control reset">
+                    <label>No Telp :</label>
+                    <input type="text" placeholder="No. Telp" name="telp" id="telp" autocomplete="off" onkeyup="allowNumbersOnly(this, event)" maxlength="14" class="form-control color-text reset validate">
                   </div>
                 </div>
               </div>
@@ -207,12 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
               </div>	
               <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label>No Telp :</label>
-                    <input type="text" placeholder="No. Telp" name="telp" id="telp" autocomplete="off" onkeyup="allowNumbersOnly(this, event)" maxlength="14" class="form-control color-text reset validate">
-                  </div>
-                </div>
+                
               </div>
               </div>
               <div class="tab">
@@ -312,6 +333,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- bs-custom-file-input -->
 <script src="<?php echo base_url('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js');?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="<?php echo base_url('assets/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') ; ?>"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url('assets/plugins/moment/moment.min.js') ; ?>"></script>
+<script src="<?php echo base_url('assets/plugins/inputmask/jquery.inputmask.min.js') ; ?>"></script>
+<!-- date-range-picker -->
+<!-- bootstrap color picker -->
+<script src="<?php echo base_url('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') ; ?>"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?php echo base_url('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ; ?>"></script>
+<!-- Bootstrap Switch -->
+<script src="<?php echo base_url('assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') ; ?>"></script>
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
@@ -459,6 +492,11 @@ function allowNumbersOnly(a, event) {
   }
 
   $(function () {
+
+    $('#reservationdate').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+
     $(window).scroll(function() {
       if ($(this).scrollTop() > 100) {
         $('.back-to-top').fadeIn('slow');
@@ -501,23 +539,84 @@ function allowNumbersOnly(a, event) {
     $('#ktp').keyup(function(e){
         e.preventDefault();
         var ktp = $(this).val();
+        var ttl = $('#ttl').val();
         if(e.keyCode == 13){
-          $.ajax({
-            type: "POST",
-            url: "<?php echo base_url('screening_c/get_js')?>",
-            data: {ktp : ktp},
-            dataType: "json",
-            beforeSend: function() {
-              $('.overlay').css('display', 'block');
-            },
-            success: function (response) {
-              $('.overlay').css('display', 'none');
-              if(response == null || response == ""){
-                $('.reset').val('')
-                //alert(response.content.RESPON)
-              } else if(response.content.RESPON) {
-                $('.reset').val('')
-              } else {
+          if(ktp == "" || ttl == ""){
+            swal('Maaf', 'KTP & Tanggal Lahir harus di isi', 'info');
+          } else {
+            $.ajax({
+              type: "POST",
+              url: "<?php echo base_url('screening_c/get_js')?>",
+              data: {ktp : ktp, 'ttl' : ttl},
+              dataType: "json",
+              beforeSend: function() {
+                $('.overlay').css('display', 'block');
+              },
+              success: function (response) {
+                
+                $('.overlay').css('display', 'none');
+                if(response == null || response == ""){
+                  $('.reset').val('')
+                  //alert(response.content.RESPON)
+                } else if(response.content.RESPON) {
+                  $('.reset').val('')
+                } else {
+                  var real_ttl = moment(response.content[0].TGL_LHR).format('DD/MM/YYYY');
+                  if(real_ttl === ttl){
+                    $('#nama').val(response.content[0].NAMA_LGKP)
+                    $('#prov').val(response.content[0].NAMA_PROP)
+                    $('#id_prov').val(response.content[0].NO_PROP)
+                    $('#kota').val(response.content[0].NAMA_KAB)
+                    $('#id_kota').val(response.content[0].NO_KAB)
+                    $('#kec').val(response.content[0].NAMA_KEC)
+                    $('#id_kec').val(response.content[0].NO_KEC)
+                    $('#kel').val(response.content[0].NAMA_KEL)
+                    $('#id_kel').val(response.content[0].NO_KEL)
+                    $('#alamat').val(response.content[0].ALAMAT)
+                    $('#rt').val(response.content[0].NO_RT)
+                    $('#rw').val(response.content[0].NO_RW)
+                  } else {
+                    swal('Informasi','Tanggal lahir berbeda','info')
+                  }
+                }
+              }
+            });
+          }
+        }
+      })
+
+    $('#btncari').on('click',function(){
+      var ktp = $('#ktp').val();
+      var obj = document.forms.namedItem("regForm")
+      var ttl = $('#ttl').val();
+      if(ktp == "" || ttl == ""){
+        swal('Maaf', 'KTP & Tanggal Lahir harus di isi', 'info');
+      } else {
+        $.ajax({
+          type: "POST",
+          url: "<?php echo base_url('screening_c/get_js')?>",
+          //data : {ktp : ktp},
+          processData:false,
+          contentType:false,
+          cache:false,
+          async:true,
+          crossOrigin : true,
+          data: new FormData(obj),
+          dataType: "json",
+          beforeSend: function() {
+            $('.overlay').css('display', 'block');
+          },
+          success: function (response) {
+                    
+            $('.overlay').css('display', 'none');
+            if(response == null || response == ""){
+              $('.reset').val('')
+              //alert(response.content.RESPON)
+            } else if(response.content.RESPON) {
+              $('.reset').val('')
+            } else {
+              var real_ttl = moment(response.content[0].TGL_LHR).format('DD/MM/YYYY');
+              if(real_ttl === ttl){
                 $('#nama').val(response.content[0].NAMA_LGKP)
                 $('#prov').val(response.content[0].NAMA_PROP)
                 $('#id_prov').val(response.content[0].NO_PROP)
@@ -530,52 +629,14 @@ function allowNumbersOnly(a, event) {
                 $('#alamat').val(response.content[0].ALAMAT)
                 $('#rt').val(response.content[0].NO_RT)
                 $('#rw').val(response.content[0].NO_RW)
+              } else {
+                swal('Informasi','Tanggal lahir berbeda','info')
               }
+              
             }
-          });
-        }
-    })
-
-    $('#btncari').on('click',function(){
-      var ktp = $('#ktp').val();
-      var obj = document.forms.namedItem("regForm")
-      $.ajax({
-        type: "POST",
-        url: "<?php echo base_url('screening_c/get_js')?>",
-        //data : {ktp : ktp},
-        processData:false,
-        contentType:false,
-        cache:false,
-        async:true,
-        crossOrigin : true,
-        data: new FormData(obj),
-        dataType: "json",
-        beforeSend: function() {
-          $('.overlay').css('display', 'block');
-        },
-        success: function (response) {
-          $('.overlay').css('display', 'none');
-          if(response == null || response == ""){
-            $('.reset').val('')
-            //alert(response.content.RESPON)
-          } else if(response.content.RESPON) {
-            $('.reset').val('')
-          } else {
-            $('#nama').val(response.content[0].NAMA_LGKP)
-            $('#prov').val(response.content[0].NAMA_PROP)
-            $('#id_prov').val(response.content[0].NO_PROP)
-            $('#kota').val(response.content[0].NAMA_KAB)
-            $('#id_kota').val(response.content[0].NO_KAB)
-            $('#kec').val(response.content[0].NAMA_KEC)
-            $('#id_kec').val(response.content[0].NO_KEC)
-            $('#kel').val(response.content[0].NAMA_KEL)
-            $('#id_kel').val(response.content[0].NO_KEL)
-            $('#alamat').val(response.content[0].ALAMAT)
-            $('#rt').val(response.content[0].NO_RT)
-            $('#rw').val(response.content[0].NO_RW)
           }
-        }
-      });
+        });
+      }
     })
   });
 </script>

@@ -15,157 +15,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url()?>assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo base_url()?>assets/dist/css/newcovid.css">
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300&display=swap" rel="stylesheet">
+  <!-- open sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   <style>
-      .title-kesehatan{
-        font-family: cursive;
-        font-size: 40px;
-        padding-top: 55px;
-      }
-      .sembuh{
-        color: green;
-      }
-      .dirawat{
-        color: #ef9732;
-      }
-      .meniggal{
-        color: #dc3545;
-      }
-      .total-kesehatan{
-        font-size: 90px;
-        color: green;
-      }
-      .total-persen{
-          font-size : 40px;
-      }
-      .line-buttom{
-        border-bottom: 2px solid rgba(253, 249, 249, 0.99);
-        position: absolute;
-        bottom: 0;
-        width: 20%;
-        left: 40%;
-      }
-      .text-white{
-        color: white;
-      }
-      .text-green{
-        color: #7dba75;
-        position: relative;
-      }
-      .header-kes{
-        font-size: 30px;
-      }
-      .oval{
-        padding:20px;
-      }
-      .title-kes-center{
-        padding: 5px;
-        text-align: center;
-      }
-      .conten-sub{
-        background-color: white;
-        border-radius: 20px; 
-        box-shadow:0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
-      }
-      .line-rawat{
-        background-color: #f4f6f9;
-        position: absolute;
-        top: 10%;
-        width: 20%;
-        height: 65px;
-        left: 40%;
-        border-radius:7px 7px 0 0;
-      }
-      .content-header{
-        padding: 15px .5rem;
-        height: 143px;
-        position: relative;
-        border-radius: 0 0 100px 100px;
-        /* z-index: 0; */
+      
+      .chartdiv {
         width: 100%;
-        background-color: #9cca82;
-      }
-      .content{
-        position: relative;
-        bottom: 60px;
-      }
-      .navbar {
-        position:sticky;
-        top: 0;
-      }
-      .hexagon {
-        position: relative;
-        width: 300px; 
-        height: 173.21px;
-        background-color: #9cca82;
-        margin: 86.60px 0;
-        box-shadow: 0 0 20px rgba(0,0,0,0.35);
-      }
-      .hexagon:hover{
-        background: #9cca82;
-        -webkit-transition: all 0.25s ease-in;
-        transition: all 0.25s ease-in;
-      }
-      .hexagon:before,
-      .hexagon:after {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        width: 212.13px;
-        height: 212.13px;
-        -webkit-transform: scaleY(0.5774) rotate(-45deg);
-        -ms-transform: scaleY(0.5774) rotate(-45deg);
-        transform: scaleY(0.5774) rotate(-45deg);
-        background-color: inherit;
-        left: 43.9340px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.35);
-      }
-
-      .hexagon:before {
-        top: -106.0660px;
-      }
-
-      .hexagon:after {
-        bottom: -106.0660px;
-        background: #9cca82;
-      }
-
-      /*cover up extra shadows*/
-      .hexagon span {
-        display: block;
-        position: absolute;
-        top:0px;
-        left: 0;
-        width:300px;
-        height:173.2051px;
-        z-index: 2;
-        background: inherit;
-      }
-      .hexagon:hover:before {
-        height: 0;
-        -webkit-transition: all 0.45s ease-in;
-        transition: all 0.45s ease-in;
-      }
-      .title-hexa{
-        font-size: 2em;
-        padding-left: 14%;    
-        font-weight: 100;
-        color: #7a8474;
-        background-color: white;
-        border-radius: 20px;
-        width: 300px;
-      }
-      .title-hexa-bawah{
-        font-size: 2em;
-        text-align: center;  
-        font-weight: 100;
-        color: #7a8474;
-        background-color: white;
-        border-radius: 20px;
-        width: 310px;
+        height: 500px;
       }
   </style>
+   <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -343,14 +209,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Top Navigation <small>Example 3.0</small></h1>
+            <h1 class="m-0 text-dark"> <small></small></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Layout</a></li>
-              <li class="breadcrumb-item active">Top Navigation</li>
-            </ol>
+            
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -359,394 +221,210 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-      <div class="container new-container" style="max-width:1350px;">
+      <div class="chartRekap">
         <div class="row">
-          <div class="col-md-12 contains-hexa" style="left:0;">
-            <div class="row">
-              <div class="col-md-6" style="left:12%;">
-                <div class="hexagon">
-                  <span></span>
-                  <div class="total-pas" style="    position: absolute;
-                    z-index: 10;
-                    left: 24%;
-                    top: -25%;
-                    font-size: 10em;
-                    color: white;
-                    border-bottom-style: inset;">90</div>
-                </div>
-                <div class="title-hexa">SEMBUH</div>
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <div class="card-title"> Pergerakan Total Kasus Pasien Covid-19</div>
+                <div class="card-tools"></div>
               </div>
-              <div class="col-md-6" style="left: 12%;">
-                <div class="hexagon">
-                  <span></span>
-                  <div class="total-pas" style="    position: absolute;
-                    z-index: 10;
-                    left: 24%;
-                    top: -25%;
-                    font-size: 10em;
-                    color: white;
-                    border-bottom-style: inset;">90</div>
-                </div>
-                <div class="title-hexa">DI RAWAT</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 contains-hexa">
-            <div class="row">
-              <div class="col-md-3">
-                <div class="hexagon">
-                  <span></span>
-                  <div class="total-pas" style="    position: absolute;
-                    z-index: 10;
-                    left: 24%;
-                    top: -25%;
-                    font-size: 10em;
-                    color: white;
-                    border-bottom-style: inset;">90</div>
-                </div>
-                <div class="title-hexa-bawah">MENINGGAL</div>
-              </div>
-              <div class="col-md-3">
-                <div class="hexagon">
-                  <span></span>
-                  <div class="total-pas" style="    position: absolute;
-                    z-index: 10;
-                    left: 24%;
-                    top: -25%;
-                    font-size: 10em;
-                    color: white;
-                    border-bottom-style: inset;">90</div>
-                </div>
-                <div class="title-hexa-bawah">REACTIVE</div>
-              </div>
-              <div class="col-md-3">
-                <div class="hexagon">
-                  <span></span>
-                  <div class="total-pas" style="    position: absolute;
-                    z-index: 10;
-                    left: 24%;
-                    top: -25%;
-                    font-size: 10em;
-                    color: white;
-                    border-bottom-style: inset;">90</div>
-                </div>
-                <div class="title-hexa-bawah">ISOLASI MANDIRI</div>
-              </div>
-              <div class="col-md-3">
-                <div class="hexagon">
-                  <span></span>
-                  <div class="total-pas" style="    position: absolute;
-                    z-index: 10;
-                    left: 24%;
-                    top: -25%;
-                    font-size: 10em;
-                    color: white;
-                    border-bottom-style: inset;">90</div>
-                </div>
-                <div class="title-hexa-bawah">ISOLASI RUMAH DINAS</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card">
               <div class="card-body">
-                  <div class="row">
-                        <div class="col-md-6" style="border-right-style:groove;">
-                            <div class="ico-sehat" style="text-align: center;">
-                                <div class="title-kesehatan">Sembuh</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12">
-                                <div class="total-kesehatan">
-                                    80
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="border-top-style: groove;">
-                                <div class="total-persen">
-                                    <span class="badge badge-success">
-                                        20%
-                                    </span>
-                                </div> 
-                            </div>
-                        </div>
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
+                <div id="chartRekapBulan" class="chartdiv"></div>
               </div>
             </div>
-            <!-- /.card -->
           </div>
-          <div class="col-lg-4">
-            <div class="card">
+          <div class="col-md-6">
+            <div class="card card-primary">
+              <div class="card-header">
+                <div class="card-title"> Persentase Kesembuhan Pasien Covid-19</div>
+                <div class="card-tools"></div>
+              </div>
               <div class="card-body">
-                  <div class="row">
-                        <div class="col-md-6" style="border-right-style:groove;">
-                            <div class="ico-sehat" style="text-align: center;">
-                                <div class="title-kesehatan">Di Rawat</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12">
-                                <div class="total-kesehatan">
-                                    80
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="border-top-style: groove;">
-                                <div class="total-persen">
-                                    <span class="badge badge-success">
-                                        20%
-                                    </span>
-                                </div> 
-                            </div>
-                        </div>
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
+                <div id="chartPersentaseSembuh" class="chartdiv"></div>
               </div>
             </div>
-            <!-- /.card -->
           </div>
-          <div class="col-lg-4">
-            <div class="card">
+          <div class="col-md-6">
+            <div class="card card-primary">
+              <div class="card-header">
+                <div class="card-title"> Persentase Kematian Pasien Covid-19</div>
+                <div class="card-tools"></div>
+              </div>
               <div class="card-body">
-                  <div class="row">
-                        <div class="col-md-6" style="border-right-style:groove;">
-                            <div class="ico-sehat" style="text-align: center;">
-                                <div class="title-kesehatan">Meniggal</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12">
-                                <div class="total-kesehatan">
-                                    80
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="border-top-style: groove;">
-                                <div class="total-persen">
-                                    <span class="badge badge-success">
-                                        20%
-                                    </span>
-                                </div> 
-                            </div>
-                        </div>
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
+                <div id="chartPersentaseKematian" class="chartdiv"></div>
               </div>
             </div>
-            <!-- /.card -->
           </div>
-          <div class="col-lg-4">
-            <div class="card">
+          <div class="col-md-6">
+            <div class="card card-primary">
+              <div class="card-header">
+                <div class="card-title"> Pasien Covid-19 Berdasarkan Jenis Kelamin</div>
+                <div class="card-tools"></div>
+              </div>
               <div class="card-body">
-                  <div class="row">
-                        <div class="col-md-6" style="border-right-style:groove;">
-                            <div class="ico-sehat" style="text-align: center;">
-                                <div class="title-kesehatan">Reactive</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12">
-                                <div class="total-kesehatan">
-                                    80
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="border-top-style: groove;">
-                                <div class="total-persen">
-                                    <span class="badge badge-success">
-                                        20%
-                                    </span>
-                                </div> 
-                            </div>
-                        </div>
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
+                <div id="chartGender" class="chartdiv"></div>
               </div>
             </div>
-            <!-- /.card -->
           </div>
-          <div class="col-lg-4">
-            <div class="card">
+          <div class="col-md-6">
+            <div class="card card-primary">
+              <div class="card-header">
+                <div class="card-title"> Pasien Covid-19 Berdasarkan Jenis Usia</div>
+                <div class="card-tools"></div>
+              </div>
               <div class="card-body">
-                  <div class="row">
-                        <div class="col-md-12" style="border-bottom-style:groove;">
-                            <div class="ico-sehat" style="text-align: center;">
-                                <div class="title-kesehatan">Isolasi Mandiri</div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="row">
-                            <div class="col-md-6">
-                                <div class="total-kesehatan">
-                                    80
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="border-left-style: groove;">
-                                <div class="total-persen">
-                                    <span class="badge badge-success">
-                                        20%
-                                    </span>
-                                </div> 
-                            </div>
-                          </div>
-                            
-                        </div>
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
+                <div id="chartAge" class="chartdiv"></div>
               </div>
             </div>
-            <!-- /.card -->
           </div>
-          <div class="col-lg-4">
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                        <div class="col-md-6" style="border-right-style:groove;">
-                            <div class="ico-sehat" style="text-align: center;">
-                                <div class="title-kesehatan">Isolasi RumDin</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12">
-                                <div class="total-kesehatan">
-                                    80
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="border-top-style: groove;">
-                                <div class="total-persen">
-                                    <span class="badge badge-success">
-                                        20%
-                                    </span>
-                                </div> 
-                            </div>
-                        </div>
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
-              </div>
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- <div class="col-lg-12">
-              <div class="sparator text-center">
-                  <div class="rawat-inap">Rawat Inap</div>
-                  <div class="line-buttom-rawat"></div>
-              </div>
-          </div> -->
-          <!-- /.col-md-6 -->
-          
-          <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
-        
-      </div><!-- /.container-fluid -->
+      </div>
     </div>
+    
     <!-- /.content -->
-    <div class="content rawatinap" style="background-color:#9cca82">
-      <div class="container">
-        <!-- Rawat Inap -->
-        <div class="col-lg-12">
-            <div class="" style="background-color:#9cca82">
-              <div class="card-header text-center" style="border-bottom: 0px;">
-                <div class="line-buttom"></div>
-                <div class="card-title m-0 header-kes text-white">
-                    Confirm Covid-19
-                </div>
-                <div class="m-0 header-kes text-white" style="padding-right: 24%;">
-                    Dewasa
-                </div>
-              </div>
-              <div class="card-body">
-                  <div class="row">
-                      <div class="col-md-4 oval">
-                        <div class="row conten-sub" style="background-color: white;border-radius: 20px">
-                          <div class="col-md-8 title-kes-center">
-                            <div class="title-kes text-green" style="font-size: 40px;">
-                              Sembuh
-                            </div>
-                          </div>
-                          <div class="col-md-4 text-green"><div class="persen" style="font-size:50px;">90</div></div>
-                        </div>
-                      </div>   
-                      <div class="col-md-4 oval">
-                        <div class="row conten-sub" style="background-color: white;border-radius: 20px">
-                          <div class="col-md-8 title-kes-center">
-                            <div class="title-kes text-green" style="font-size: 40px;">
-                              Di Rawat
-                            </div>
-                          </div>
-                          <div class="col-md-4 text-green"><div class="persen" style="font-size:50px;">90</div></div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 oval">
-                        <div class="row conten-sub" style="background-color: white;border-radius: 20px">
-                          <div class="col-md-8 title-kes-center">
-                            <div class="title-kes text-green" style="font-size: 40px;">
-                              Meninggal
-                            </div>
-                          </div>
-                          <div class="col-md-4 text-green"><div class="persen" style="font-size:50px;">90</div></div>
-                        </div>
-                      </div>                
-                  </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
-              </div>
-              <div class="card-header text-center" style="border-bottom: 0px;">
-                <div class="line-buttom"></div>
-                  <div class="m-0 header-kes text-white">
-                      Anak
+    <div class="content" style="background-color:transparent">
+      <div class="container rawatinap">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="">
+              <div class="card card-widget widget-user">
+                <div class="widget-user-header bg-success health">
+                  <div class="title-total">
+                    800
                   </div>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4 oval">
-                      <div class="row conten-sub">
-                        <div class="col-md-8 title-kes-center">
-                          <div class="title-kes text-green" style="font-size: 40px;">
-                            Sembuh
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-green"><div class="persen" style="font-size:50px;">90</div></div>
-                      </div>
-                    </div>   
-                    <div class="col-md-4 oval">
-                      <div class="row conten-sub">
-                        <div class="col-md-8 title-kes-center">
-                          <div class="title-kes text-green" style="font-size: 40px;">
-                            Di Rawat
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-green"><div class="persen" style="font-size:50px;">90</div></div>
+                  <div class="title-persent">
+                     <span class="span-persent badge badge-light number-health"> 20% </span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="detail-health">
+                        sembuh
                       </div>
                     </div>
-                    <div class="col-md-4 oval">
-                      <div class="row conten-sub">
-                        <div class="col-md-8 title-kes-center">
-                          <div class="title-kes text-green" style="font-size: 40px;">
-                            Meninggal
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-green"><div class="persen" style="font-size:50px;">90</div></div>
-                      </div>
-                    </div>                
-                </div> 
-                <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
-              </div>
-              <div class="card-header text-center" style="border-bottom: 0px;">
-                <div class="line-rawat"></div>
-                  <div class="m-0 header-kes text-green">
-                      Rawat Inap
                   </div>
+                </div>
               </div>
             </div>
-            <!-- /.card -->
           </div>
-          <!-- Rawat Inap -->
+          <div class="col-md-4">
+            <div class="">
+              <div class="card card-widget widget-user">
+                <div class="widget-user-header bg-info treated">
+                  <div class="title-total">
+                    800
+                  </div>
+                  <div class="title-persent">
+                     <span class="span-persent badge badge-light number-treated"> 20% </span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="detail-health">
+                        dirawat
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <div class="card card-widget widget-user">
+                <div class="widget-user-header bg-info death">
+                  <div class="title-total">
+                    800
+                  </div>
+                  <div class="title-persent">
+                     <span class="span-persent badge badge-light number-death"> 20% </span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="detail-health">
+                        meninggal
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <div class="card card-widget widget-user">
+                <div class="widget-user-header bg-info reactive">
+                  <div class="title-total">
+                    800
+                  </div>
+                  <div class="title-persent">
+                     <span class="span-persent badge badge-light number-reactive"> 20% </span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="detail-health">
+                        reactive
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <div class="card card-widget widget-user">
+                <div class="widget-user-header bg-info isoman">
+                  <div class="title-total">
+                    800
+                  </div>
+                  <div class="title-persent">
+                     <span class="span-persent badge badge-light number-isoman"> 20% </span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="detail-health-iso">
+                        isolasi mandiri
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <div class="card card-widget widget-user">
+                <div class="widget-user-header bg-info isorumdin">
+                  <div class="title-total">
+                    800
+                  </div>
+                  <div class="title-persent">
+                     <span class="span-persent badge badge-light number-isorumdin"> 20% </span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="detail-health-iso">
+                        isolasi rumah dinas
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -782,5 +460,161 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?php echo base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>assets/dist/js/adminlte.min.js"></script>
+<script>
+  am4core.ready(function() { 
+    rekapBulan();
+    function rekapBulan(){
+      // Themes begin
+      am4core.useTheme(am4themes_kelly);
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+
+      // Create chart instance
+      const chart = am4core.create("chartRekapBulan", am4charts.XYChart);
+      // Create axes
+      var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+      dateAxis.renderer.minGridDistance = 50;
+      dateAxis.dateFormats.setKey("day", "MMMM dt");
+      
+      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+      valueAxis.logarithmic = true;
+      valueAxis.renderer.minGridDistance = 20;
+
+      // Create series
+      chart.dataSource.url = "<?php echo base_url('covid_informasi/statistik_rekapbulan') ?>";
+      var series = chart.series.push(new am4charts.LineSeries());
+      series.dataFields.valueY = "SUMM";
+      series.dataFields.dateX = "PERIODE";
+      series.tensionX = 0.8;
+      series.strokeWidth = 3;
+
+      var bullet = series.bullets.push(new am4charts.CircleBullet());
+      bullet.circle.fill = am4core.color("#fff");
+      bullet.circle.strokeWidth = 3;
+
+      // Add cursor
+      chart.cursor = new am4charts.XYCursor();
+      chart.cursor.fullWidthLineX = true;
+      chart.cursor.xAxis = dateAxis;
+      chart.cursor.lineX.strokeWidth = 0;
+      chart.cursor.lineX.fill = am4core.color("#000");
+      chart.cursor.lineX.fillOpacity = 0.1;
+
+      // Add scrollbar
+      chart.scrollbarX = new am4core.Scrollbar();
+    }
+    persentaseSembuh()
+    function persentaseSembuh(){
+      // Themes begin
+      am4core.useTheme(am4themes_kelly);
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+      const chart = am4core.create("chartPersentaseSembuh", am4charts.PieChart3D);
+
+      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+      // Set up data source
+      chart.dataSource.url = "<?php echo base_url('covid_informasi/statistik_persentaseSembuh') ?>";
+
+      chart.innerRadius = am4core.percent(40);
+      chart.depth = 50;
+
+      chart.legend = new am4charts.Legend();
+
+      var series = chart.series.push(new am4charts.PieSeries3D());
+      series.dataFields.value = "PROSENSEMBUH";
+      series.dataFields.radiusValue = "value";
+      series.dataFields.category = "STATUSPAS";
+      series.slices.template.cornerRadius = 5;
+      series.colors.step = 3;
+
+      series.hiddenState.properties.endAngle = -90;
+      series.colors.list = [
+        am4core.color("red"),
+        am4core.color("grey"),
+      ];
+  
+    }
+
+    persentaseKematian()
+    function persentaseKematian(){
+      // Themes begin
+      am4core.useTheme(am4themes_kelly);
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+      const chart = am4core.create("chartPersentaseKematian", am4charts.PieChart3D);
+
+      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+      // Set up data source
+      chart.dataSource.url = "<?php echo base_url('covid_informasi/statistik_persentaseKematian') ?>";
+    
+      chart.innerRadius = am4core.percent(40);
+      chart.depth = 50;
+
+      chart.legend = new am4charts.Legend();
+
+      var series = chart.series.push(new am4charts.PieSeries3D());
+      series.dataFields.value = "PROSENMATI";
+      series.dataFields.depthValue = "value";
+      series.dataFields.category = "STATUSPAS";
+      series.slices.template.cornerRadius = 5;
+      series.colors.step = 3;
+      series.hiddenState.properties.endAngle = -90;
+    }
+    gender();
+    function gender(){
+      // Themes begin
+      am4core.useTheme(am4themes_kelly);
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+      const chart = am4core.create("chartGender", am4charts.PieChart);
+
+      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+      // Set up data source
+      chart.dataSource.url = "<?php echo base_url('covid_informasi/statistik_gender') ?>";
+
+      var series = chart.series.push(new am4charts.PieSeries());
+      series.dataFields.value = "JML";
+      series.dataFields.radiusValue = "value";
+      series.dataFields.category = "SEX";
+      series.slices.template.cornerRadius = 6;
+      series.colors.step = 3;
+
+      series.hiddenState.properties.endAngle = -90;
+
+      chart.legend = new am4charts.Legend();
+    }
+
+    age()
+    function age(){
+      // Themes begin
+      am4core.useTheme(am4themes_kelly);
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+      const chart = am4core.create("chartAge", am4charts.PieChart);
+
+      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+      // Set up data source
+      chart.dataSource.url = "<?php echo base_url('covid_informasi/statistik_age') ?>";
+
+      var series = chart.series.push(new am4charts.PieSeries());
+      series.dataFields.value = "JML";
+      series.dataFields.radiusValue = "value";
+      series.dataFields.category = "JENISUSIA";
+      series.slices.template.cornerRadius = 6;
+      series.colors.step = 3;
+
+      series.hiddenState.properties.endAngle = -90;
+      series.colors.list = [
+        am4core.color("#d2d219"),
+        am4core.color("#28a745"),
+      ];
+      chart.legend = new am4charts.Legend();
+    }
+  });
+</script>
 </body>
 </html>

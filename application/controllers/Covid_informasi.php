@@ -165,16 +165,9 @@ class Covid_informasi extends CI_Controller {
         
     }
 
-    public function test()
+    public function pendataanPasien()
 	{
-		$newdata = array(
-            'username'  => 'johndoe',
-            'email'     => 'johndoe@some-site.com',
-            'logged_in' => TRUE
-        );
-        
-        $this->session->set_userdata($newdata);
-		//echo $this->session->userdata('username');
+		$this->load->view('dashboard/V_pasien_covid');    
     }
     
     public function info_covid_mysql()
