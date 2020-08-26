@@ -8,8 +8,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-  <title>AdminLTE 3 | Top Navigation</title>
+  <link rel="shortcut icon" type="ico" href="<?php echo base_url()?>assets/images/logo.ico">
+  <title>Informasi Covid-19 #NEW</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
@@ -39,165 +39,54 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="../../index3.html" class="navbar-brand">
-        <img src="<?php echo base_url()?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <a href="<?php echo base_url('informasi-covid19');?>" class="navbar-brand">
+        <img src="<?php echo base_url()?>assets/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">RSUD TUGUREJO</span>
       </a>
-      
-      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-        <!-- Left navbar links -->
+        <!--  Scope Left navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="index3.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="#" class="dropdown-item">Some action </a></li>
-              <li><a href="#" class="dropdown-item">Some other action</a></li>
-
-              <li class="dropdown-divider"></li>
-
-              <!-- Level two dropdown-->
-              <li class="dropdown-submenu dropdown-hover">
-                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
-                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                  <li>
-                    <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
-                  </li>
-
-                  <!-- Level three dropdown-->
-                  <li class="dropdown-submenu">
-                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                      <li><a href="#" class="dropdown-item">3rd level</a></li>
-                      <li><a href="#" class="dropdown-item">3rd level</a></li>
-                    </ul>
-                  </li>
-                  <!-- End Level three -->
-
-                  <li><a href="#" class="dropdown-item">level 2</a></li>
-                  <li><a href="#" class="dropdown-item">level 2</a></li>
-                </ul>
-              </li>
-              <!-- End Level two -->
-            </ul>
-          </li>
+            <li class="nav-item">
+              <a href="http://api.rstugurejo.jatengprov.go.id:8000/booking/" class="nav-link">Booking</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle active">Informasi</a>
+              <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                <li><a href="<?php echo site_url() ?>" class="dropdown-item">Deteksi Awal Covid-19</a></li>
+                <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item active">Informasi Covid-19</a></li>
+              </ul>
+            </li>
         </ul>
-
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-0 ml-md-3">
-          <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-navbar" type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
+        <!--  Scope Left navbar links -->
       </div>
 
-      <!-- Right navbar links -->
+      <!-- Scope Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="fas fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
+            <?php echo $this->session->userdata('username')?>
+            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4Ij48Zz48cGF0aCBkPSJtMjU2IDAtMTYwLjM5OCAyNTYgMTYwLjM5OCAyNTZjMTQxLjM4NSAwIDI1Ni0xMTQuNjE1IDI1Ni0yNTZzLTExNC42MTUtMjU2LTI1Ni0yNTZ6IiBmaWxsPSIjMjhhYmZhIi8+PHBhdGggZD0ibTAgMjU2YzAgMTQxLjM4NSAxMTQuNjE1IDI1NiAyNTYgMjU2di01MTJjLTE0MS4zODUgMC0yNTYgMTE0LjYxNS0yNTYgMjU2eiIgZmlsbD0iIzE0Y2ZmZiIvPjxwYXRoIGQ9Im0yNTYgNjAtNjUuNzg4IDEwNSA2NS43ODggMTA1YzU3Ljk5IDAgMTA1LTQ3LjAxIDEwNS0xMDVzLTQ3LjAxLTEwNS0xMDUtMTA1eiIgZmlsbD0iIzM3M2U5ZiIvPjxwYXRoIGQ9Im0xNTEgMTY1YzAgNTcuOTkgNDcuMDEgMTA1IDEwNSAxMDV2LTIxMGMtNTcuOTkgMC0xMDUgNDcuMDEtMTA1IDEwNXoiIGZpbGw9IiM2MjQxZWEiLz48cGF0aCBkPSJtNDI0LjY0OSAzMzUuNDQzYy0xOS45MzMtMjIuNTI1LTQ4LjYtMzUuNDQzLTc4LjY0OS0zNS40NDNoLTkwbC02MCA3NiA2MCA3NmM3MC4zMjIgMCAxMzUuNjM2LTM4LjAxIDE3MC40NTQtOTkuMTk4bDUuMzA2LTkuMzI1eiIgZmlsbD0iIzM3M2U5ZiIvPjxwYXRoIGQ9Im0xNjYgMzAwYy0zMC4wNDkgMC01OC43MTYgMTIuOTE4LTc4LjY0OSAzNS40NDNsLTcuMTEgOC4wMzUgNS4zMDYgOS4zMjVjMzQuODE3IDYxLjE4NyAxMDAuMTMxIDk5LjE5NyAxNzAuNDUzIDk5LjE5N3YtMTUyeiIgZmlsbD0iIzYyNDFlYSIvPjwvZz48L3N2Zz4K"
+            alt="RSUD TUGUREJO" class="brand-image img-circle elevation-3" style="opacity: .8" />
           </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="<?php echo base_url()?>assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="position: absolute;">
+              <a href="<?php echo site_url('signin')?>" class="dropdown-item">
+                <div class="media">
+                  <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiMxMTM4Rjc7IiBkPSJNMjU1LjE1LDUxMS4xNUg2My43ODdDMjguNjE5LDUxMS4xNSwwLDQ4Mi41MywwLDQ0Ny4zNjJWNjQuNjM4QzAsMjkuNDcsMjguNjE5LDAuODUsNjMuNzg3LDAuODUgICBIMjU1LjE1YzExLjczNywwLDIxLjI2Miw5LjUyNiwyMS4yNjIsMjEuMjYycy05LjUyNiwyMS4yNjItMjEuMjYyLDIxLjI2Mkg2My43ODdjLTExLjcxNiwwLTIxLjI2Miw5LjU0Ny0yMS4yNjIsMjEuMjYydjM4Mi43MjQgICBjMCwxMS43MzcsOS41NDcsMjEuMjYyLDIxLjI2MiwyMS4yNjJIMjU1LjE1YzExLjczNywwLDIxLjI2Miw5LjUwNCwyMS4yNjIsMjEuMjYyQzI3Ni40MTIsNTAxLjY0NSwyNjYuODg2LDUxMS4xNSwyNTUuMTUsNTExLjE1eiIvPgoJPHBhdGggc3R5bGU9ImZpbGw6IzExMzhGNzsiIGQ9Ik00NDYuNTEyLDI3Ny4yNjJoLTI1NS4xNWMtMTEuNzM3LDAtMjEuMjYyLTkuNTA0LTIxLjI2Mi0yMS4yNjIgICBjMC0xMS43MzcsOS41MjYtMjEuMjYyLDIxLjI2Mi0yMS4yNjJoMjU1LjE1YzExLjc1OCwwLDIxLjI2Miw5LjUyNiwyMS4yNjIsMjEuMjYyQzQ2Ny43NzQsMjY3Ljc1OCw0NTguMjcsMjc3LjI2Miw0NDYuNTEyLDI3Ny4yNjIgICB6Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojMTEzOEY3OyIgZD0iTTM2MS40NjIsNDA0LjgzN2MtNS40ODYsMC0xMC45NzEtMi4xMjYtMTUuMTM5LTYuMzM2Yy04LjI1LTguMzU2LTguMTY1LTIxLjgxNSwwLjIxMy0zMC4wNjUgICBMNDYwLjQ2LDI1NkwzNDYuNTM2LDE0My41NjRjLTguMzc3LTguMjUtOC40NDEtMjEuNzA5LTAuMjEzLTMwLjA4NmM4LjIyOS04LjM3NywyMS43My04LjQ0MSwzMC4wNjUtMC4xOTFsMTI5LjI3NiwxMjcuNTc1ICAgYzQuMDQsMy45OTcsNi4zMzYsOS40NDEsNi4zMzYsMTUuMTM5cy0yLjI3NSwxMS4xMi02LjMzNiwxNS4xMzlMMzc2LjM4OCwzOTguNzE0QzM3Mi4yNjMsNDAyLjc5NiwzNjYuODYyLDQwNC44MzcsMzYxLjQ2Miw0MDQuODM3ICAgeiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="
+                  alt="User Avatar" class="img-size-50 mr-3 img-circle" style="height: 20px;">
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Sign In
+                      <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                    </h3>
+                  </div>
                 </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="<?php echo base_url()?>assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="<?php echo base_url()?>assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </a>
           </div>
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-              class="fas fa-th-large"></i></a>
-        </li>
+        </li>        
       </ul>
+      <!-- Scope Right navbar links -->
     </div>
   </nav>
   <!-- /.navbar -->
@@ -224,10 +113,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="chartRekap">
         <div class="row">
           <div class="col-md-12">
-            <div class="card card-primary">
-              <div class="card-header">
+            <div class="card card-primary radius-chart">
+              <div class="card-header radius-chart-header">
                 <div class="card-title"> Pergerakan Total Kasus Pasien Covid-19</div>
-                <div class="card-tools"></div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_rekapbulan" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
               </div>
               <div class="card-body">
                 <div id="chartRekapBulan" class="chartdiv"></div>
@@ -235,10 +129,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
+            <div class="card card-primary radius-chart">
+              <div class="card-header radius-chart-header">
                 <div class="card-title"> Persentase Kesembuhan Pasien Covid-19</div>
-                <div class="card-tools"></div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_persentaseSembuh" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
               </div>
               <div class="card-body">
                 <div id="chartPersentaseSembuh" class="chartdiv"></div>
@@ -246,10 +145,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
+            <div class="card card-primary radius-chart">
+              <div class="card-header radius-chart-header">
                 <div class="card-title"> Persentase Kematian Pasien Covid-19</div>
-                <div class="card-tools"></div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_persentaseKematian" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
               </div>
               <div class="card-body">
                 <div id="chartPersentaseKematian" class="chartdiv"></div>
@@ -257,10 +161,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
+            <div class="card card-primary radius-chart">
+              <div class="card-header radius-chart-header">
                 <div class="card-title"> Pasien Covid-19 Berdasarkan Jenis Kelamin</div>
-                <div class="card-tools"></div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_gender" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
               </div>
               <div class="card-body">
                 <div id="chartGender" class="chartdiv"></div>
@@ -268,10 +177,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
+            <div class="card card-primary radius-chart">
+              <div class="card-header radius-chart-header">
                 <div class="card-title"> Pasien Covid-19 Berdasarkan Jenis Usia</div>
-                <div class="card-tools"></div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
               </div>
               <div class="card-body">
                 <div id="chartAge" class="chartdiv"></div>
@@ -283,25 +197,152 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     
     <!-- /.content -->
-    <div class="content" style="background-color:transparent">
-      <div class="container rawatinap">
+    <div class="content">
+      <div class="container container-total-case">
         <div class="row">
-          <div class="col-md-4">
-            <div class="">
-              <div class="card card-widget widget-user">
-                <div class="widget-user-header bg-success health">
-                  <div class="title-total">
-                    800
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <div class="card-title new-title text-center">Total Kasus Covid-19</div>
+                <div class="card-tools"></div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="">
+                      <div class="card card-widget widget-user">
+                        <div class="widget-user-header bg-success health">
+                          <div class="title-total">
+                            800
+                          </div>
+                          <div class="title-persent">
+                            <span class="span-persent badge badge-light number-health"> 20% </span>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="detail-health text-health">
+                                sembuh
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="title-persent">
-                     <span class="span-persent badge badge-light number-health"> 20% </span>
+                  <div class="col-md-4">
+                    <div class="">
+                      <div class="card card-widget widget-user">
+                        <div class="widget-user-header bg-info treated">
+                          <div class="title-total">
+                            800
+                          </div>
+                          <div class="title-persent">
+                            <span class="span-persent badge badge-light number-treated"> 20% </span>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="detail-health text-treated">
+                                dirawat
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="detail-health">
-                        sembuh
+                  <div class="col-md-4">
+                    <div class="">
+                      <div class="card card-widget widget-user">
+                        <div class="widget-user-header bg-info death">
+                          <div class="title-total">
+                            800
+                          </div>
+                          <div class="title-persent">
+                            <span class="span-persent badge badge-light number-death"> 20% </span>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="detail-health text-death">
+                                meninggal
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="">
+                      <div class="card card-widget widget-user">
+                        <div class="widget-user-header bg-info reactive">
+                          <div class="title-total">
+                            800
+                          </div>
+                          <div class="title-persent">
+                            <span class="span-persent badge badge-light number-reactive"> 20% </span>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="detail-health text-reactive">
+                                reactive
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="">
+                      <div class="card card-widget widget-user">
+                        <div class="widget-user-header bg-info isoman">
+                          <div class="title-total">
+                            800
+                          </div>
+                          <div class="title-persent">
+                            <span class="span-persent badge badge-light number-isoman"> 20% </span>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="detail-health-iso text-isoman">
+                                isolasi mandiri
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="">
+                      <div class="card card-widget widget-user">
+                        <div class="widget-user-header bg-info isorumdin">
+                          <div class="title-total">
+                            800
+                          </div>
+                          <div class="title-persent">
+                            <span class="span-persent badge badge-light number-isorumdin"> 20% </span>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="detail-health-iso text-isorum">
+                                isolasi rumah dinas
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -309,119 +350,260 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="">
-              <div class="card card-widget widget-user">
-                <div class="widget-user-header bg-info treated">
-                  <div class="title-total">
-                    800
+        </div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="rawat-inap">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary radius-chart">
+              <div class="card-header radius-chart-header">
+                <div class="card-title new-title text-center">Rawat Inap</div>
+                <div class="tools"></div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <!-- <div class="title-case">CONFIRM COVID-19</div> -->
                   </div>
-                  <div class="title-persent">
-                     <span class="span-persent badge badge-light number-treated"> 20% </span>
+                  <div class="col-md-6">
+                    <div class="card radius-chart">
+                      <div class="card-header radius-chart-header">
+                        <div class="card-title uppurecase-text">
+                          dewasa &nbsp; <span class="badge badge-danger">CONFIRM COVID-19</span>
+                        </div>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="#" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">sembuh</div>
+                            <div class="round health">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">dirawat</div>
+                            <div class="round treated">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="title-subcase text-center">meninggal</div>
+                            <div class="round death">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                        </div>                       
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="detail-health">
-                        dirawat
+                  <div class="col-md-6">
+                    <div class="card radius-chart">
+                      <div class="card-header radius-chart-header">
+                        <div class="card-title uppurecase-text">
+                          anak &nbsp; <span class="badge badge-danger">CONFIRM COVID-19</span>
+                        </div>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="#" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">sembuh</div>
+                            <div class="round health">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">dirawat</div>
+                            <div class="round treated">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="title-subcase text-center">meninggal</div>
+                            <div class="round death">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                        </div>                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card radius-chart">
+                      <div class="card-header radius-chart-header">
+                        <div class="card-title uppurecase-text">
+                          DEWASA &nbsp; <span class="badge badge-warning">suspect COVID-19</span>
+                        </div>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">sembuh</div>
+                            <div class="round health">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">dirawat</div>
+                            <div class="round treated">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="title-subcase text-center">meninggal</div>
+                            <div class="round death">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                        </div>                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card radius-chart">
+                      <div class="card-header radius-chart-header">
+                        <div class="card-title uppurecase-text">
+                          anak &nbsp; <span class="badge badge-warning">suspect COVID-19</span>
+                        </div>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">sembuh</div>
+                            <div class="round health">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">dirawat</div>
+                            <div class="round treated">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="title-subcase text-center">meninggal</div>
+                            <div class="round death">
+                              <div class="total-subcase-round">
+                                800
+                              </div>
+                            </div>
+                          </div>
+                        </div>                       
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div>  
           </div>
-          <div class="col-md-4">
-            <div class="">
-              <div class="card card-widget widget-user">
-                <div class="widget-user-header bg-info death">
-                  <div class="title-total">
-                    800
-                  </div>
-                  <div class="title-persent">
-                     <span class="span-persent badge badge-light number-death"> 20% </span>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="detail-health">
-                        meninggal
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="">
-              <div class="card card-widget widget-user">
-                <div class="widget-user-header bg-info reactive">
-                  <div class="title-total">
-                    800
-                  </div>
-                  <div class="title-persent">
-                     <span class="span-persent badge badge-light number-reactive"> 20% </span>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="detail-health">
-                        reactive
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="">
-              <div class="card card-widget widget-user">
-                <div class="widget-user-header bg-info isoman">
-                  <div class="title-total">
-                    800
-                  </div>
-                  <div class="title-persent">
-                     <span class="span-persent badge badge-light number-isoman"> 20% </span>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="detail-health-iso">
-                        isolasi mandiri
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="">
-              <div class="card card-widget widget-user">
-                <div class="widget-user-header bg-info isorumdin">
-                  <div class="title-total">
-                    800
-                  </div>
-                  <div class="title-persent">
-                     <span class="span-persent badge badge-light number-isorumdin"> 20% </span>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="detail-health-iso">
-                        isolasi rumah dinas
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container rawat-jalan container-total-case">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+               <div class="card-header">
+                  <div class="card-title new-title text-center">rawat jalan</div>
+               </div>
+               <div class="card-body">
+                 <div class="row">
+                   <div class="col-md-12">
+                     <div class="card">
+                       <div class="card-header">
+                         <div class="card-title uppurecase-text">dewasa</div>
+                         <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                       </div>
+                       <div class="card-body">
+                         <div class="row">
+                           <div class="col-md-3">
+                             <div class="card bg-success">
+                               <div class="card-body">
+                                 <div class="card-title uppurecase-text opensans-font">sembuh</div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                             <div class="card bg-success">
+                               <div class="card-body">
+                                 <div class="card-title uppurecase-text opensans-font">reactive</div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                             <div class="card bg-success">
+                               <div class="card-body">
+                                 <div class="card-title uppurecase-text opensans-font">confirm isolasi mandiri</div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                             <div class="card bg-success">
+                               <div class="card-body">
+                                 <div class="card-title uppurecase-text opensans-font">confirm isolasi rumah dinas</div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
             </div>
           </div>
         </div>
@@ -441,13 +623,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
+  <footer class="main-footer text-center">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020 <a href="https://rstugurejo.jatengprov.go.id">RSUD TUGUREJO PROVINSI JAWA TENGAH</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

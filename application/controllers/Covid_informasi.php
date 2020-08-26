@@ -43,6 +43,7 @@ class Covid_informasi extends CI_Controller {
 
     public function pendataan()
     {
+        //fitur tidak di gunakan
         if ($this->session->userdata('status_log') != TRUE) {
 			$this->session->set_flashdata('errorMessage', '<div class="alert alert-danger">Silahkan masuk dahulu !</div>');
 					redirect('signin');

@@ -1,3 +1,9 @@
+.uppurecase-text{
+    text-transform: uppercase;
+}
+.opensans-font {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 .widget-user .widget-user-header{
     height: 300px;
 }
@@ -13,6 +19,9 @@
     -moz-animation: AnimationName 25s ease infinite;
     animation: AnimationName 25s ease infinite;
 }
+.text-health{
+    color: #28a745;
+}
 .treated{
     background: linear-gradient(35deg, #fdb32d, #ce8705);
     background-size: 400% 400%;
@@ -20,6 +29,9 @@
     -webkit-animation: AnimationName 25s ease infinite;
     -moz-animation: AnimationName 25s ease infinite;
     animation: AnimationName 25s ease infinite;
+}
+.text-treated{
+    color: #ce8705;
 }
 .death{
     background: linear-gradient(35deg, #ea949c, #dc3545);
@@ -29,6 +41,9 @@
     -moz-animation: AnimationName 25s ease infinite;
     animation: AnimationName 25s ease infinite;
 }
+.text-death{
+    color: #dc3545;
+}
 .reactive{
     background: linear-gradient(36deg, #dd6f6f, #a52a2a);
     background-size: 400% 400%;
@@ -36,6 +51,9 @@
     -webkit-animation: AnimationName 25s ease infinite;
     -moz-animation: AnimationName 25s ease infinite;
     animation: AnimationName 25s ease infinite;
+}
+.text-reactive{
+    color: #a52a2a;
 }
 .isoman{
     background: linear-gradient(35deg, #c8a2a2,#808080,);
@@ -45,6 +63,9 @@
     -moz-animation: AnimationName 25s ease infinite;
     animation: AnimationName 25s ease infinite;
 }
+.text-isoman{
+    color: #808080;
+}
 .isorumdin{
     background: linear-gradient(35deg, #9ba2c3, #6c84f1);
     background-size: 400% 400%;
@@ -52,6 +73,9 @@
     -webkit-animation: AnimationName 25s ease infinite;
     -moz-animation: AnimationName 25s ease infinite;
     animation: AnimationName 25s ease infinite;
+}
+.text-isorum{
+    color: #6c84f1;
 }
 @-webkit-keyframes AnimationName {
     0%{background-position:91% 0%}
@@ -68,27 +92,20 @@
     50%{background-position:10% 100%}
     100%{background-position:91% 0%}
 }
-.detail-health{
+.detail-health, .detail-health-iso{
     font-size: 50px;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Source Sans Pro', sans-serif;
-    padding-top: 11%;
-}
-.detail-health-iso{
-    font-size: 50px;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Source Sans Pro', sans-serif;
-    
+    padding-top: 8%;
 }
 .title-total {
     position: relative;
-    font-size: 10em;
+    font-size: 11em;
 }
 .title-persent{
     position: relative;
-    left: 40%;
+    left: 30%;
     bottom: 30%;
     font-size: 30px;
 }
@@ -109,4 +126,52 @@
 }
 .number-isorumdin{
     color: #6c84f1;
+}
+
+.radius-chart {
+    border-radius: 3.25rem;
+}
+.radius-chart-header {
+    border-top-right-radius: 3.25rem;
+    border-top-left-radius: 3.25rem;
+    padding-left: 50px;
+}
+.new-title {
+    float: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.separator {
+    border-right: 1px solid rgba(0,0,0,.125);
+}
+.round{
+    position: relative;
+    left: 15%;
+    top: 3%;
+    background-color: aqua;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+}
+.primary{
+    color: #007bff !important;
+}
+.title-subcase{
+    text-transform: uppercase;
+    font-size: 25px;
+}
+.total-subcase-round{
+    position: relative;
+    top: 19%;
+    left: 21%;
+    font-size: 80px;
+    color: white;
+}
+@media (min-width: 1400px){
+    .container-total-case {
+        max-width: 1500px;
+    }
 }
