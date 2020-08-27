@@ -38,7 +38,8 @@ class Covid_informasi extends CI_Controller {
     }
 
     public function newCovidDashboard(){
-        $this->load->view('V_newInformasiCovid');
+        $data['data'] = $this->get_data_covidNew();
+        $this->load->view('V_newInformasiCovid', $data);
     }
 
     public function pendataan()

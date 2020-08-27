@@ -35,7 +35,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
+<?php 
+$total_global = $data['status'][0]['SEMBUH'] + $data['status'][0]['DIRAWAT'] + $data['status'][0]['MENINGGAL'] + $data['status'][0]['REACTIVE'] + $data['status'][0]['ISOMANDIRI'] + $data['status'][0]['ISORUMDIN'];
+$persen_sembuh = ($data['status'][0]['SEMBUH'] != 0) ? $data['status'][0]['SEMBUH']/$total_global*100 : 0;
+$persen_drwt = ($data['status'][0]['DIRAWAT'] != 0) ? $data['status'][0]['DIRAWAT']/$total_global*100 : 0;
+$persen_mnggal = ($data['status'][0]['MENINGGAL'] != 0) ? $data['status'][0]['MENINGGAL']/$total_global*100 : 0;
+$persen_reactive = ($data['status'][0]['REACTIVE'] != 0) ? $data['status'][0]['REACTIVE']/$total_global*100 : 0;
+$persen_isoman = ($data['status'][0]['ISOMANDIRI'] != 0) ? $data['status'][0]['ISOMANDIRI']/$total_global*100 : 0;
+$persen_isorudin = ($data['status'][0]['ISORUMDIN'] != 0) ? $data['status'][0]['ISORUMDIN']/$total_global*100 : 0;
 
+$total_confirm_dew = $data['status'][0]['RIDWS_CONFIRMSEMBUH'] + $data['status'][0]['RIDWS_CONFIRMRAWATISO'] + $data['status'][0]['RIDWS_CONFIRMMATI'];
+$total_confirm_ank = $data['status'][0]['RIAN_CONFIRMSEMBUH'] + $data['status'][0]['RIAN_CONFIRMRAWATISO'] + $data['status'][0]['RIAN_CONFIRMMATI'];
+$total_confirm = $total_confirm_dew + $total_confirm_ank;
+
+$total_sus_dew = $data['status'][0]['RIDWS_SUSPEKSEMBUH'] + $data['status'][0]['RIDWS_SUSPEKRAWAT'] + $data['status'][0]['RIDWS_SUSPEKMATI'];
+$total_sus_ank = $data['status'][0]['RIAN_SUSPEKSEMBUH'] + $data['status'][0]['RIAN_SUSPEKRAWAT'] + $data['status'][0]['RIAN_SUSPEKMATI'];
+$total_suspect = $total_sus_dew + $total_sus_ank;
+
+$total_rj_dew = $data['status'][0]['RJDWS_SEMBUH'] + $data['status'][0]['RJDWS_REACTIVE'] + $data['status'][0]['RJDWS_CONFIRMISOMANDIRI'] + $data['status'][0]['RJDWS_CONFIRMISORUMDIN'];
+$total_rj_ank = $data['status'][0]['RJAN_SEMBUH'] + $data['status'][0]['RJAN_REACTIVE'] + $data['status'][0]['RJAN_CONFIRMISOMANDIRI'] + $data['status'][0]['RJAN_CONFIRMISORUMDIN'];
+$total_rj = $total_rj_dew + $total_rj_ank;
+?>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
@@ -120,7 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_rekapbulan" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+
                 </div>
               </div>
               <div class="card-body">
@@ -136,7 +156,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_persentaseSembuh" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+
                 </div>
               </div>
               <div class="card-body">
@@ -152,7 +172,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_persentaseKematian" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+
                 </div>
               </div>
               <div class="card-body">
@@ -168,7 +188,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_gender" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+
                 </div>
               </div>
               <div class="card-body">
@@ -184,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+
                 </div>
               </div>
               <div class="card-body">
@@ -203,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
-                <div class="card-title new-title text-center">Total Kasus Covid-19</div>
+                <div class="card-title new-title text-center"><h2><b>Total Kasus Covid-19 &nbsp; <span class="badge badge-light"><?php echo $total_global; ?></span></b> </h2></div>
                 <div class="card-tools"></div>
               </div>
               <div class="card-body">
@@ -213,10 +233,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="card card-widget widget-user">
                         <div class="widget-user-header bg-success health">
                           <div class="title-total">
-                            800
+                            <?php echo $data['status'][0]['SEMBUH'] ?>
                           </div>
                           <div class="title-persent">
-                            <span class="span-persent badge badge-light number-health"> 20% </span>
+                            <span class="span-persent badge badge-light number-health"> <?php echo round($persen_sembuh, 2) ?>% </span>
                           </div>
                         </div>
                         <div class="card-footer">
@@ -236,10 +256,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="card card-widget widget-user">
                         <div class="widget-user-header bg-info treated">
                           <div class="title-total">
-                            800
+                            <?php echo $data['status'][0]['DIRAWAT']?>
                           </div>
                           <div class="title-persent">
-                            <span class="span-persent badge badge-light number-treated"> 20% </span>
+                            <span class="span-persent badge badge-light number-treated"> <?php echo round($persen_drwt, 2) ?>% </span>
                           </div>
                         </div>
                         <div class="card-footer">
@@ -259,10 +279,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="card card-widget widget-user">
                         <div class="widget-user-header bg-info death">
                           <div class="title-total">
-                            800
+                            <?php echo $data['status'][0]['MENINGGAL']?>
                           </div>
                           <div class="title-persent">
-                            <span class="span-persent badge badge-light number-death"> 20% </span>
+                            <span class="span-persent badge badge-light number-death"> <?php echo round($persen_mnggal, 2) ?>% </span>
                           </div>
                         </div>
                         <div class="card-footer">
@@ -282,10 +302,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="card card-widget widget-user">
                         <div class="widget-user-header bg-info reactive">
                           <div class="title-total">
-                            800
+                            <?php echo $data['status'][0]['REACTIVE']?>
                           </div>
                           <div class="title-persent">
-                            <span class="span-persent badge badge-light number-reactive"> 20% </span>
+                            <span class="span-persent badge badge-light number-reactive"> <?php echo round($persen_reactive, 2) ?>% </span>
                           </div>
                         </div>
                         <div class="card-footer">
@@ -305,10 +325,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="card card-widget widget-user">
                         <div class="widget-user-header bg-info isoman">
                           <div class="title-total">
-                            800
+                            <?php echo $data['status'][0]['ISOMANDIRI']?>
                           </div>
                           <div class="title-persent">
-                            <span class="span-persent badge badge-light number-isoman"> 20% </span>
+                            <span class="span-persent badge badge-light number-isoman"> <?php echo round($persen_isoman, 2) ?>% </span>
                           </div>
                         </div>
                         <div class="card-footer">
@@ -328,16 +348,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <div class="card card-widget widget-user">
                         <div class="widget-user-header bg-info isorumdin">
                           <div class="title-total">
-                            800
+                            <?php echo $data['status'][0]['ISORUMDIN']?>
                           </div>
                           <div class="title-persent">
-                            <span class="span-persent badge badge-light number-isorumdin"> 20% </span>
+                            <span class="span-persent badge badge-light number-isorumdin"> <?php echo round($persen_isorudin, 2) ?>% </span>
                           </div>
                         </div>
                         <div class="card-footer">
                           <div class="row">
                             <div class="col-md-12">
-                              <div class="detail-health-iso text-isorum">
+                              <div class="detail-health-isorum text-isorum">
                                 isolasi rumah dinas
                               </div>
                             </div>
@@ -366,44 +386,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <!-- <div class="title-case">CONFIRM COVID-19</div> -->
+                    <div class="">
+                      <div class="card-body text-center">
+                        <div class="uppercase-text"><h2>confirm COVID-19 <span class="badge badge-danger"><b><?php echo $total_confirm ?></b></span></h2></div>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-md-6">
                     <div class="card radius-chart">
                       <div class="card-header radius-chart-header">
-                        <div class="card-title uppurecase-text">
-                          dewasa &nbsp; <span class="badge badge-danger">CONFIRM COVID-19</span>
+                        <div class="card-title uppercase-text">
+                          <h3>dewasa &nbsp;  <span class="badge badge-danger"><?php echo $total_confirm_dew ?></span></h3>
                         </div>
                         <div class="card-tools">
                           <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="#" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                          
                         </div>
                       </div>
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-4 separator">
                             <div class="title-subcase text-center">sembuh</div>
-                            <div class="round health">
+                            <div class="round health text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIDWS_CONFIRMSEMBUH']?>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4 separator">
                             <div class="title-subcase text-center">dirawat</div>
-                            <div class="round treated">
+                            <div class="round treated text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIDWS_CONFIRMRAWATISO']?>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="title-subcase text-center">meninggal</div>
-                            <div class="round death">
+                            <div class="round death text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIDWS_CONFIRMMATI']?>
                               </div>
                             </div>
                           </div>
@@ -414,39 +438,89 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="col-md-6">
                     <div class="card radius-chart">
                       <div class="card-header radius-chart-header">
-                        <div class="card-title uppurecase-text">
-                          anak &nbsp; <span class="badge badge-danger">CONFIRM COVID-19</span>
+                        <div class="card-title uppercase-text">
+                          <h3>anak &nbsp; <span class="badge badge-danger"><?php echo $total_confirm_ank ?></span></h3>
                         </div>
                         <div class="card-tools">
                           <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="#" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                          
                         </div>
                       </div>
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-4 separator">
                             <div class="title-subcase text-center">sembuh</div>
-                            <div class="round health">
+                            <div class="round health text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIAN_CONFIRMSEMBUH'];?>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4 separator">
                             <div class="title-subcase text-center">dirawat</div>
-                            <div class="round treated">
+                            <div class="round treated text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIAN_CONFIRMRAWATISO'];?>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="title-subcase text-center">meninggal</div>
-                            <div class="round death">
+                            <div class="round death text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIAN_CONFIRMMATI'];?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>                       
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="card-body text-center">
+                        <div class=" uppercase-text"><h2>suspect COVID-19 <span class="badge badge-warning warning-new"><b><?php echo $total_suspect ?></b></span></h2></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card radius-chart">
+                      <div class="card-header radius-chart-header">
+                        <div class="card-title uppercase-text">
+                          <h3>DEWASA &nbsp; <span class="badge badge-warning warning-new"><?php echo $total_sus_dew ?></span> </h3>
+                        </div>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">sembuh</div>
+                            <div class="round health text-center">
+                              <div class="total-subcase-round">
+                                <?php echo $data['status'][0]['RIDWS_SUSPEKSEMBUH'] ?>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 separator">
+                            <div class="title-subcase text-center">dirawat</div>
+                            <div class="round treated text-center">
+                              <div class="total-subcase-round">
+                                <?php echo $data['status'][0]['RIDWS_SUSPEKRAWAT'] ?>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="title-subcase text-center">meninggal</div>
+                            <div class="round death text-center">
+                              <div class="total-subcase-round">
+                                <?php echo $data['status'][0]['RIDWS_SUSPEKMATI'] ?>
                               </div>
                             </div>
                           </div>
@@ -457,82 +531,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="col-md-6">
                     <div class="card radius-chart">
                       <div class="card-header radius-chart-header">
-                        <div class="card-title uppurecase-text">
-                          DEWASA &nbsp; <span class="badge badge-warning">suspect COVID-19</span>
+                        <div class="card-title uppercase-text">
+                          <h3>anak &nbsp; <span class="badge badge-warning warning-new"><?php echo $total_sus_ank ?></span> </h3>
                         </div>
                         <div class="card-tools">
                           <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                          
                         </div>
                       </div>
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-4 separator">
                             <div class="title-subcase text-center">sembuh</div>
-                            <div class="round health">
+                            <div class="round health text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIAN_SUSPEKSEMBUH'] ?>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4 separator">
                             <div class="title-subcase text-center">dirawat</div>
-                            <div class="round treated">
+                            <div class="round treated text-center">
                               <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIAN_SUSPEKRAWAT'] ?>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="title-subcase text-center">meninggal</div>
-                            <div class="round death">
+                            <div class="round death text-center">
                               <div class="total-subcase-round">
-                                800
-                              </div>
-                            </div>
-                          </div>
-                        </div>                       
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card radius-chart">
-                      <div class="card-header radius-chart-header">
-                        <div class="card-title uppurecase-text">
-                          anak &nbsp; <span class="badge badge-warning">suspect COVID-19</span>
-                        </div>
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
-                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
-                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-4 separator">
-                            <div class="title-subcase text-center">sembuh</div>
-                            <div class="round health">
-                              <div class="total-subcase-round">
-                                800
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 separator">
-                            <div class="title-subcase text-center">dirawat</div>
-                            <div class="round treated">
-                              <div class="total-subcase-round">
-                                800
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="title-subcase text-center">meninggal</div>
-                            <div class="round death">
-                              <div class="total-subcase-round">
-                                800
+                                <?php echo $data['status'][0]['RIAN_SUSPEKMATI'] ?>
                               </div>
                             </div>
                           </div>
@@ -560,41 +591,146 @@ scratch. This page gets rid of all links and provides the needed markup only.
                    <div class="col-md-12">
                      <div class="card">
                        <div class="card-header">
-                         <div class="card-title uppurecase-text">dewasa</div>
+                         <div class="card-title uppercase-text">
+                           <h3>dewasa &nbsp; <span class="badge badge-primary"><?php echo $total_rj_dew ?></span></h3>
+                          </div>
                          <div class="card-tools">
                           <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                           <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                          <button type="button" class="btn btn-tool primary" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                          
+                        </div>
+                       </div>
+                       <div class="card-body">
+                          <div class="row">
+                           <div class="col-md-3">
+                             <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-health uppercase-text opensans-font footer-title">
+                                    sembuh
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info health">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJDWS_SEMBUH'] ?>
+                                  </div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-reactive uppercase-text opensans-font footer-title">
+                                    reative
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info reactive">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJDWS_REACTIVE'] ?>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-isoman uppercase-text opensans-font footer-title-iso">
+                                    confirm isolasi mandiri
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info isoman">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJDWS_CONFIRMISOMANDIRI'] ?>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                            <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-isorum uppercase-text opensans-font footer-title-iso">
+                                    confirm isolasi mandiri
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info isorumdin">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJDWS_CONFIRMISORUMDIN'] ?>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="card">
+                       <div class="card-header">
+                         <div class="card-title uppercase-text">
+                           <h3>anak &nbsp; <span class="badge badge-primary"><?php echo $total_rj_ank ?></span></h3>
+                          </div>
+                         <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          
                         </div>
                        </div>
                        <div class="card-body">
                          <div class="row">
                            <div class="col-md-3">
-                             <div class="card bg-success">
-                               <div class="card-body">
-                                 <div class="card-title uppurecase-text opensans-font">sembuh</div>
+                             <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-health uppercase-text opensans-font footer-title">
+                                    sembuh
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info health">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJAN_SEMBUH'] ?>
+                                 </div>
                                </div>
                              </div>
                            </div>
                            <div class="col-md-3">
-                             <div class="card bg-success">
-                               <div class="card-body">
-                                 <div class="card-title uppurecase-text opensans-font">reactive</div>
+                              <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-reactive uppercase-text opensans-font footer-title">
+                                    reative
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info reactive">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJAN_REACTIVE'] ?>
+                                 </div>
                                </div>
                              </div>
                            </div>
                            <div class="col-md-3">
-                             <div class="card bg-success">
-                               <div class="card-body">
-                                 <div class="card-title uppurecase-text opensans-font">confirm isolasi mandiri</div>
+                              <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-isoman uppercase-text opensans-font footer-title-iso">
+                                    confirm isolasi mandiri
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info isoman">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJAN_CONFIRMISOMANDIRI'] ?>
+                                 </div>
                                </div>
                              </div>
                            </div>
                            <div class="col-md-3">
-                             <div class="card bg-success">
-                               <div class="card-body">
-                                 <div class="card-title uppurecase-text opensans-font">confirm isolasi rumah dinas</div>
+                            <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-isorum uppercase-text opensans-font footer-title-iso">
+                                    confirm isolasi mandiri
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info isorumdin">                                
+                                 <div class="total-rw">
+                                    <?php echo $data['status'][0]['RJAN_CONFIRMISORUMDIN'] ?>
+                                 </div>
                                </div>
                              </div>
                            </div>

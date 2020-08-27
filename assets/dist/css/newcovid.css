@@ -1,4 +1,4 @@
-.uppurecase-text{
+.uppercase-text{
     text-transform: uppercase;
 }
 .opensans-font {
@@ -6,10 +6,15 @@
 }
 .widget-user .widget-user-header{
     height: 300px;
+    padding: 2rem;
 }
 .widget-user .card-footer{
     padding-top: 0px;
     height: 150px;
+}
+.widget-user .footer-new{
+    padding-top: 0px;
+    height: 120px;
 }
 .health{
     background: linear-gradient(35deg, #84db98, #28a745);
@@ -99,14 +104,23 @@
     font-family: 'Source Sans Pro', sans-serif;
     padding-top: 8%;
 }
+.detail-health-isorum{
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+  
+}
 .title-total {
     position: relative;
     font-size: 11em;
+    font-family: monospace;
+    font-weight: 600;
 }
 .title-persent{
     position: relative;
     left: 30%;
-    bottom: 30%;
+    bottom: 25%;
     font-size: 30px;
 }
 .number-health{
@@ -142,7 +156,10 @@
     font-size: 1.5rem;
     text-transform: uppercase;
 }
-
+.warning-new{
+    color: white;
+    background-color: #ce8705;
+}
 .separator {
     border-right: 1px solid rgba(0,0,0,.125);
 }
@@ -165,10 +182,46 @@
 }
 .total-subcase-round{
     position: relative;
-    top: 19%;
-    left: 21%;
+    top: 20%;
     font-size: 80px;
     color: white;
+}
+.footer-title {
+    float: none;
+    font-size: 30px;
+    padding-top: 30px;
+}
+.footer-title-iso {
+    float: none;
+    font-size: 30px;
+    padding-top: 15px;
+}
+.total-rw {
+    font-size: 10em;
+}
+@media screen and (max-width: 320px){
+    .title-total{
+        font-size: 9em;
+    }
+    .title-persent{
+        bottom: 20%;
+    }
+    .detail-health, .detail-health-iso {
+        font-size: 35px;
+    }
+    .detail-health {
+        padding-top: 22%;
+    }
+    .radius-chart-header{
+        padding-left: 25px;
+        text-align: center !important;
+    }
+    .round{
+        left: 5%;
+    }
+    .title-subcase{
+        padding: 10px;
+    }
 }
 @media (min-width: 1400px){
     .container-total-case {
