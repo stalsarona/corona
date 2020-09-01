@@ -1,3 +1,15 @@
+nav {
+    position: sticky !important;
+    top: 0;
+}
+footer {
+    position: sticky !important;
+    bottom: 0;
+}
+.chartdiv {
+    width: 100%;
+    height: 500px;
+}
 .uppercase-text{
     text-transform: uppercase;
 }
@@ -223,8 +235,99 @@
         padding: 10px;
     }
 }
+@media screen and ( min-width: 2560px){
+    .round {
+        left: 24%;
+    }
+}
+@media screen and ( max-width: 1440px){
+    .round {
+        left: 0%;
+    }
+}
+@media screen and (max-width: 1370px){
+    .detail-health-iso{
+        padding-top: 0;
+    }
+    .round{
+        left: -3%;
+    }
+    .footer-title-iso{
+        font-size: 29px;
+    }
+}
 @media (min-width: 1400px){
     .container-total-case {
         max-width: 1500px;
+    }
+}
+@media screen and ( max-width: 1024px){
+    .chartdiv{
+        height: 300px;
+    }
+    .round {
+        height: 130px;
+        width: 130px;
+    }
+    .total-subcase-round {
+        top: 0%;
+    }
+    .title-total{
+        font-size: 10em;
+    }
+    .detail-health-isorum{
+        padding-top: 8%;
+        font-size: 43px;
+    }
+    .detail-health, .detail-health-iso {
+        font-size: 43px;
+    }
+    .footer-title-iso, .footer-title{
+        font-size: 24px;
+    }
+}
+@media screen and ( max-width: 768px){
+    .title-total{
+        font-size: 6em;
+    }
+    .title-persent{
+        bottom: 15%;
+    }
+    .detail-health, .detail-health-iso, .detail-health-isorum {
+        font-size: 29px;
+    }
+    .title-subcase{
+        font-size: 18px;
+    }
+    .round{
+        height: 95px;
+        width: 95px;
+    }
+    .total-subcase-round{
+        font-size: 60px;
+    }
+}
+@media screen and ( max-width:425px){
+    .title-total{
+        font-size: 12em;
+    }
+    .detail-health, .detail-health-iso, .detail-health-isorum {
+        font-size: 40px;
+    }
+    .separator{
+        border-bottom: 1px solid rgba(0,0,0,.125);
+    }
+    .title-subcase{
+        font-size: 30px;
+    }
+    .round{
+        height: 135px;
+        width: 135px;
+        left: 27%;
+        top: 0;
+    }
+    .total-subcase-round{
+        font-size: 75px;
+        top: 10%;
     }
 }

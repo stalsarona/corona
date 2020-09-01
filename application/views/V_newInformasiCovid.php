@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="shortcut icon" type="ico" href="<?php echo base_url()?>assets/images/logo.ico">
-  <title>Informasi Covid-19 #NEW</title>
+  <title>Informasi Covid-19</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/fontawesome-free/css/all.min.css">
@@ -20,13 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300&display=swap" rel="stylesheet">
   <!-- open sans -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-  <style>
-      
-      .chartdiv {
-        width: 100%;
-        height: 500px;
-      }
-  </style>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
    <!-- Resources -->
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
@@ -64,20 +58,22 @@ $total_rj = $total_rj_dew + $total_rj_ank;
              style="opacity: .8">
         <span class="brand-text font-weight-light">RSUD TUGUREJO</span>
       </a>
-
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!--  Scope Left navbar links -->
         <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="http://api.rstugurejo.jatengprov.go.id:8000/booking/" class="nav-link">Booking</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle active">Informasi</a>
-              <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                <li><a href="<?php echo site_url() ?>" class="dropdown-item">Deteksi Awal Covid-19</a></li>
-                <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item active">Informasi Covid-19</a></li>
-              </ul>
-            </li>
+          <li class="nav-item">
+            <a href="http://api.rstugurejo.jatengprov.go.id:8000/booking/" class="nav-link">Booking</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle active">Informasi</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              <li><a href="<?php echo site_url() ?>" class="dropdown-item">Deteksi Awal Covid-19</a></li>
+              <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item active">Informasi Covid-19</a></li>
+            </ul>
+          </li>
         </ul>
         <!--  Scope Left navbar links -->
       </div>
@@ -130,9 +126,9 @@ $total_rj = $total_rj_dew + $total_rj_ank;
 
     <!-- Main content -->
     <div class="content">
-      <div class="chartRekap">
+      <div class="chartRekap" >
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" data-aos="fade-in">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title"> Pergerakan Total Kasus Pasien Covid-19</div>
@@ -148,7 +144,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos="fade-up">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title"> Persentase Kesembuhan Pasien Covid-19</div>
@@ -164,7 +160,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos="fade-up">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title"> Persentase Kematian Pasien Covid-19</div>
@@ -180,7 +176,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos="fade-up">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title"> Pasien Covid-19 Berdasarkan Jenis Kelamin</div>
@@ -196,7 +192,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos="fade-up">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title"> Pasien Covid-19 Berdasarkan Jenis Usia</div>
@@ -220,7 +216,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
     <div class="content">
       <div class="container container-total-case">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" data-aos="fade-up">
             <div class="card card-primary">
               <div class="card-header">
                 <div class="card-title new-title text-center"><h2><b>Total Kasus Covid-19 &nbsp; <span class="badge badge-light"><?php echo $total_global; ?></span></b> </h2></div>
@@ -377,7 +373,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
     <div class="content">
       <div class="rawat-inap">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" data-aos="fade-up">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title new-title text-center">Rawat Inap</div>
@@ -581,7 +577,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
     <div class="content">
       <div class="container rawat-jalan container-total-case">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" data-aos="fade-up">
             <div class="card card-primary">
                <div class="card-header">
                   <div class="card-title new-title text-center">rawat jalan</div>
@@ -649,7 +645,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
                             <div class="card card-widget widget-user">
                                <div class="card-footer text-center footer-new">
                                   <div class="card-title text-isorum uppercase-text opensans-font footer-title-iso">
-                                    confirm isolasi mandiri
+                                    confirm isolasi rumah dinas
                                   </div>
                                </div>
                                <div class="widget-user-header bg-info isorumdin">                                
@@ -724,7 +720,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
                             <div class="card card-widget widget-user">
                                <div class="card-footer text-center footer-new">
                                   <div class="card-title text-isorum uppercase-text opensans-font footer-title-iso">
-                                    confirm isolasi mandiri
+                                    confirm isolasi rumah dinas
                                   </div>
                                </div>
                                <div class="widget-user-header bg-info isorumdin">                                
@@ -774,7 +770,10 @@ $total_rj = $total_rj_dew + $total_rj_ank;
 <script src="<?php echo base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url()?>assets/dist/js/adminlte.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <script>
+ AOS.init();
   am4core.ready(function() { 
     rekapBulan();
     function rekapBulan(){

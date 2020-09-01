@@ -42,7 +42,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="<?php echo base_url('#');?>" class="navbar-brand">
         <img src="<?php echo base_url('assets/dist/img/logo.png');?>" alt="RSUD TUGUREJO" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light"><strong>Dewoc19</strong> RSUD Tugurejo</span>
+        <span class="brand-text font-weight-light"><strong>Dewo19</strong> RSUD Tugurejo</span>
       </a>
       <ul class="navbar-nav">
           <li class="nav-item">
@@ -576,6 +576,7 @@ function allowNumbersOnly(a, event) {
                     $('#rt').val(response.content[0].NO_RT)
                     $('#rw').val(response.content[0].NO_RW)
                   } else {
+                    $('.reset').val('')
                     swal('Informasi','Tanggal lahir berbeda','info')
                   }
                 }
@@ -630,6 +631,7 @@ function allowNumbersOnly(a, event) {
                 $('#rt').val(response.content[0].NO_RT)
                 $('#rw').val(response.content[0].NO_RW)
               } else {
+                $('.reset').val('')
                 swal('Informasi','Tanggal lahir berbeda','info')
               }
               

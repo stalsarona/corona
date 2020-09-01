@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'screening_c';
 $route['analisa/(:any)'] = 'screening_c/card_analisa/$1';
 $route['404_override'] = 'screening_c/error';
-$route['informasi-covid19'] = 'Covid_informasi/new_info';
+$route['informasi-covid19'] = 'covid_informasi/newCovidDashboard';
 //$route['informasi-covid19'] = 'Covid_informasi/error';
 $route['signin'] = 'AuthCovid';
 $route['signout'] = 'AuthCovid/signout_pendataan';
