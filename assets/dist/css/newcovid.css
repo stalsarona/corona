@@ -260,6 +260,9 @@ footer {
     .container-total-case {
         max-width: 1500px;
     }
+    .container-chartrekap{
+        max-width: 1750px;
+    }
 }
 @media screen and ( max-width: 1024px){
     .chartdiv{
@@ -330,4 +333,18 @@ footer {
         font-size: 75px;
         top: 10%;
     }
+    .card-body{
+        overflow: auto;
+    }
 }
+.card-footer:hover{
+    background-color: lightcyan;
+}
+.carousel-indicators li{
+    background-color: #543fce;
+}
+/* @media screen and ( max-width: 320px){
+    .card-body{
+        overflow: auto;
+    }
+} */

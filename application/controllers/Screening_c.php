@@ -65,6 +65,13 @@ class Screening_c extends CI_Controller {
         return $exec0;
 	}
 
+	function testdisduk(){
+		$id              = "TUGUREJORSUD2019";
+		$get_log['todays']			 = date('dmY');
+		$get_log['pass']            = md5($id.$get_log['todays']);
+		echo json_encode($get_log);
+	}
+
 	public function get_js()
     {
 		$id              = "TUGUREJORSUD2019";

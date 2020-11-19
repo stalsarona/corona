@@ -42,6 +42,12 @@ class Covid_informasi extends CI_Controller {
         $this->load->view('V_newInformasiCovid', $data);
     }
 
+    public function newCovidDashboard_V1()
+    {
+        $data['data'] = $this->get_data_covidNew();
+        $this->load->view('V_informasi_covid_v1', $data);
+    }
+
     public function pendataan()
     {
         //fitur tidak di gunakan
