@@ -260,7 +260,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
                                </div>
                                <div class="widget-user-header bg-info reactive">                                
                                  <div class="total-rw">
-                                    279
+                                    278
                                  </div>
                                </div>
                              </div>
