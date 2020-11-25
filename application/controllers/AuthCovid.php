@@ -17,7 +17,7 @@ class AuthCovid extends CI_Controller {
 			$data['token'] = $this->private_token();
 			$this->load->view('V_login', $data);
 		} else {
-			redirect('pendataan','refresh');
+			redirect('import/v1','refresh');
 		}
 	}
 

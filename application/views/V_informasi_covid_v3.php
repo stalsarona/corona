@@ -30,9 +30,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 <?php 
-  $confirm = $data['confirm'];
-  $suspect = $data['suspect'];
-  $total = $data['total'];
+$total_global = $data['status'][0]['SEMBUH'] + $data['status'][0]['DIRAWAT'] + $data['status'][0]['MENINGGAL'] + $data['status'][0]['REACTIVE'] + $data['status'][0]['ISOMANDIRI'] + $data['status'][0]['ISORUMDIN'];
+$persen_sembuh = ($data['status'][0]['SEMBUH'] != 0) ? $data['status'][0]['SEMBUH']/$total_global*100 : 0;
+$persen_drwt = ($data['status'][0]['DIRAWAT'] != 0) ? $data['status'][0]['DIRAWAT']/$total_global*100 : 0;
+$persen_mnggal = ($data['status'][0]['MENINGGAL'] != 0) ? $data['status'][0]['MENINGGAL']/$total_global*100 : 0;
+$persen_reactive = ($data['status'][0]['REACTIVE'] != 0) ? $data['status'][0]['REACTIVE']/$total_global*100 : 0;
+$persen_isoman = ($data['status'][0]['ISOMANDIRI'] != 0) ? $data['status'][0]['ISOMANDIRI']/$total_global*100 : 0;
+$persen_isorudin = ($data['status'][0]['ISORUMDIN'] != 0) ? $data['status'][0]['ISORUMDIN']/$total_global*100 : 0;
+
+$total_confirm_dew = $data['status'][0]['RIDWS_CONFIRMSEMBUH'] + $data['status'][0]['RIDWS_CONFIRMRAWATISO'] + $data['status'][0]['RIDWS_CONFIRMMATI'];
+$total_confirm_ank = $data['status'][0]['RIAN_CONFIRMSEMBUH'] + $data['status'][0]['RIAN_CONFIRMRAWATISO'] + $data['status'][0]['RIAN_CONFIRMMATI'];
+$total_confirm = $total_confirm_dew + $total_confirm_ank;
+
+$total_sus_dew = $data['status'][0]['RIDWS_SUSPEKSEMBUH'] + $data['status'][0]['RIDWS_SUSPEKRAWAT'] + $data['status'][0]['RIDWS_SUSPEKMATI'];
+$total_sus_ank = $data['status'][0]['RIAN_SUSPEKSEMBUH'] + $data['status'][0]['RIAN_SUSPEKRAWAT'] + $data['status'][0]['RIAN_SUSPEKMATI'];
+$total_suspect = $total_sus_dew + $total_sus_ank;
+
+$total_rj_dew = $data['status'][0]['RJDWS_SEMBUH'] + $data['status'][0]['RJDWS_REACTIVE'] + $data['status'][0]['RJDWS_CONFIRMISOMANDIRI'] + $data['status'][0]['RJDWS_CONFIRMISORUMDIN'];
+$total_rj_ank = $data['status'][0]['RJAN_SEMBUH'] + $data['status'][0]['RJAN_REACTIVE'] + $data['status'][0]['RJAN_CONFIRMISOMANDIRI'] + $data['status'][0]['RJAN_CONFIRMISORUMDIN'];
+$total_rj = $total_rj_dew + $total_rj_ank;
 ?>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
@@ -230,7 +246,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                </div>
                                <div class="widget-user-header bg-info health">                                
                                  <div class="total-rw">
-                                  <?php echo $confirm-37; ?>
+                                    355
                                   </div>
                                </div>
                              </div>
@@ -244,7 +260,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                </div>
                                <div class="widget-user-header bg-info reactive">                                
                                  <div class="total-rw">
-                                    <?php echo $suspect ?>
+                                    278
                                  </div>
                                </div>
                              </div>
@@ -288,7 +304,97 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
     </div>
-    
+    <div class="content" style="display:none;">
+      <div class="container rawat-jalan container-total-case">
+        <div class="row">
+          <div class="col-md-12" data-aos="fade-up">
+            <div class="card card-primary">
+               <div class="card-header">
+                  <div class="card-title new-title text-center">rawat jalan</div>
+               </div>
+               <div class="card-body">
+                 <div class="row">
+                   <div class="col-md-12">
+                     <div class="card">
+                       <div class="card-header">
+                         <div class="card-title uppercase-text">
+                          </div>
+                         <div class="card-tools">
+                          <button type="button" class="btn btn-tool primary" data-card-widget="card-refresh" data-source="statistik_age" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                          <button type="button" class="btn btn-tool primary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                          
+                        </div>
+                       </div>
+                       <div class="card-body">
+                          <div class="row">
+                           <div class="col-md-3">
+                             <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-health uppercase-text opensans-font footer-title">
+                                    Periksa
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info health">                                
+                                 <div class="total-rw">
+                                    286
+                                  </div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-reactive uppercase-text opensans-font footer-title">
+                                    Positif
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info reactive">                                
+                                 <div class="total-rw">
+                                    37
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-isoman uppercase-text opensans-font footer-title-iso">
+                                    Negatif
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info isoman">                                
+                                 <div class="total-rw">
+                                    249
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                           <div class="col-md-3">
+                            <div class="card card-widget widget-user">
+                               <div class="card-footer text-center footer-new">
+                                  <div class="card-title text-isorum uppercase-text opensans-font footer-title-iso">
+                                    Rawat Inap
+                                  </div>
+                               </div>
+                               <div class="widget-user-header bg-info isorumdin">                                
+                                 <div class="total-rw">
+                                    37
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- /.content-wrapper -->
 
@@ -380,11 +486,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         },
       ]
       // Create series
-      chart.dataSource.url = "<?php echo base_url('covid_informasi/groupbymonth')?>"
       chart.data = data;
       var series = chart.series.push(new am4charts.LineSeries());
-      series.dataFields.valueY = "total";
-      series.dataFields.dateX = "tanggal";
+      series.dataFields.valueY = "value";
+      series.dataFields.dateX = "bulan";
       series.tensionX = 0.8;
       series.strokeWidth = 3;
 

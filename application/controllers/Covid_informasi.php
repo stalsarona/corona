@@ -1,9 +1,8 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+require 'vendor/autoload.php';
 class Covid_informasi extends CI_Controller {
 
-    
     public function __construct()
     {
         parent::__construct();
@@ -50,8 +49,15 @@ class Covid_informasi extends CI_Controller {
 
     public function newCovidDashboard_V2()
     {
-        $data['data'] = $this->get_data_covidNew();
+        //$data['data'] = $this->get_data_covidNew();
+        $data['data'] = $this->getDataDewo();
         $this->load->view('V_informasi_covid_v2', $data);
+    }
+
+    public function newCovidDashboard_V3()
+    {
+        $data['data'] = $this->get_data_covidNew();
+        $this->load->view('V_informasi_covid_v3', $data);
     }
 
     public function pendataan()
@@ -269,6 +275,80 @@ class Covid_informasi extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($key));
     }
 
+    // Redesign V.2.1
+    
+    public function getDataDewo()
+    {
+        $v1 = 'covidreportv1';
+        $v2 = 'covidreportv2';
+        $datav1 = $this->M_covid->getDataDewo($v1);
+        $datav2 = $this->M_covid->getDataDewo($v2);
+        $confirmv1 = 0;
+        $suspectv1 = 0;
+        foreach ($datav1 as $key => $value) {
+            if($value->status_pasien === 'Konfirmasi'){
+                $confirmv1++;
+            } else {
+                $suspectv1++;
+            }
+        }
+        $confirmv2 = 0;
+        $suspectv2 = 0;
+        foreach ($datav2 as $key => $value) {
+            $total_sus = $value->suspect_l + $value->suspect_p;
+            $total_conf = $value->confirm_l + $value->confirm_p;
+            $suspectv2 += $total_sus;
+            $confirmv2 += $total_conf;
+        }
+        $response = [
+            'confirm' => $confirmv1+$confirmv2,
+            'suspect' => $suspectv1+$suspectv2,
+            'total' => $confirmv2+$confirmv1+$suspectv1+$suspectv2
+        ];
+        return $response;
+    }
+
+    public function groupByMonthv1()
+    {
+        $data = $this->M_covid->groupByMonthv1();
+        $total = 0;
+        foreach ($data as $key) {
+            $total = $total + $key->totalkasus;
+            $hasil[] = array('total' => $total,  'tanggal' => $key->tanggal);
+            //var_dump($total);
+
+        }
+        //echo json_encode($data);
+        return $data;
+    }
+
+    public function groupByMonthv2()
+    {
+        $data = $this->M_covid->groupByMonthv2();
+        $total = 0;
+        foreach ($data as $key) {
+            $total = $total + $key->totalkasus;
+            $hasil[] = array('total' => $total,  'tanggal' => $key->tanggal);
+        }
+        //echo json_encode($hasil);
+        return $data;
+    }
+ 
+    public function groupByMonth()
+    {
+        $v1 = $this->groupByMonthv1();
+        $v2 = $this->groupByMonthv2();
+        $data = array_merge($v1, $v2);
+        ksort($data);
+        $total = 0;
+        
+        foreach ($data as $x => $key) {
+            $total = $total + $key->totalkasus;
+            $hasil[] = array('tanggal' => $key->tanggal, 'total' => $total);
+        }
+        
+        echo json_encode($hasil);
+    }
 
 }
 

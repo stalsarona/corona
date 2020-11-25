@@ -212,8 +212,8 @@
             success: function (response) {
               //console.log(response[0]['kode']).
               if(response[0]['kode'] == '200'){
-                var pendataan = '<?php echo base_url('pendataan')?>/'
-                window.location.replace(pendataan);
+                var importdash = '<?php echo base_url('import/v1')?>/'
+                window.location.replace(importdash);
               } else if(response[0]['kode'] == '400' || response[0]['kode'] == '300'){
                 swal("username / password salah ",'','info');
                 $('.overlay').css('display', 'none');
