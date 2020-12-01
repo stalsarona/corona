@@ -24,6 +24,11 @@ class ImportData extends CI_Controller {
         $this->template->load('layouts/Layouts', 'dashboard/V_importv2');
     }
 
+    public function complementary()
+    {
+        $this->template->load('layouts/Layouts', 'dashboard/V_complementary');
+    }
+
     public function uploadFileV1()
     {
         if(!empty($_FILES['file']['name'])){

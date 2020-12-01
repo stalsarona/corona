@@ -36,6 +36,12 @@
                 <p>Import V2</p>
             </a>
             </li>
+            <li class="nav-item">
+            <a href="<?php echo site_url('import/v2')?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Complementary</p>
+            </a>
+            </li>
         </ul>
         </li>
         <li class="nav-item has-treeview">
@@ -59,3 +65,8 @@
     </nav>
     <!-- /.sidebar-menu -->
 </div>
+<script src="<?php echo base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+<script>
+   const induk = document.querySelector(".nav-treeview");
+   console.log(induk.firstChild.nodeName);
+</script>
