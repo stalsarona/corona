@@ -80,9 +80,15 @@ var myDropzone = new Dropzone("#my-dropzone2", {
     url: "<?php echo base_url()?>ImportData/uploadFileV2",
     init: function() {
         this.on("success", function(file, response){
-           const d = JSON.parse(response)
-           d.code === 500 ? swal('Format File Salah','', 'info') : swal('Sukses import data','','success');
-           d.code === 500 && this.removeFile(file);
+          if(response != "" ){
+            const d = JSON.parse(response)
+            d.code === 500 ? swal('Format File Salah','', 'info') : swal('Sukses import data','','success');
+            d.code === 500 && this.removeFile(file);
+            //console.log('response')
+            return;
+          }
+          swal('Format File Salah','', 'info');
+          this.removeFile(file);
         })
         this.on("error", function(file, error){
             console.log(error)

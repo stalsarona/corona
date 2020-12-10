@@ -10,7 +10,7 @@
             <i class="nav-icon fas fa-th"></i>
             <p>
             Dashboard
-            <span class="right badge badge-danger">New</span>
+            <!-- <span class="right badge badge-danger">New</span> -->
             </p>
         </a>
         </li>
@@ -20,7 +20,7 @@
             <p>
             Import Data Excel
             <i class="fas fa-angle-left right"></i>
-            <span class="badge badge-info right">6</span>
+            <!-- <span class="badge badge-info right">6</span> -->
             </p>
         </a>
         <ul class="nav nav-treeview">
@@ -37,7 +37,7 @@
             </a>
             </li>
             <li class="nav-item">
-            <a href="<?php echo site_url('import/v2')?>" class="nav-link">
+            <a href="<?php echo site_url('importdata/complementary')?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Complementary</p>
             </a>
