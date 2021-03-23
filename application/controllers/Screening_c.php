@@ -74,33 +74,10 @@ class Screening_c extends CI_Controller {
 
 	public function get_js()
     {
-		$id              = "TUGUREJORSUD2019";
-		$get_log['todays']			 = date('dmY');
-		$get_log['pass']            = md5($id.$get_log['todays']);
-
 		$ktp = $this->input->post('ktp');
-		//$get_pass = $this->get_log();
-        $url = "http://adminduk.jatengprov.go.id:8282/ws_server/get_json/RSUDTUGUREJO/GET_NIK_TUGUREJO?USER_ID=RSUDTUGUREJO&PASSWORD=".$get_log['pass']."&NIK=".$ktp."";
+        $url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/getdatauser/".$ktp;
         $data = json_decode($this->get_cors($url), TRUE);
-        //$data = $this->get_cors($url);
-        //untuk scraping json harus di decode baru di looping dahulu
         $this->output->set_content_type('application/json')->set_output(json_encode($data));
-	}
-	
-	public function new_get()
-	{
-		$id         ="TUGUREJORSUD2019";
-		$get_log['todays']			 = date('dmY');
-		$get_log['pass']            = md5($id.$get_log['todays']);
-		$ktp = $this->input->post('ktp');
-		$url = "http://adminduk.jatengprov.go.id:8282/ws_server/get_json/RSUDTUGUREJO/GET_NIK_TUGUREJO?USER_ID=RSUDTUGUREJO&PASSWORD=".$get_log['pass']."&NIK=".$ktp."";
-		$get_url = file_get_contents($url);
-		$real = json_decode($get_url, true);
-		$hasil = array();
-		foreach($real as $key){
-			$hasil[] = array('ktp' => $key['NIK']);
-		}
-		$this->output->set_content_type('application/json')->set_output(json_decode($hasil));	
 	}
 
 	public function get_pertanyaan()
@@ -113,6 +90,7 @@ class Screening_c extends CI_Controller {
 		return $data;
 	}
 
+	
 	public function get_pertanyaan_bykode($id)
 	{
 		$url = "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/get_pertanyaan_bykode/".$id;
