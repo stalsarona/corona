@@ -24,6 +24,11 @@ class ImportData extends CI_Controller {
         $this->template->load('layouts/Layouts', 'dashboard/V_importv2');
     }
 
+    public function v3()
+    {
+        $this->template->load('layouts/Layouts', 'dashboard/V_importv3');
+    }
+
     public function complementary()
     {
         $this->template->load('layouts/Layouts', 'dashboard/V_complementary');
@@ -70,6 +75,29 @@ class ImportData extends CI_Controller {
                
                 $name = $uploadData['file_name'];
                 $response = $this->insertv2($name);
+                echo $response;
+            }
+        }
+    }
+
+    public function checkUpload()
+    {
+        if(!empty($_FILES['file']['name'])){
+            $config['upload_path'] = './assets/import-dewo19/'; 
+            $config['allowed_types'] = 'xls|xlsx';
+            $config['max_size'] = 10024; // max_size in kb
+            $config['file_name'] = 'FasyankesOnline-V3';
+
+            //Load upload library
+            $this->load->library('upload',$config); 
+
+            // File upload
+            if($this->upload->do_upload('file')){
+                // Get data about the file
+                $uploadData = $this->upload->data();
+               
+                $name = $uploadData['file_name'];
+                $response = $this->insertv3($name);
                 echo $response;
             }
         }
@@ -163,6 +191,70 @@ class ImportData extends CI_Controller {
            
         }
        
+        echo json_encode($response);     
+    }
+
+    function insertv3($file){
+        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        $spreadsheet = $reader->load("./assets/import-dewo19/".$file."");
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        $suc_insert = 0;
+        $fal_insert = 0;
+        $insert = false;
+        $response = [];
+        $nomor= 0;
+        $user = $this->session->userdata('username');
+        foreach ($sheetData as $key => $value) {
+            if($key === 2){
+                $response[] = [
+                    'status_keluar' => $value['A'],
+                    'dis_dewasa' => $value['B'],
+                    'dis_anak' => $value['C'],
+                    'dis_jumlah' => $value['D'],
+                    'prop_dewasa' => $value['E'],
+                    'prop_anak' => $value['F'],
+                    'prop_jumlah' => $value['G'],
+                    'cov_dewasa' => $value['H'],
+                    'cov_anak' => $value['I'],
+                    'cov_jumlah' => $value['J'],
+                    'totaldpc' => $value['K'],
+                    'user_input' => $user,
+                    'user_edit' => $user,
+                    'count' => count($sheetData),
+                    'key' => $key
+                ]; 
+            }
+            // $nomor++;
+            // if($nomor === 2){
+            //     continue;
+            // }
+            // $response[] = [
+            //     'status_keluar' => $value['A'],
+            //     'dis_dewasa' => $value['B'],
+            //     'dis_anak' => $value['C'],
+            //     'dis_jumlah' => $value['D'],
+            //     'prop_dewasa' => $value['E'],
+            //     'prop_anak' => $value['F'],
+            //     'prop_jumlah' => $value['G'],
+            //     'cov_dewasa' => $value['H'],
+            //     'cov_anak' => $value['I'],
+            //     'cov_jumlah' => $value['J'],
+            //     'totaldpc' => $value['K'],
+            //     'user_input' => $user,
+            //     'user_edit' => $user,
+            //     'count' => count($sheetData)
+            // ]; 
+        //    $insert = $this->M_covid->insertImport('covidreportv3',$obj);
+        //    $countRes = $insert === true ? $suc_insert++ : $fal_insert++;
+        }
+
+        $res = [
+            'total_success' => $suc_insert,
+            'total_failed' => $fal_insert,
+            'status' => $insert,
+            'message' => 'try to import data',
+            'code' => 200
+        ];
         echo json_encode($response);     
     }
 

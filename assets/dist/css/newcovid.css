@@ -209,7 +209,7 @@ footer {
     padding-top: 15px;
 }
 .total-rw {
-    font-size: 10em;
+    font-size: 8em;
 }
 @media screen and (max-width: 320px){
     .title-total{

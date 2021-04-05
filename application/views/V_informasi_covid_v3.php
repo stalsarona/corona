@@ -237,7 +237,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
                        </div>
                        <div class="card-body">
                           <div class="row">
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                              <div class="card card-widget widget-user">
                                <div class="card-footer text-center footer-new">
                                   <div class="card-title text-health uppercase-text opensans-font footer-title">
@@ -246,26 +246,12 @@ $total_rj = $total_rj_dew + $total_rj_ank;
                                </div>
                                <div class="widget-user-header bg-info health">                                
                                  <div class="total-rw">
-                                    355
+                                    1037
                                   </div>
                                </div>
                              </div>
                            </div>
-                           <div class="col-md-3">
-                              <div class="card card-widget widget-user">
-                               <div class="card-footer text-center footer-new">
-                                  <div class="card-title text-reactive uppercase-text opensans-font footer-title">
-                                    Suspect
-                                  </div>
-                               </div>
-                               <div class="widget-user-header bg-info reactive">                                
-                                 <div class="total-rw">
-                                    278
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                               <div class="card card-widget widget-user">
                                <div class="card-footer text-center footer-new">
                                   <div class="card-title text-isoman uppercase-text opensans-font footer-title-iso">
@@ -274,12 +260,12 @@ $total_rj = $total_rj_dew + $total_rj_ank;
                                </div>
                                <div class="widget-user-header bg-info isoman">                                
                                  <div class="total-rw">
-                                    1
+                                    4
                                  </div>
                                </div>
                              </div>
                            </div>
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                             <div class="card card-widget widget-user">
                                <div class="card-footer text-center footer-new">
                                   <div class="card-title text-isorum uppercase-text opensans-font footer-title-iso">
@@ -288,7 +274,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
                                </div>
                                <div class="widget-user-header bg-info isorumdin">                                
                                  <div class="total-rw">
-                                    38
+                                    578
                                  </div>
                                </d0iv>
                              </div>
@@ -411,7 +397,7 @@ $total_rj = $total_rj_dew + $total_rj_ank;
   <!-- Main Footer -->
   <footer class="main-footer text-center">
     <!-- Default to the left -->
-    <marquee onmouseout="this.start()" onmouseover="this.stop()"><h5><i class="icon fas fa-exclamation-triangle"></i> Sumber <?php echo date('d M Y') ?> http://sirs.kemkes.go.id/ </h5></marquee>
+    <marquee onmouseout="this.start()" onmouseover="this.stop()"><h5>Updated 05/04/2021 08.00 WIB </h5></marquee>
     <strong>Copyright &copy; 2020 <a href="https://rstugurejo.jatengprov.go.id">RSUD TUGUREJO PROVINSI JAWA TENGAH</a>.</strong> All rights reserved.
   </footer>
 </div>

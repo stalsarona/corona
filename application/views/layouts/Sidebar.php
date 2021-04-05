@@ -5,15 +5,15 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library -->      
-        <li class="nav-item">
-        <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-            Dashboard
-            <!-- <span class="right badge badge-danger">New</span> -->
-            </p>
-        </a>
-        </li>
+        <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Dashboard
+                <span class="right badge badge-danger">New</span>
+                </p>
+            </a>
+        </li> -->
         <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
@@ -44,7 +44,7 @@
             </li>
         </ul>
         </li>
-        <li class="nav-item has-treeview">
+        <!-- <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
@@ -60,7 +60,7 @@
             </a>
             </li>
         </ul>
-        </li>
+        </li> -->
     </ul>
     </nav>
     <!-- /.sidebar-menu -->

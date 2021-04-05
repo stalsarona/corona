@@ -72,4 +72,10 @@ class M_covid extends CI_Model {
 
 		return $data->result();
 	}
+
+	function insertImport($table, $obj)
+	{
+		$data = $this->db->insert($table, $obj);
+		return $data;
+	}
 }
