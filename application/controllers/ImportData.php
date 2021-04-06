@@ -24,9 +24,10 @@ class ImportData extends CI_Controller {
         $this->template->load('layouts/Layouts', 'dashboard/V_importv2');
     }
 
-    public function v3()
+    public function v3($sts)
     {
-        $this->template->load('layouts/Layouts', 'dashboard/V_importv3');
+        $data['status'] = $sts;
+        $this->template->load('layouts/Layouts', 'dashboard/V_importv3', $data);
     }
 
     public function complementary()
@@ -75,29 +76,6 @@ class ImportData extends CI_Controller {
                
                 $name = $uploadData['file_name'];
                 $response = $this->insertv2($name);
-                echo $response;
-            }
-        }
-    }
-
-    public function checkUpload()
-    {
-        if(!empty($_FILES['file']['name'])){
-            $config['upload_path'] = './assets/import-dewo19/'; 
-            $config['allowed_types'] = 'xls|xlsx';
-            $config['max_size'] = 10024; // max_size in kb
-            $config['file_name'] = 'FasyankesOnline-V3';
-
-            //Load upload library
-            $this->load->library('upload',$config); 
-
-            // File upload
-            if($this->upload->do_upload('file')){
-                // Get data about the file
-                $uploadData = $this->upload->data();
-               
-                $name = $uploadData['file_name'];
-                $response = $this->insertv3($name);
                 echo $response;
             }
         }
@@ -194,6 +172,31 @@ class ImportData extends CI_Controller {
         echo json_encode($response);     
     }
 
+    public function checkUpload($status)
+    {
+        if(!empty($_FILES['file']['name'])){
+            $config['upload_path'] = './assets/import-dewo19/'; 
+            $config['allowed_types'] = 'xls|xlsx';
+            $config['max_size'] = 10024; // max_size in kb
+            $config['file_name'] = 'FasyankesOnline-V3';
+
+            //Load upload library
+            $this->load->library('upload',$config); 
+
+            // File upload
+            if($this->upload->do_upload('file')){
+                // Get data about the file
+                $uploadData = $this->upload->data();
+               
+                $name = $uploadData['file_name'];
+                $status  === 'Covid' ?
+                $response = $this->insertv3($name):
+                $response = $this->rekap($name);
+                echo $response;
+            }
+        }
+    }
+
     function insertv3($file){
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $spreadsheet = $reader->load("./assets/import-dewo19/".$file."");
@@ -205,57 +208,95 @@ class ImportData extends CI_Controller {
         $nomor= 0;
         $user = $this->session->userdata('username');
         foreach ($sheetData as $key => $value) {
-            if($key === 2){
-                $response[] = [
-                    'status_keluar' => $value['A'],
-                    'dis_dewasa' => $value['B'],
-                    'dis_anak' => $value['C'],
-                    'dis_jumlah' => $value['D'],
-                    'prop_dewasa' => $value['E'],
-                    'prop_anak' => $value['F'],
-                    'prop_jumlah' => $value['G'],
-                    'cov_dewasa' => $value['H'],
-                    'cov_anak' => $value['I'],
-                    'cov_jumlah' => $value['J'],
-                    'totaldpc' => $value['K'],
-                    'user_input' => $user,
-                    'user_edit' => $user,
-                    'count' => count($sheetData),
-                    'key' => $key
-                ]; 
+            if($key === 1){
+                continue;
             }
-            // $nomor++;
-            // if($nomor === 2){
-            //     continue;
-            // }
-            // $response[] = [
-            //     'status_keluar' => $value['A'],
-            //     'dis_dewasa' => $value['B'],
-            //     'dis_anak' => $value['C'],
-            //     'dis_jumlah' => $value['D'],
-            //     'prop_dewasa' => $value['E'],
-            //     'prop_anak' => $value['F'],
-            //     'prop_jumlah' => $value['G'],
-            //     'cov_dewasa' => $value['H'],
-            //     'cov_anak' => $value['I'],
-            //     'cov_jumlah' => $value['J'],
-            //     'totaldpc' => $value['K'],
-            //     'user_input' => $user,
-            //     'user_edit' => $user,
-            //     'count' => count($sheetData)
-            // ]; 
-        //    $insert = $this->M_covid->insertImport('covidreportv3',$obj);
-        //    $countRes = $insert === true ? $suc_insert++ : $fal_insert++;
+            $nomor++;
+            $obj = [
+                'status_keluar' => $value['A'],
+                'dis_dewasa' => $value['B'],
+                'dis_anak' => $value['C'],
+                'dis_jumlah' => $value['D'],
+                'prop_dewasa' => $value['E'],
+                'prop_anak' => $value['F'],
+                'prop_jumlah' => $value['G'],
+                'cov_dewasa' => $value['H'],
+                'cov_anak' => $value['I'],
+                'cov_jumlah' => $value['J'],
+                'totaldpc' => $value['K'],
+                'user_input' => $user,
+                'user_edit' => $user,
+            ]; 
+           $insert = $this->M_covid->insertImport('covidreportv3',$obj);
+           $insert === true ? $suc_insert++ : $fal_insert++;
+           $code = $insert === true ? 200 : 500;
         }
-
         $res = [
+            'total' => $nomor,
             'total_success' => $suc_insert,
             'total_failed' => $fal_insert,
             'status' => $insert,
             'message' => 'try to import data',
-            'code' => 200
+            'code' => $code
         ];
-        echo json_encode($response);     
+        echo json_encode($res);     
+    }
+
+    public function rekap($file)
+    {
+        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        $spreadsheet = $reader->load("./assets/import-dewo19/".$file."");
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        $suc_insert = 0;
+        $fal_insert = 0;
+        $insert = false;
+        $response = [];
+        $nomor= 0;
+        $total = 0;
+        $user = $this->session->userdata('username');
+        foreach ($sheetData as $key => $value) {
+            if($key === 1){
+                continue;
+            }
+            $bulan = str_replace('/', '-', $value['A']);
+            $nomor++;
+            $total += $value['Q'];
+            //$total_rekap = $this->M_covid->total_rekap();
+            $obj = [
+                'bulan' => $bulan.'-01',
+                'suspect' => $value['B'],
+                'prop_pulang_sembuh' => $value['C'],
+                'prop_meninggal' => $value['D'],
+                'prop_jumlah' => $value['E'],
+                'cov_pulang_sembuh' => $value['F'],
+                'cov_meninggal' => $value['G'],
+                'cov_masih_dirawat' => $value['H'],
+                'cov_status_lain' => $value['I'],
+                'cov_jml_pasien_masuk' => $value['J'],
+                'dis_pulang_hidup' => $value['K'],
+                'dis_meninggal' => $value['L'],
+                'dis_masih_dirawat' => $value['M'],
+                'dis_status_lain' => $value['N'],
+                'dis_jml_pasien_masuk' => $value['O'],
+                'dis_mati' => $value['P'],
+                'totaldpc' => $value['Q'],
+                'rekaptotal' => $total,
+                'user_input' => $user,
+                'user_edit' => $user,
+            ]; 
+           $insert = $this->M_covid->insertImport('rekapitulasi',$obj);
+           $insert === true ? $suc_insert++ : $fal_insert++;
+           $code = $insert === true ? 200 : 500;
+        }
+        $res = [
+            'total' => $nomor,
+            'total_success' => $suc_insert,
+            'total_failed' => $fal_insert,
+            'status' => $insert,
+            'message' => 'try to import data',
+            'code' => $code
+        ];
+        echo json_encode($res);     
     }
 
 }

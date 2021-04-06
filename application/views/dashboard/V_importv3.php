@@ -30,7 +30,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Import V3 2021</li>
+            <li class="breadcrumb-item active">Import Data</li>
           </ol>
         </div>
       </div>
@@ -46,13 +46,17 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Form Import Data V3 2021</h3>
+              <h3 class="card-title">Form Import Data <?php echo $status ?></h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
             <div class="card-body">
               <p class="mt-2">
-              And here is your new drag n drop element
+              And here is your new drag & drop element <?php if($status === 'Covid'){?>
+              <a href="<?php echo base_url()?>assets/import-dewo19/Original/format-importdata-covid.xlsx">&nbsp; <i class="fa fa-download">&nbsp; format excel</i></a>
+               <?php } else {?>
+                <a href="<?php echo base_url()?>assets/import-dewo19/Original/format-rekap.xlsx">&nbsp; <i class="fa fa-download">&nbsp; format excel</i></a>
+              <?php } ?>
               </p>
               <form class="dropzone dz-clickable" id="my-dropzone2">
                 <div class="dz-message d-flex flex-column">
@@ -76,8 +80,10 @@
 <script>
 let currentFile = null;
 Dropzone.autoDiscover = false;
+const status = "<?php echo $status ?>";
+const url = status === 'Covid' ? "<?php echo base_url('importData/checkUpload/Covid')?>" : "<?php echo base_url('importData/checkUpload/rekap')?>";
 var myDropzone = new Dropzone("#my-dropzone2", { 
-    url: "<?php echo base_url()?>ImportData/checkUpload",
+    url: url,
     init: function() {
         this.on("success", function(file, response){
           if(response != "" ){

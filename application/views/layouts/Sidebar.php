@@ -25,22 +25,34 @@
         </a>
         <ul class="nav nav-treeview">
             <li class="nav-item">
-            <a href="<?php echo site_url('import/v1')?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Import V1</p>
-            </a>
+                <a href="<?php echo site_url('import/v1')?>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Import V1</p>
+                </a>
             </li>
             <li class="nav-item">
-            <a href="<?php echo site_url('import/v2')?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Import V2</p>
-            </a>
+                <a href="<?php echo site_url('import/v2')?>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Import V2</p>
+                </a>
             </li>
             <li class="nav-item">
-            <a href="<?php echo site_url('importdata/complementary')?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Complementary</p>
-            </a>
+                <a href="<?php echo site_url('importdata/complementary')?>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Complementary</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?php echo site_url('importdata/Covid')?>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Import Total Covid</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?php echo site_url('importdata/Rekap')?>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Import Total Rekap</p>
+                </a>
             </li>
         </ul>
         </li>

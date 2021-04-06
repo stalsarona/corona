@@ -78,4 +78,9 @@ class M_covid extends CI_Model {
 		$data = $this->db->insert($table, $obj);
 		return $data;
 	}
+
+	function total_rekap(){
+		$data = $this->db->query("SELECT totaldpc, @b := totaldpc+@b AS B FROM (SELECT totaldpc FROM rekapitulasi ORDER BY nomor) AS t CROSS JOIN (SELECT @b := 0) AS varLIMIT 1")->row();
+		return $data;
+	}
 }

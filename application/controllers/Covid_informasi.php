@@ -60,6 +60,11 @@ class Covid_informasi extends CI_Controller {
         $this->load->view('V_informasi_covid_v3', $data);
     }
 
+    public function newCovidDashboard_V4()
+    {
+        $this->load->view('V_informasi_covid_v4');
+    }
+
     public function pendataan()
     {
         //fitur tidak di gunakan
@@ -348,6 +353,78 @@ class Covid_informasi extends CI_Controller {
         }
         
         echo json_encode($hasil);
+    }
+
+    #update 2021 april covid
+
+    public function statistikKasus()
+    {
+        $data = $this->db->select('DATE_FORMAT(bulan, "%Y-%m") as bulan, rekaptotal')->from('rekapitulasi')->get()->result();
+        $this->output->set_content_type('application/json')->set_output(json_encode($data));
+    }
+
+    public function persentaseKematian(){
+        $array = array('PULANG SEMBUH', 'MENINGGAL > 48 JAM', 'MENINGGAL < 48 JAM');
+        $data = $this->db->where_in('status_keluar', $array)->order_by('created_at', 'desc')->limit(3)->get('covidreportv3')->result();
+        $totaldpc =0;
+        $meninggal = 0;
+        $hidup = 0;
+        foreach ($data as $key => $value) {
+            $totaldpc += $value->totaldpc;
+            $value->status_keluar === 'PULANG SEMBUH' ? $hidup = $value->totaldpc : $meninggal += $value->totaldpc; 
+        }
+        $persentase_hidup = round($hidup/$totaldpc*100);
+        $persentase_meninggal = round($meninggal/$totaldpc*100);
+        $res = [
+            [
+                'label' => 'hidup',
+                'value' => $persentase_hidup,
+            ],  
+            [
+                'label' => 'meninggal',
+                'value' => $persentase_meninggal
+            ]
+        ];
+        $this->output->set_content_type('application/json')->set_output(json_encode($res));
+    }
+
+    public function persentaseKesembuhan()
+    {
+        $array = array('MENINGGAL > 48 JAM', 'MENINGGAL < 48 JAM');
+        $data = $this->db->where_not_in('status_keluar', $array)->order_by('created_at', 'desc')->limit(6)->get('covidreportv3')->result();
+        $totaldpc =0;
+        $sembuh = 0;
+        $belumsembuh = 0;
+        foreach ($data as $key => $value) {
+            $totaldpc += $value->totaldpc;
+            $value->status_keluar === 'PULANG SEMBUH' ? $sembuh = $value->totaldpc : $belumsembuh += $value->totaldpc; 
+        }
+        $persentase_sembuh = round($sembuh/$totaldpc*100);
+        $persentase_belum_sembuh = round($belumsembuh/$totaldpc*100);
+        $res = [
+            [
+                'label' => 'sembuh',
+                'value' => $persentase_sembuh,
+            ],  
+            [
+                'label' => 'belum sembuh',
+                'value' => $persentase_belum_sembuh
+            ]
+        ];
+        $this->output->set_content_type('application/json')->set_output(json_encode($res));        
+    }
+
+    public function totalKasus()
+    {
+        $data = $this->db->select(' SUM(dis_jumlah) as total_dis, SUM(prop_jumlah) as total_prop, SUM(cov_jumlah) as total_cov')->from('covidreportv3')->order_by('created_at', 'desc')->limit(7)->get()->result();
+        $res = [
+            'total_dis' => intval($data[0]->total_dis),
+            'total_prop' => intval($data[0]->total_prop),
+            'total_cov' => intval($data[0]->total_cov),
+            'total' => $data[0]->total_dis + $data[0]->total_prop + $data[0]->total_cov
+        ];
+        $this->output->set_content_type('application/json')->set_output(json_encode($res));
+        
     }
 
 }
