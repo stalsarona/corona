@@ -285,7 +285,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Footer -->
   <footer class="main-footer text-center">
     <!-- Default to the left -->
-    <marquee onmouseout="this.start()" onmouseover="this.stop()"><h5>Updated 05/04/2021 08.00 WIB </h5></marquee>
+    <marquee onmouseout="this.start()" onmouseover="this.stop()"><h5>Updated <?php echo $last_updated ?> WIB </h5></marquee>
     <strong>Copyright &copy; 2020 <a href="https://rstugurejo.jatengprov.go.id">RSUD TUGUREJO PROVINSI JAWA TENGAH</a>.</strong> All rights reserved.
   </footer>
 </div>
@@ -339,6 +339,18 @@ total();
       series.dataFields.dateX = "bulan";
       series.tensionX = 0.8;
       series.strokeWidth = 3;
+
+      // var series2 = chart.series.push(new am4charts.LineSeries());
+      // series2.dataFields.valueY = "visit2";
+      // series2.dataFields.dateX = "date";
+      // series2.stroke = am4core.color("#CDA2AB");
+      // series2.strokeWidth = 3;
+      // series2.minBulletDistance = 10;
+      // series2.tooltipText = "{valueY}";
+      // series2.tooltip.pointerOrientation = "vertical";
+      // series2.tooltip.background.cornerRadius = 20;
+      // series2.tooltip.background.fillOpacity = 0.5;
+      // series2.tooltip.label.padding(12,12,12,12)
 
       var bullet = series.bullets.push(new am4charts.CircleBullet());
       bullet.circle.fill = am4core.color("#fff");

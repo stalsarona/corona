@@ -207,6 +207,10 @@ class ImportData extends CI_Controller {
         $response = [];
         $nomor= 0;
         $user = $this->session->userdata('username');
+        $getLastData = $this->db->where('status_data', 0)->get('covidreportv3')->result();
+        foreach ($getLastData as $key => $last_data) {
+            $this->db->set('status_data', 1)->where('nomor', $last_data->nomor)->update('covidreportv3');
+        }
         foreach ($sheetData as $key => $value) {
             if($key === 1){
                 continue;
@@ -226,6 +230,7 @@ class ImportData extends CI_Controller {
                 'totaldpc' => $value['K'],
                 'user_input' => $user,
                 'user_edit' => $user,
+                'status_data' => 0
             ]; 
            $insert = $this->M_covid->insertImport('covidreportv3',$obj);
            $insert === true ? $suc_insert++ : $fal_insert++;
@@ -253,14 +258,16 @@ class ImportData extends CI_Controller {
         $response = [];
         $nomor= 0;
         $total = 0;
-        $user = $this->session->userdata('username');
+       
         foreach ($sheetData as $key => $value) {
             if($key === 1){
                 continue;
             }
             $bulan = str_replace('/', '-', $value['A']);
             $nomor++;
-            $total += $value['Q'];
+            $user = $this->session->userdata('username');
+            $last_data = $this->db->order_by('bulan', 'desc')->limit(1)->get('rekapitulasi')->result();
+            $total = $last_data[0]->rekaptotal+$value['Q'];
             //$total_rekap = $this->M_covid->total_rekap();
             $obj = [
                 'bulan' => $bulan.'-01',
@@ -293,6 +300,7 @@ class ImportData extends CI_Controller {
             'total_success' => $suc_insert,
             'total_failed' => $fal_insert,
             'status' => $insert,
+            'last_data' => $last_data[0]->rekaptotal,
             'message' => 'try to import data',
             'code' => $code
         ];

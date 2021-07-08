@@ -48,7 +48,7 @@ class AuthCovid extends CI_Controller {
 		$password = htmlentities($this->input->post('password', TRUE));
 		$token = $this->input->post('private_token');
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8000/wsrstugu/rstugu/covid/login_pendataan",
+		CURLOPT_URL => "http://api.rstugurejo.jatengprov.go.id:8060/wsrstugu/rstugu/covid/login_pendataan",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_MAXREDIRS => 10,

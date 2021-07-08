@@ -62,7 +62,11 @@ class Covid_informasi extends CI_Controller {
 
     public function newCovidDashboard_V4()
     {
-        $this->load->view('V_informasi_covid_v4');
+        $x = $this->db->select('DATE_FORMAT(created_at,"%d/%m/%Y %H:%i") as tanggal')
+            ->order_by('created_at', 'desc')->limit(1)->get('covidreportv3')->row();
+        $data['last_updated'] = $x->tanggal;
+        //echo json_encode($data);
+        $this->load->view('V_informasi_covid_v4', $data);
     }
 
     public function pendataan()
@@ -416,7 +420,8 @@ class Covid_informasi extends CI_Controller {
 
     public function totalKasus()
     {
-        $data = $this->db->select(' SUM(dis_jumlah) as total_dis, SUM(prop_jumlah) as total_prop, SUM(cov_jumlah) as total_cov')->from('covidreportv3')->order_by('created_at', 'desc')->limit(7)->get()->result();
+        $data = $this->db->select(' SUM(dis_jumlah) as total_dis, SUM(prop_jumlah) as total_prop, SUM(cov_jumlah) as total_cov')
+            ->from('covidreportv3')->where('status_data', 0)->order_by('created_at', 'desc')->limit(7)->get()->result();
         $res = [
             'total_dis' => intval($data[0]->total_dis),
             'total_prop' => intval($data[0]->total_prop),
