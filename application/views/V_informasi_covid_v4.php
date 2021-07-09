@@ -324,13 +324,14 @@ total();
 
       // Create chart instance
       const chart = am4core.create("chartRekapBulan", am4charts.XYChart);
+      chart.legend = new am4charts.Legend();
       // Create axes
       var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
       dateAxis.renderer.minGridDistance = 50;
       dateAxis.dateFormats.setKey("day", "MMMM dt");
       
       var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-      valueAxis.logarithmic = true;
+      valueAxis.logarithmic = false;
       valueAxis.renderer.minGridDistance = 20;
         // Set up data source
       chart.dataSource.url = "<?php echo base_url('covid_informasi/statistikKasus') ?>";
@@ -339,22 +340,51 @@ total();
       series.dataFields.dateX = "bulan";
       series.tensionX = 0.8;
       series.strokeWidth = 3;
+      series.minBulletDistance = 10;
+      series.tooltipText = "{valueY}";
+      series.tooltip.pointerOrientation = "vertical";
+      series.tooltip.background.cornerRadius = 20;
+      series.tooltip.background.fillOpacity = 0.5;
+      series.tooltip.label.padding(12,12,12,12);
+      series.name = "Total";
 
-      // var series2 = chart.series.push(new am4charts.LineSeries());
-      // series2.dataFields.valueY = "visit2";
-      // series2.dataFields.dateX = "date";
-      // series2.stroke = am4core.color("#CDA2AB");
-      // series2.strokeWidth = 3;
-      // series2.minBulletDistance = 10;
-      // series2.tooltipText = "{valueY}";
-      // series2.tooltip.pointerOrientation = "vertical";
-      // series2.tooltip.background.cornerRadius = 20;
-      // series2.tooltip.background.fillOpacity = 0.5;
-      // series2.tooltip.label.padding(12,12,12,12)
+      var series2 = chart.series.push(new am4charts.LineSeries());
+      series2.dataFields.valueY = "cov_meninggal";
+      series2.dataFields.dateX = "bulan";
+      series2.stroke = am4core.color("#dc3545");
+      series2.strokeWidth = 3;
+      series2.minBulletDistance = 10;
+      series2.tooltipText = "{valueY}";
+      series2.tooltip.pointerOrientation = "vertical";
+      series2.tooltip.background.cornerRadius = 20;
+      series2.tooltip.background.fillOpacity = 0.5;
+      series2.tooltip.label.padding(12,12,12,12);
+      series2.name = "Meninggal";
+
+      var series3 = chart.series.push(new am4charts.LineSeries());
+      series3.dataFields.valueY = "cov_masih_dirawat";
+      series3.dataFields.dateX = "bulan";
+      series3.stroke = am4core.color("#0bbb0b");
+      series3.strokeWidth = 3;
+      series3.minBulletDistance = 10;
+      series3.tooltipText = "{valueY}";
+      series3.tooltip.pointerOrientation = "vertical";
+      series3.tooltip.background.cornerRadius = 20;
+      series3.tooltip.background.fillOpacity = 0.5;
+      series3.tooltip.label.padding(12,12,12,12);
+      series3.name = "Di rawat";
 
       var bullet = series.bullets.push(new am4charts.CircleBullet());
       bullet.circle.fill = am4core.color("#fff");
       bullet.circle.strokeWidth = 3;
+
+      var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
+      bullet2.circle.fill = am4core.color("#fff");
+      bullet2.circle.strokeWidth = 3;
+
+      var bullet3 = series3.bullets.push(new am4charts.CircleBullet());
+      bullet3.circle.fill = am4core.color("#fff");
+      bullet3.circle.strokeWidth = 3;
 
       // Add cursor
       chart.cursor = new am4charts.XYCursor();
