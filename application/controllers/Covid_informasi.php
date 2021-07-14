@@ -363,7 +363,7 @@ class Covid_informasi extends CI_Controller {
 
     public function statistikKasus()
     {
-        $data = $this->db->select('DATE_FORMAT(bulan, "%Y-%m") as bulan, rekaptotal, cov_meninggal, cov_masih_dirawat, cov_pulang_sembuh')->from('rekapitulasi')->get()->result();
+        $data = $this->db->select('DATE_FORMAT(bulan, "%Y-%m") as bulan, rekaptotal, cov_jml_pasien_masuk, cov_meninggal, cov_masih_dirawat, cov_pulang_sembuh')->from('rekapitulasi')->get()->result();
         $this->output->set_content_type('application/json')->set_output(json_encode($data));
     }
 

@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-md-12" data-aos="fade-in">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
-                <div class="card-title"> Pergerakan Total Kasus Pasien Covid-19</div>
+                <div class="card-title"> Pergerakan Total Kasus Terkonfirmasi Pasien Covid-19 Dirawat</div>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_rekapbulan" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
@@ -335,56 +335,58 @@ total();
       valueAxis.renderer.minGridDistance = 20;
         // Set up data source
       chart.dataSource.url = "<?php echo base_url('covid_informasi/statistikKasus') ?>";
-      var series = chart.series.push(new am4charts.LineSeries());
-      series.dataFields.valueY = "rekaptotal";
-      series.dataFields.dateX = "bulan";
-      series.tensionX = 0.8;
-      series.strokeWidth = 3;
-      series.minBulletDistance = 10;
-      series.tooltipText = "{valueY}";
-      series.tooltip.pointerOrientation = "vertical";
-      series.tooltip.background.cornerRadius = 20;
-      series.tooltip.background.fillOpacity = 0.5;
-      series.tooltip.label.padding(12,12,12,12);
-      series.name = "Total";
+      // var series = chart.series.push(new am4charts.LineSeries());
+      // series.dataFields.valueY = "rekaptotal";
+      // series.dataFields.dateX = "bulan";
+      // series.tensionX = 0.8;
+      // series.strokeWidth = 3;
+      // series.minBulletDistance = 10;
+      // series.tooltipText = "{valueY}";
+      // series.tooltip.pointerOrientation = "vertical";
+      // series.tooltip.background.cornerRadius = 20;
+      // series.tooltip.background.fillOpacity = 0.5;
+      // series.tooltip.label.padding(12,12,12,12);
+      // series.name = "Total Kasus";
 
       var series2 = chart.series.push(new am4charts.LineSeries());
       series2.dataFields.valueY = "cov_meninggal";
       series2.dataFields.dateX = "bulan";
-      series2.stroke = am4core.color("#dc3545");
-      series2.strokeWidth = 3;
+      series2.fill = am4core.color("#dc3545");
+      series2.fillOpacity = 0.5;
+      series2.strokeWidth = 0;
       series2.minBulletDistance = 10;
       series2.tooltipText = "{valueY}";
       series2.tooltip.pointerOrientation = "vertical";
       series2.tooltip.background.cornerRadius = 20;
       series2.tooltip.background.fillOpacity = 0.5;
       series2.tooltip.label.padding(12,12,12,12);
-      series2.name = "Meninggal";
+      series2.name = "Cov Meninggal";
 
       var series3 = chart.series.push(new am4charts.LineSeries());
-      series3.dataFields.valueY = "cov_masih_dirawat";
+      series3.dataFields.valueY = "cov_jml_pasien_masuk";
       series3.dataFields.dateX = "bulan";
-      series3.stroke = am4core.color("#0bbb0b");
-      series3.strokeWidth = 3;
+      series3.fill = am4core.color("#0bbb0b");
+      series3.fillOpacity = 0.5;
+      series3.strokeWidth = 0;
       series3.minBulletDistance = 10;
       series3.tooltipText = "{valueY}";
       series3.tooltip.pointerOrientation = "vertical";
       series3.tooltip.background.cornerRadius = 20;
       series3.tooltip.background.fillOpacity = 0.5;
       series3.tooltip.label.padding(12,12,12,12);
-      series3.name = "Di rawat";
+      series3.name = "Cov Di rawat";
 
-      var bullet = series.bullets.push(new am4charts.CircleBullet());
-      bullet.circle.fill = am4core.color("#fff");
-      bullet.circle.strokeWidth = 3;
+      // var bullet = series.bullets.push(new am4charts.CircleBullet());
+      // bullet.circle.fill = am4core.color("#fff");
+      // bullet.circle.strokeWidth = 3;
 
-      var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
-      bullet2.circle.fill = am4core.color("#fff");
-      bullet2.circle.strokeWidth = 3;
+      // var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
+      // bullet2.circle.fill = am4core.color("#fff");
+      // bullet2.circle.strokeWidth = 3;
 
-      var bullet3 = series3.bullets.push(new am4charts.CircleBullet());
-      bullet3.circle.fill = am4core.color("#fff");
-      bullet3.circle.strokeWidth = 3;
+      // var bullet3 = series3.bullets.push(new am4charts.CircleBullet());
+      // bullet3.circle.fill = am4core.color("#fff");
+      // bullet3.circle.strokeWidth = 3;
 
       // Add cursor
       chart.cursor = new am4charts.XYCursor();
