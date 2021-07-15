@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-md-12" data-aos="fade-in">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
-                <div class="card-title"> Pergerakan Total Kasus Terkonfirmasi Pasien Covid-19 Dirawat</div>
+                <div class="card-title"> Pergerakan Total Akumulasi Kasus Pasien Covid-19</div>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_rekapbulan" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
@@ -123,7 +123,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
             </div>
           </div>
-          <div class="col-md-6" data-aos="fade-up">
+          <div class="col-md-12" data-aos="fade-in">
+            <div class="card card-primary radius-chart">
+              <div class="card-header radius-chart-header">
+                <div class="card-title">Total Kasus Terkonfirmasi Pasien Covid-19 Dirawat</div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="statistik_rekapbulan" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+
+                </div>
+              </div>
+              <div class="card-body">
+                <div id="chartRekapBulan2" class="chartdiv"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12" data-aos="fade-up">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title"> Persentase Kesembuhan Pasien Covid-19</div>
@@ -139,7 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
             </div>
           </div>
-          <div class="col-md-6" data-aos="fade-up">
+          <div class="col-md-6" data-aos="fade-up" style="display: none;">
             <div class="card card-primary radius-chart">
               <div class="card-header radius-chart-header">
                 <div class="card-title"> Persentase Kematian Pasien Covid-19</div>
@@ -315,8 +331,8 @@ const total = () => {
 total();
  AOS.init();
   am4core.ready(function() { 
-    rekapBulan();
-    function rekapBulan(){
+    akumulasiKasusBulan();
+    function akumulasiKasusBulan(){
       // Themes begin
       am4core.useTheme(am4themes_kelly);
       am4core.useTheme(am4themes_animated);
@@ -335,18 +351,54 @@ total();
       valueAxis.renderer.minGridDistance = 20;
         // Set up data source
       chart.dataSource.url = "<?php echo base_url('covid_informasi/statistikKasus') ?>";
-      // var series = chart.series.push(new am4charts.LineSeries());
-      // series.dataFields.valueY = "rekaptotal";
-      // series.dataFields.dateX = "bulan";
-      // series.tensionX = 0.8;
-      // series.strokeWidth = 3;
-      // series.minBulletDistance = 10;
-      // series.tooltipText = "{valueY}";
-      // series.tooltip.pointerOrientation = "vertical";
-      // series.tooltip.background.cornerRadius = 20;
-      // series.tooltip.background.fillOpacity = 0.5;
-      // series.tooltip.label.padding(12,12,12,12);
-      // series.name = "Total Kasus";
+      var series = chart.series.push(new am4charts.LineSeries());
+      series.dataFields.valueY = "rekaptotal";
+      series.dataFields.dateX = "bulan";
+      series.tensionX = 0.8;
+      series.strokeWidth = 3;
+      series.minBulletDistance = 10;
+      series.tooltipText = "{valueY}";
+      series.tooltip.pointerOrientation = "vertical";
+      series.tooltip.background.cornerRadius = 20;
+      series.tooltip.background.fillOpacity = 0.5;
+      series.tooltip.label.padding(12,12,12,12);
+      series.name = "Total Kasus";
+
+      var bullet = series.bullets.push(new am4charts.CircleBullet());
+      bullet.circle.fill = am4core.color("#fff");
+      bullet.circle.strokeWidth = 3;
+
+      // Add cursor
+      chart.cursor = new am4charts.XYCursor();
+      chart.cursor.fullWidthLineX = true;
+      chart.cursor.xAxis = dateAxis;
+      chart.cursor.lineX.strokeWidth = 0;
+      chart.cursor.lineX.fill = am4core.color("#000");
+      chart.cursor.lineX.fillOpacity = 0.1;
+
+      // Add scrollbar
+      chart.scrollbarX = new am4core.Scrollbar();
+    }
+    rekapBulan()
+    function rekapBulan(){
+      // Themes begin
+      am4core.useTheme(am4themes_kelly);
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+
+      // Create chart instance
+      const chart = am4core.create("chartRekapBulan2", am4charts.XYChart);
+      chart.legend = new am4charts.Legend();
+      // Create axes
+      var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+      dateAxis.renderer.minGridDistance = 50;
+      dateAxis.dateFormats.setKey("day", "MMMM dt");
+      
+      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+      valueAxis.logarithmic = false;
+      valueAxis.renderer.minGridDistance = 20;
+        // Set up data source
+      chart.dataSource.url = "<?php echo base_url('covid_informasi/statistikKasus') ?>";
 
       var series2 = chart.series.push(new am4charts.LineSeries());
       series2.dataFields.valueY = "cov_meninggal";
@@ -376,10 +428,6 @@ total();
       series3.tooltip.label.padding(12,12,12,12);
       series3.name = "Cov Di rawat";
 
-      // var bullet = series.bullets.push(new am4charts.CircleBullet());
-      // bullet.circle.fill = am4core.color("#fff");
-      // bullet.circle.strokeWidth = 3;
-
       // var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
       // bullet2.circle.fill = am4core.color("#fff");
       // bullet2.circle.strokeWidth = 3;
@@ -408,7 +456,7 @@ total();
       const chart = am4core.create("chartPersentaseSembuh", am4charts.PieChart3D);
 
       chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-      var data = chart.dataSource.url = "<?php echo base_url('covid_informasi/persentaseKesembuhan') ?>";
+      var data = chart.dataSource.url = "<?php echo base_url('covid_informasi/totalPersentaseStatus') ?>";
       // Set up data source
       chart.data = data;
 
@@ -422,14 +470,14 @@ total();
       series.dataFields.radiusValue = "valueq";
       series.dataFields.category = "label";
       series.slices.template.cornerRadius = 5;
-      series.colors.step = 3;
+      //series.colors.step = 3;
 
       series.hiddenState.properties.endAngle = -90;
       series.colors.list = [
         am4core.color("red"),
-        am4core.color("grey"),
-      ];
-  
+        am4core.color("yellow"),
+        am4core.color("green"),
+      ];  
     }
 
     persentaseKematian()

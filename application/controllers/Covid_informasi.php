@@ -367,6 +367,44 @@ class Covid_informasi extends CI_Controller {
         $this->output->set_content_type('application/json')->set_output(json_encode($data));
     }
 
+    public function totalPersentaseStatus()
+    {
+        $data = $this->db->where('status_data', 0)->order_by('created_at', 'desc')->get('covidreportv3')->result();
+        $total = 0;
+        $meninggal = 0;
+        $sembuh = 0;
+        $dirawat =  0;
+        foreach ($data as $key => $value) {
+            $total += $value->cov_jumlah;
+            if($value->status_keluar == 'MENINGGAL > 48 JAM' || $value->status_keluar == 'MENINGGAL < 48 JAM'){
+                $meninggal += $value->cov_jumlah;
+            } else if($value->status_keluar == 'MASIH DIRAWAT'){
+                $dirawat += $value->cov_jumlah;
+            } else {
+                $sembuh += $value->cov_jumlah;
+            }
+        }
+        $res = [
+            [
+                'label' => 'Meninggal',
+                'value' => round(($meninggal/$total)*100),
+                'color' => 'am4core.color("#020100")'
+            ],
+            [
+                'label' => 'Dirawat',
+                'value' => round(($dirawat/$total)*100),
+                'color' => 'am4core.color("#F1D302")'
+            ],
+            [
+                'label' => 'Sembuh',
+                'value' => round(($sembuh/$total)*100),
+                'color' => 'am4core.color("#235789")'
+            ]
+        ];
+        $this->output->set_content_type('application/json')->set_output(json_encode($res));
+        
+    }
+
     public function persentaseKematian(){
         $array = array('PULANG SEMBUH', 'MENINGGAL > 48 JAM', 'MENINGGAL < 48 JAM');
         $data = $this->db->where_in('status_keluar', $array)->order_by('created_at', 'desc')->limit(3)->get('covidreportv3')->result();

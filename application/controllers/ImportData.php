@@ -178,7 +178,8 @@ class ImportData extends CI_Controller {
             $config['upload_path'] = './assets/import-dewo19/'; 
             $config['allowed_types'] = 'xls|xlsx';
             $config['max_size'] = 10024; // max_size in kb
-            $config['file_name'] = 'FasyankesOnline-V3';
+            $nameFile = $status === 'Covid' ? 'dataCovid-v1'.date('YmdHis') : 'rekapCovid-v1'.date('YmdHis');
+            $config['file_name'] = $nameFile;
 
             //Load upload library
             $this->load->library('upload',$config); 
@@ -267,10 +268,11 @@ class ImportData extends CI_Controller {
             $nomor++;
             $user = $this->session->userdata('username');
             $last_data = $this->db->order_by('bulan', 'desc')->limit(1)->get('rekapitulasi')->result();
-            $total = $last_data[0]->rekaptotal+$value['Q'];
+            //$total = $last_data[0]->rekaptotal+$value['Q'];
             //$total_rekap = $this->M_covid->total_rekap();
+            $total += $value['Q'];
             $obj = [
-                'bulan' => $bulan.'-01',
+                'bulan' => $bulan,
                 'suspect' => $value['B'],
                 'prop_pulang_sembuh' => $value['C'],
                 'prop_meninggal' => $value['D'],
@@ -291,9 +293,14 @@ class ImportData extends CI_Controller {
                 'user_input' => $user,
                 'user_edit' => $user,
             ]; 
-           $insert = $this->M_covid->insertImport('rekapitulasi',$obj);
-           $insert === true ? $suc_insert++ : $fal_insert++;
-           $code = $insert === true ? 200 : 500;
+            $check = $this->db->where('bulan', $obj['bulan'])->get('rekapitulasi')->num_rows();
+            if($check > 0){
+                $ex = $this->db->where('bulan', $obj['bulan'])->update('rekapitulasi',$obj);            
+            } else {
+                $ex = $this->M_covid->insertImport('rekapitulasi',$obj);
+            }
+            $ex === true ? $suc_insert++ : $fal_insert++;
+            $code = $ex === true ? 200 : 500;
         }
         $res = [
             'total' => $nomor,
