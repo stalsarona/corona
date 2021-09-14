@@ -54,7 +54,9 @@
               <p class="mt-2">
               And here is your new drag & drop element <?php if($status === 'Covid'){?>
               <a href="<?php echo base_url()?>assets/import-dewo19/Original/format-importdata-covid.xlsx">&nbsp; <i class="fa fa-download">&nbsp; format excel</i></a>
-               <?php } else {?>
+              <?php } else if($status === 'cakupan'){?>
+                <a href="<?php echo base_url()?>assets/import-dewo19/Original/format-cakupan-covid.xlsx">&nbsp; <i class="fa fa-download">&nbsp; format excel</i></a>
+              <?php } else {?>
                 <a href="<?php echo base_url()?>assets/import-dewo19/Original/format-rekap.xlsx">&nbsp; <i class="fa fa-download">&nbsp; format excel</i></a>
               <?php } ?>
               </p>
