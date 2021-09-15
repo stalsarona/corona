@@ -178,7 +178,13 @@ class ImportData extends CI_Controller {
             $config['upload_path'] = './assets/import-dewo19/'; 
             $config['allowed_types'] = 'xls|xlsx';
             $config['max_size'] = 10024; // max_size in kb
-            $nameFile = $status === 'Covid' ? 'dataCovid-v1'.date('YmdHis') : 'rekapCovid-v1'.date('YmdHis');
+            if($status === 'Covid'){
+                $nameFile =  'dataCovid-v1'.date('YmdHis');
+             } else if($status = 'cakupan'){
+                $nameFile = 'cakupan-'.date('YmdHis');
+             } else {
+                $nameFile = 'rekapCovid-v1'.date('YmdHis');
+             }
             $config['file_name'] = $nameFile;
 
             //Load upload library
@@ -190,9 +196,13 @@ class ImportData extends CI_Controller {
                 $uploadData = $this->upload->data();
                
                 $name = $uploadData['file_name'];
-                $status  === 'Covid' ?
-                $response = $this->insertv3($name):
-                $response = $this->rekap($name);
+                if($status  === 'Covid'){
+                    $response = $this->insertv3($name);
+                } else if($status === 'cakupan'){
+                    $response = $this->cakupan($name);
+                } else {
+                    $response = $this->rekap($name);
+                }
                 echo $response;
             }
         }
@@ -314,6 +324,40 @@ class ImportData extends CI_Controller {
         echo json_encode($res);     
     }
 
+    public function cakupan($file)
+    {
+        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        $spreadsheet = $reader->load("./assets/import-dewo19/".$file."");
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        $suc_insert = 0;
+        $fal_insert = 0;
+        $insert = false;
+        $nomor= 0;
+        foreach ($sheetData as $key => $value) {
+            if($key === 1){
+                continue;
+            }
+            $nomor++;
+            $obj = [
+                'keterangan' => $value['A'],
+                'total' => $value['B'],
+                'hasil_positif' => $value['C'],
+                'hasil_negatif' => $value['D']
+            ];
+            $insert = $this->db->insert('cakupan', $obj);
+            $insert === true ? $suc_insert++ : $fal_insert++;
+            $code = $insert === true ? 200 : 500;
+        }
+        $res = [
+            'total' => $nomor,
+            'total_success' => $suc_insert,
+            'total_failed' => $fal_insert,
+            'status' => $insert,
+            'message' => 'try to import data',
+            'code' => $code
+        ];
+        echo json_encode($obj);     
+    }
 }
 
 /* End of file ImportData.php */

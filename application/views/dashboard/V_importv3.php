@@ -83,7 +83,14 @@
 let currentFile = null;
 Dropzone.autoDiscover = false;
 const status = "<?php echo $status ?>";
-const url = status === 'Covid' ? "<?php echo base_url('importData/checkUpload/Covid')?>" : "<?php echo base_url('importData/checkUpload/rekap')?>";
+let url;
+if(status === 'Covid'){
+  url = "<?php echo base_url('importData/checkUpload/Covid')?>";
+} else if(status === 'cakupan'){
+  url = "<?php echo base_url('importData/checkUpload/cakupan')?>"
+} else {
+  url = "<?php echo base_url('importData/checkUpload/rekap')?>";
+}
 var myDropzone = new Dropzone("#my-dropzone2", { 
     url: url,
     init: function() {

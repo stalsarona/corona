@@ -55,6 +55,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li><a href="<?php echo site_url('informasi-covid19')?>" class="dropdown-item">Informasi Covid-19</a></li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo site_url('informasi/pemeriksaan-covid19')?>" class="nav-link">Pemeriksaan Covid-19</a>
+          </li>
       </ul>
       <ul class="menu navbar-nav ml-auto">
         <li class="nav-item dropdown">
