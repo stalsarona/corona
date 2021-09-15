@@ -46,10 +46,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .navbar-light .navbar-nav .nav-link {
             color: white !important;
         }
-        .card-poskes {
-          min-width: 320px; 
-          min-height:81px;
-        }
     </style>
 </head>
 <body class="hold-transition layout-top-nav">
@@ -60,7 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="<?php echo base_url('informasi-covid19');?>" class="navbar-brand">
         <img src="<?php echo base_url()?>assets/dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-bold">RSUD TUGUREJO V1</span>
+        <span class="brand-text font-weight-bold">RSUD TUGUREJO</span>
       </a>
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -184,7 +180,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                 </div>
               </div>
-              <div class="col-md-12 mt-2">
+              <div class="col-md-12 mt-5">
                 <h2 class="display-4 text-gray">RT PCR SARS-CoV-2</h2>
               </div>
               <div class="col-md-4 text-right">

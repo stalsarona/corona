@@ -239,10 +239,18 @@ footer {
     .round {
         left: 24%;
     }
+    .card-poskes {
+        min-width:100%; 
+        min-height:81px;
+    }
 }
 @media screen and ( max-width: 1440px){
     .round {
         left: 0%;
+    }
+    .card-poskes {
+        min-width:100%;  
+        min-height:81px;
     }
 }
 @media screen and (max-width: 1370px){
@@ -255,6 +263,10 @@ footer {
     .footer-title-iso{
         font-size: 29px;
     }
+    .card-poskes {
+        min-width:100%; 
+        min-height:81px;
+    }
 }
 @media (min-width: 1400px){
     .container-total-case {
@@ -263,6 +275,11 @@ footer {
     .container-chartrekap{
         max-width: 1750px;
     }
+    .card-poskes {
+        min-width:100%; 
+        min-height:81px;
+    }
+
 }
 @media screen and ( max-width: 1024px){
     .chartdiv{
@@ -287,6 +304,10 @@ footer {
     }
     .footer-title-iso, .footer-title{
         font-size: 24px;
+    }
+    .card-poskes {
+        min-width:100%; 
+        min-height:81px;
     }
 }
 @media screen and ( max-width: 768px){
